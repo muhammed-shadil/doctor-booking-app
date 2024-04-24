@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "30361804526",
+    "project_id": "doctors-booking-app-826eb",
+    "storage_bucket": "doctors-booking-app-826eb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:30361804526:android:b7f259c67ee67e369e9dff",
+        "android_client_info": {
+          "package_name": "com.selfstack.doctors_book_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBTfiBDHSrZDeGA2Cvzcdy9OIhrqMHxpCE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
