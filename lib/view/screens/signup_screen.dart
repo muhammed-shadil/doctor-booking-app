@@ -1,6 +1,21 @@
+import 'package:doctors_book_app/controller/authentication/bloc/auth_bloc.dart';
+import 'package:doctors_book_app/model/model.dart';
 import 'package:doctors_book_app/view/widgets/mainbutton.dart';
 import 'package:doctors_book_app/view/widgets/textfield.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+class SignupscreenWrapper extends StatelessWidget {
+  const SignupscreenWrapper({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (context) => AuthBloc(),
+      child: Signupscreen(),
+    );
+  }
+}
 
 class Signupscreen extends StatelessWidget {
   Signupscreen({super.key});
@@ -155,6 +170,14 @@ class Signupscreen extends StatelessWidget {
                               child: Mainbutton(
                                 onpressed: () {
                                   if (formKey.currentState!.validate()) {
+                                    Usermodel usermode = Usermodel(
+                                        email: emailcontroller.text,
+                                        password: passwordcontroller.text,
+                                        phone: phonecontroller.text,
+                                        username: namecontroller.text);
+
+                                    BlocProvider.of<AuthBloc>(context)
+                                        .add(SignUpEvent(user: usermode));
                                     // authBlocBlo.add(LoginEvent(
                                     //     email: _emailcontroller.text,
                                     //     password: _passwordcontroller.text));
