@@ -1,5 +1,6 @@
 import 'package:doctors_book_app/controller/authentication/bloc/auth_bloc.dart';
 import 'package:doctors_book_app/model/model.dart';
+import 'package:doctors_book_app/view/screens/settings_Screen.dart';
 import 'package:doctors_book_app/view/widgets/mainbutton.dart';
 import 'package:doctors_book_app/view/widgets/textfield.dart';
 import 'package:flutter/material.dart';
@@ -38,186 +39,218 @@ class Signupscreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 240, 240, 241),
-      body: Stack(
-        children: [
-          CustomPaint(
-            painter: CurvePainter(),
-            child: Container(),
-          ),
-          Positioned(
-            left: 30,
-            top: 50,
-            child: Container(
-              width: 35,
-              height: 35,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10), color: Colors.white),
-              child: IconButton(
-                icon: const Icon(
-                  Icons.arrow_back,
-                  color: Color.fromARGB(255, 151, 151, 150),
+      body: BlocListener<AuthBloc, AuthState>(
+        listener: (context, state) {
+          if (state is AuthenticatedError) {
+            // LoadingDialog.hide(context);
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: const Text(
+                    "No user Found with this email or password did not match"),
+              ),
+            );
+          } else if (state is AuthLoading) {
+            // LoadingDialog.show(context);
+          } else if (state is Authenticated) {
+            // LoadingDialog.hide(context);
+            WidgetsBinding.instance.addPostFrameCallback((_) {
+              Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(
+                      builder: (_) => const settingsScreenWrapper()),
+                  (route) => false);
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                  content: Text("you are Logged in"),
                 ),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
+              );
+            });
+          }
+        },
+        child: Stack(
+          children: [
+            CustomPaint(
+              painter: CurvePainter(),
+              child: Container(),
+            ),
+            Positioned(
+              left: 30,
+              top: 50,
+              child: Container(
+                width: 35,
+                height: 35,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.white),
+                child: IconButton(
+                  icon: const Icon(
+                    Icons.arrow_back,
+                    color: Color.fromARGB(255, 151, 151, 150),
+                  ),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                ),
               ),
             ),
-          ),
-          Center(
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.04,
-                  ),
-                  Container(
-                    width: 200,
-                    height: 160,
-                    decoration: const BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Colors.white,
+            Center(
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.04,
                     ),
-                    child: Image.asset("assets/image-removebg-preview.png",
-                        fit: BoxFit.fitHeight),
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.only(top: 5),
-                    child: Text(
-                      "Welcome to ",
-                      style: TextStyle(fontSize: 20),
+                    Container(
+                      width: 200,
+                      height: 160,
+                      decoration: const BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Colors.white,
+                      ),
+                      child: Image.asset("assets/image-removebg-preview.png",
+                          fit: BoxFit.fitHeight),
                     ),
-                  ),
-                  const Text("MEDICO", style: TextStyle(fontSize: 33)),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.02,
-                  ),
-                  SizedBox(
-                    // color: Colors.amberAccent,
-                    width: MediaQuery.of(context).size.width * 0.80,
-                    child: Form(
-                      key: formKey,
-                      child: SingleChildScrollView(
-                        child: Column(
-                          children: [
-                            MainTextField(
-                              controller: emailcontroller,
-                              text: "Enter your email ",
-                              preficsicon: Icons.email_outlined,
-                              helpertext: 'Email',
-                              validator: (value) {
-                                if (value == null || value.isEmpty) {
-                                  return "Please enter a valid email";
-                                } else if (!regemail.hasMatch(value)) {
-                                  return "Please enter a valid email";
-                                } else {
-                                  return null;
-                                }
-                              },
-                            ),
-                            MainTextField(
-                              controller: namecontroller,
-                              text: "Enter your Name ",
-                              preficsicon: Icons.person_4,
-                              helpertext: 'Name',
-                              validator: (value) {
-                                if (value == null || value.isEmpty) {
-                                  return "Please enter name";
-                                } else if (!name.hasMatch(value)) {
-                                  return "Enter a valid name";
-                                } else {
-                                  return null;
-                                }
-                              },
-                            ),
-                            MainTextField(
-                              controller: phonecontroller,
-                              text: "Enter your Phone number ",
-                              preficsicon: Icons.lock,
-                              helpertext: 'Phone number',
-                              validator: (value) {
-                                if (value == null || value.isEmpty) {
-                                  return "Please enter phone number";
-                                } else if (value.length > 10) {
-                                  return "number must be 10";
-                                } else if (!phonreg.hasMatch(value)) {
-                                  return "Please enter a valid number";
-                                }
-                                return null;
-                              },
-                            ),
-                            MainTextField(
-                              controller: passwordcontroller,
-                              text: "Enter your password ",
-                              preficsicon: Icons.lock,
-                              helpertext: 'Password',
-                              suffixIcon: Icons.remove_red_eye_outlined,
-                              validator: (value) {
-                                if (value == null || value.isEmpty) {
-                                  return "Please enter a password";
-                                } else if (!paswd.hasMatch(value)) {
-                                  return 'Password should contain at least one upper case, one lower case, one digit, one special character and  must be 8 characters in length';
-                                } else {
-                                  return null;
-                                }
-                              },
-                            ),
-                            SizedBox(
-                              height: MediaQuery.of(context).size.height * 0.05,
-                            ),
-                            SizedBox(
-                              width: MediaQuery.of(context).size.width * 0.80,
-                              height: MediaQuery.of(context).size.width * 0.14,
-                              child: Mainbutton(
-                                onpressed: () {
-                                  if (formKey.currentState!.validate()) {
-                                    Usermodel usermode = Usermodel(
-                                        email: emailcontroller.text,
-                                        password: passwordcontroller.text,
-                                        phone: phonecontroller.text,
-                                        username: namecontroller.text);
-
-                                    BlocProvider.of<AuthBloc>(context)
-                                        .add(SignUpEvent(user: usermode));
-                                    // authBlocBlo.add(LoginEvent(
-                                    //     email: _emailcontroller.text,
-                                    //     password: _passwordcontroller.text));
-                                  }
-                                },
-                                buttontext: "Sign up",
-                              ),
-                            ),
-                            // SizedBox(
-                            //   height: MediaQuery.of(context).size.height * 0.03,
-                            // ),
-                            // Row(
-                            //   mainAxisAlignment: MainAxisAlignment.center,
-                            //   children: [
-                            //     const Text("Don't you have an account?",
-                            //         style: TextStyle(
-                            //             color: Color.fromARGB(255, 134, 128, 128),
-                            //             fontSize: 15)),
-                            //     TextButton(
-                            //       onPressed: () {},
-                            //       child: const Text(
-                            //         "Sign up",
-                            //         style: TextStyle(fontFamily: 'Opensans',fontWeight: FontWeight.w600,
-                            //             decoration: TextDecoration.underline,
-                            //             color: Color.fromARGB(255, 135, 131, 131),
-                            //             fontSize: 15),
-                            //       ),
-                            //     ),
-                            //   ],
-                            // )
-                          ],
-                        ),
+                    const Padding(
+                      padding: EdgeInsets.only(top: 5),
+                      child: Text(
+                        "Welcome to ",
+                        style: TextStyle(fontSize: 20),
                       ),
                     ),
-                  )
-                ],
+                    const Text("MEDICO", style: TextStyle(fontSize: 33)),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.02,
+                    ),
+                    SizedBox(
+                      // color: Colors.amberAccent,
+                      width: MediaQuery.of(context).size.width * 0.80,
+                      child: Form(
+                        key: formKey,
+                        child: SingleChildScrollView(
+                          child: Column(
+                            children: [
+                              MainTextField(
+                                controller: emailcontroller,
+                                text: "Enter your email ",
+                                preficsicon: Icons.email_outlined,
+                                helpertext: 'Email',
+                                validator: (value) {
+                                  if (value == null || value.isEmpty) {
+                                    return "Please enter a valid email";
+                                  } else if (!regemail.hasMatch(value)) {
+                                    return "Please enter a valid email";
+                                  } else {
+                                    return null;
+                                  }
+                                },
+                              ),
+                              MainTextField(
+                                controller: namecontroller,
+                                text: "Enter your Name ",
+                                preficsicon: Icons.person_4,
+                                helpertext: 'Name',
+                                validator: (value) {
+                                  if (value == null || value.isEmpty) {
+                                    return "Please enter name";
+                                  } else if (!name.hasMatch(value)) {
+                                    return "Enter a valid name";
+                                  } else {
+                                    return null;
+                                  }
+                                },
+                              ),
+                              MainTextField(
+                                controller: phonecontroller,
+                                text: "Enter your Phone number ",
+                                preficsicon: Icons.lock,
+                                helpertext: 'Phone number',
+                                validator: (value) {
+                                  if (value == null || value.isEmpty) {
+                                    return "Please enter phone number";
+                                  } else if (value.length > 10) {
+                                    return "number must be 10";
+                                  } else if (!phonreg.hasMatch(value)) {
+                                    return "Please enter a valid number";
+                                  }
+                                  return null;
+                                },
+                              ),
+                              MainTextField(
+                                controller: passwordcontroller,
+                                text: "Enter your password ",
+                                preficsicon: Icons.lock,
+                                helpertext: 'Password',
+                                suffixIcon: Icons.remove_red_eye_outlined,
+                                validator: (value) {
+                                  if (value == null || value.isEmpty) {
+                                    return "Please enter a password";
+                                  } else if (!paswd.hasMatch(value)) {
+                                    return 'Password should contain at least one upper case, one lower case, one digit, one special character and  must be 8 characters in length';
+                                  } else {
+                                    return null;
+                                  }
+                                },
+                              ),
+                              SizedBox(
+                                height:
+                                    MediaQuery.of(context).size.height * 0.05,
+                              ),
+                              SizedBox(
+                                width: MediaQuery.of(context).size.width * 0.80,
+                                height:
+                                    MediaQuery.of(context).size.width * 0.14,
+                                child: Mainbutton(
+                                  onpressed: () {
+                                    if (formKey.currentState!.validate()) {
+                                      Usermodel usermode = Usermodel(
+                                          email: emailcontroller.text,
+                                          password: passwordcontroller.text,
+                                          phone: phonecontroller.text,
+                                          username: namecontroller.text);
+
+                                      BlocProvider.of<AuthBloc>(context)
+                                          .add(SignUpEvent(user: usermode));
+                                      // authBlocBlo.add(LoginEvent(
+                                      //     email: _emailcontroller.text,
+                                      //     password: _passwordcontroller.text));
+                                    }
+                                  },
+                                  buttontext: "Sign up",
+                                ),
+                              ),
+                              // SizedBox(
+                              //   height: MediaQuery.of(context).size.height * 0.03,
+                              // ),
+                              // Row(
+                              //   mainAxisAlignment: MainAxisAlignment.center,
+                              //   children: [
+                              //     const Text("Don't you have an account?",
+                              //         style: TextStyle(
+                              //             color: Color.fromARGB(255, 134, 128, 128),
+                              //             fontSize: 15)),
+                              //     TextButton(
+                              //       onPressed: () {},
+                              //       child: const Text(
+                              //         "Sign up",
+                              //         style: TextStyle(fontFamily: 'Opensans',fontWeight: FontWeight.w600,
+                              //             decoration: TextDecoration.underline,
+                              //             color: Color.fromARGB(255, 135, 131, 131),
+                              //             fontSize: 15),
+                              //       ),
+                              //     ),
+                              //   ],
+                              // )
+                            ],
+                          ),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
               ),
-            ),
-          )
-        ],
+            )
+          ],
+        ),
       ),
     );
   }

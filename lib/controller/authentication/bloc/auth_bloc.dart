@@ -14,6 +14,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   AuthBloc() : super(AuthInitial()) {
     on<SignUpEvent>(signupEvent);
     on<LoginEvent>(loginEvent);
+    on<LogoutEvent>(logoutEvent);
   }
 
   FutureOr<void> signupEvent(SignUpEvent event, Emitter<AuthState> emit) async {
@@ -64,5 +65,17 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     } catch (e) {
       emit(AuthenticatedError(message: e.toString()));
     }
+  }
+
+
+  FutureOr<void> logoutEvent(LogoutEvent event, Emitter<AuthState> emit) {
+     on<LogoutEvent>((event, emit) async {
+      try {
+        await FirebaseAuth.instance.signOut();
+        emit(UnAuthenticated());
+      } catch (e) {
+        emit(AuthenticatedError(message: e.toString()));
+      }
+    });
   }
 }

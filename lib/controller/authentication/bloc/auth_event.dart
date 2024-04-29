@@ -23,3 +23,9 @@ sealed class AuthEvent extends Equatable{}
   List<Object?> get props =>[user];
 
  }
+ class LogoutEvent extends AuthEvent{
+  @override
+
+  List<Object?> get props => [];
+
+ }

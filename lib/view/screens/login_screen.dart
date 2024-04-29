@@ -1,5 +1,6 @@
 import 'package:doctors_book_app/controller/authentication/bloc/auth_bloc.dart';
 import 'package:doctors_book_app/view/screens/home_screen.dart';
+import 'package:doctors_book_app/view/screens/settings_Screen.dart';
 import 'package:doctors_book_app/view/screens/signup_screen.dart';
 import 'package:doctors_book_app/view/widgets/mainbutton.dart';
 import 'package:doctors_book_app/view/widgets/textfield.dart';
@@ -34,9 +35,36 @@ class LoginScreen extends StatelessWidget {
       backgroundColor: Color.fromARGB(255, 240, 240, 241),
       body: BlocListener<AuthBloc, AuthState>(
         listener: (context, state) {
-        if(state is Authenticated){
-          Navigator.push(context, MaterialPageRoute(builder: (_)=>HomeScreen()));
-        }
+          if (state is Authenticated) {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (_) => HomeScreen()));
+          }
+          if (state is AuthenticatedError) {
+            // LoadingDialog.hide(context);
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                content: Text(
+                    "No user Found with this email or password did not match"),
+              ),
+            );
+          } else if (state is AuthLoading) {
+            // LoadingDialog.show(context);
+            // loadingsheet(context);
+          } else if (state is Authenticated) {
+            // LoadingDialog.hide(context);
+            WidgetsBinding.instance.addPostFrameCallback((_) {
+              Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(
+                      builder: (_) => const settingsScreenWrapper()),
+                  (route) => false);
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                  content: Text("You are Logged in"),
+                ),
+              );
+            });
+          }
         },
         child: Stack(
           children: [
