@@ -13,19 +13,19 @@ class SettingsListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 80,
+      height: 70,
       width: 370,
       child: ListTile(
-        trailing: const Icon(Icons.arrow_forward_ios),
+        trailing: const Icon(Icons.arrow_forward_ios,size: 15,),
         title: Text(content),
         titleTextStyle: const TextStyle(
-            fontSize: 20, color: Color.fromARGB(255, 118, 114, 114)),
+            fontSize: 18, color: Color.fromARGB(255, 118, 114, 114)),
         leading: CircleAvatar(
           backgroundColor: Color.fromARGB(255, 207, 230, 231),
-          radius: 30,
+          radius: 25,
           child: Icon(
             contentIcon,
-            size: 33,
+            size: 28,
             color: Color.fromARGB(255, 0, 148, 149),
           ),
         ),

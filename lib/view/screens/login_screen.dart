@@ -1,10 +1,9 @@
 import 'package:doctors_book_app/controller/authentication/bloc/auth_bloc.dart';
-import 'package:doctors_book_app/view/screens/home_screen.dart';
 import 'package:doctors_book_app/view/screens/settings_Screen.dart';
 import 'package:doctors_book_app/view/screens/signup_screen.dart';
+import 'package:doctors_book_app/view/widgets/loading.dart';
 import 'package:doctors_book_app/view/widgets/mainbutton.dart';
 import 'package:doctors_book_app/view/widgets/textfield.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -32,26 +31,37 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 240, 240, 241),
+      backgroundColor: const Color.fromARGB(255, 240, 240, 241),
       body: BlocListener<AuthBloc, AuthState>(
         listener: (context, state) {
-          if (state is Authenticated) {
-            Navigator.push(
-                context, MaterialPageRoute(builder: (_) => HomeScreen()));
-          }
+          // if (state is Authenticated) {
+          //   Navigator.push(
+          //       context, MaterialPageRoute(builder: (_) => HomeScreen()));
+          // }
           if (state is AuthenticatedError) {
-            // LoadingDialog.hide(context);
+            LoadingDialog.hide(context);
             ScaffoldMessenger.of(context).showSnackBar(
               const SnackBar(
                 content: Text(
-                    "No user Found with this email or password did not match"),
+                    "No user Found with this email or password did not match "),
               ),
             );
+            // print("No user Found with this email or password did not match eeeeeeeeeeeeeeeeeeeee${state.message}");
+          }
+          if (state is Networkauthenticatederor) {
+            LoadingDialog.hide(context);
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                content: Text("No  intrnet connection !!!"),
+              ),
+            );
+            // print("No  intrnet connection eeeeeeeeeeeeeeeeeeeee${state.message}");
           } else if (state is AuthLoading) {
-            // LoadingDialog.show(context);
-            // loadingsheet(context);
+            LoadingDialog.show(context);
+
+            // const CircularProgressIndicator();
           } else if (state is Authenticated) {
-            // LoadingDialog.hide(context);
+            LoadingDialog.hide(context);
             WidgetsBinding.instance.addPostFrameCallback((_) {
               Navigator.pushAndRemoveUntil(
                   context,
@@ -81,7 +91,7 @@ class LoginScreen extends StatelessWidget {
                     ),
                     Container(
                       width: 200,
-                      height: 160,
+                      height: 150,
                       decoration: const BoxDecoration(
                         shape: BoxShape.circle,
                         color: Colors.white,
@@ -96,9 +106,9 @@ class LoginScreen extends StatelessWidget {
                         style: TextStyle(fontSize: 20),
                       ),
                     ),
-                    const Text("MEDICO", style: TextStyle(fontSize: 33)),
+                    const Text("MEDICO", style: TextStyle(fontSize: 30)),
                     SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.07,
+                      height: MediaQuery.of(context).size.height * 0.04,
                     ),
                     SizedBox(
                       // color: Colors.amberAccent,
@@ -124,11 +134,11 @@ class LoginScreen extends StatelessWidget {
                                 },
                               ),
                               MainTextField(
+                                obscuretext: true,
                                 controller: passwordcontroller,
                                 text: "Enter your password ",
                                 preficsicon: Icons.lock,
                                 helpertext: 'Password',
-                                suffixIcon: Icons.remove_red_eye_outlined,
                                 validator: (value) {
                                   if (value == null || value.isEmpty) {
                                     return "Please enter a password";
@@ -141,7 +151,7 @@ class LoginScreen extends StatelessWidget {
                               ),
                               SizedBox(
                                 height:
-                                    MediaQuery.of(context).size.height * 0.05,
+                                    MediaQuery.of(context).size.height * 0.02,
                               ),
                               SizedBox(
                                 width: MediaQuery.of(context).size.width * 0.80,
@@ -166,7 +176,7 @@ class LoginScreen extends StatelessWidget {
                               ),
                               SizedBox(
                                 height:
-                                    MediaQuery.of(context).size.height * 0.03,
+                                    MediaQuery.of(context).size.height * 0.01,
                               ),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
@@ -182,7 +192,7 @@ class LoginScreen extends StatelessWidget {
                                           context,
                                           MaterialPageRoute(
                                               builder: (_) =>
-                                                  SignupscreenWrapper()));
+                                                  const SignupscreenWrapper()));
                                     },
                                     child: const Text(
                                       "Sign up",

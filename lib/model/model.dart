@@ -3,12 +3,18 @@ import 'dart:convert';
 
 class Usermodel {
   String? email;
+  String? age;
+  String? image;
+  String? address;
   String? uid;
   String? password;
   String? username;
   String? phone;
   Usermodel({
     this.email,
+    this.age,
+    this.image,
+    this.address,
     this.uid,
     this.password,
     this.username,
@@ -18,6 +24,9 @@ class Usermodel {
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
       'email': email,
+      'age':age,
+      'image':image,
+      'address':address,
       'uid': uid,
       'password': password,
       'username': username,
@@ -28,6 +37,9 @@ class Usermodel {
   factory Usermodel.fromMap(Map<String, dynamic> map) {
     return Usermodel(
       email: map['email'] != null ? map['email'] as String : null,
+      age: map['age'] != null ? map['age'] as String : null,
+      image: map['image'] != null ? map['image'] as String : null,
+      address: map['address'] != null ? map['address'] as String : null,
       uid: map['uid'] != null ? map['uid'] as String : null,
       password: map['password'] != null ? map['password'] as String : null,
       username: map['username'] != null ? map['username'] as String : null,

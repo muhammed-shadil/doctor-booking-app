@@ -1,6 +1,7 @@
 import 'package:doctors_book_app/controller/authentication/bloc/auth_bloc.dart';
 import 'package:doctors_book_app/model/model.dart';
 import 'package:doctors_book_app/view/screens/settings_Screen.dart';
+import 'package:doctors_book_app/view/widgets/loading.dart';
 import 'package:doctors_book_app/view/widgets/mainbutton.dart';
 import 'package:doctors_book_app/view/widgets/textfield.dart';
 import 'package:flutter/material.dart';
@@ -42,17 +43,25 @@ class Signupscreen extends StatelessWidget {
       body: BlocListener<AuthBloc, AuthState>(
         listener: (context, state) {
           if (state is AuthenticatedError) {
-            // LoadingDialog.hide(context);
+            LoadingDialog.hide(context);
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
-                content: const Text(
-                    "No user Found with this email or password did not match"),
+                content: Text(
+                    "${state.message}"),
+              ),
+            );print("No user Found with this email or password did not match${state.message}");
+          } else if (state is AuthLoading) {
+            LoadingDialog.show(context);
+          } else if (state is Networkauthenticatederor) {
+            LoadingDialog.hide(context);
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                content: Text("No  intrnet connection !!!"),
               ),
             );
-          } else if (state is AuthLoading) {
-            // LoadingDialog.show(context);
+            // print("No  intrnet connection eeeeeeeeeeeeeeeeeeeee${state.message}");
           } else if (state is Authenticated) {
-            // LoadingDialog.hide(context);
+            LoadingDialog.hide(context);
             WidgetsBinding.instance.addPostFrameCallback((_) {
               Navigator.pushAndRemoveUntil(
                   context,
@@ -80,6 +89,8 @@ class Signupscreen extends StatelessWidget {
                 width: 35,
                 height: 35,
                 decoration: BoxDecoration(
+                    border: Border.all(
+                        color: const Color.fromARGB(255, 188, 187, 187)),
                     borderRadius: BorderRadius.circular(10),
                     color: Colors.white),
                 child: IconButton(
@@ -102,7 +113,7 @@ class Signupscreen extends StatelessWidget {
                     ),
                     Container(
                       width: 200,
-                      height: 160,
+                      height: 150,
                       decoration: const BoxDecoration(
                         shape: BoxShape.circle,
                         color: Colors.white,
@@ -162,7 +173,7 @@ class Signupscreen extends StatelessWidget {
                               MainTextField(
                                 controller: phonecontroller,
                                 text: "Enter your Phone number ",
-                                preficsicon: Icons.lock,
+                                preficsicon: Icons.phone_android,
                                 helpertext: 'Phone number',
                                 validator: (value) {
                                   if (value == null || value.isEmpty) {
@@ -180,7 +191,7 @@ class Signupscreen extends StatelessWidget {
                                 text: "Enter your password ",
                                 preficsicon: Icons.lock,
                                 helpertext: 'Password',
-                                suffixIcon: Icons.remove_red_eye_outlined,
+                                obscuretext: true,
                                 validator: (value) {
                                   if (value == null || value.isEmpty) {
                                     return "Please enter a password";
@@ -193,7 +204,7 @@ class Signupscreen extends StatelessWidget {
                               ),
                               SizedBox(
                                 height:
-                                    MediaQuery.of(context).size.height * 0.05,
+                                    MediaQuery.of(context).size.height * 0.02,
                               ),
                               SizedBox(
                                 width: MediaQuery.of(context).size.width * 0.80,
@@ -217,6 +228,10 @@ class Signupscreen extends StatelessWidget {
                                   },
                                   buttontext: "Sign up",
                                 ),
+                              ),
+                              SizedBox(
+                                height:
+                                    MediaQuery.of(context).size.height * 0.02,
                               ),
                               // SizedBox(
                               //   height: MediaQuery.of(context).size.height * 0.03,
