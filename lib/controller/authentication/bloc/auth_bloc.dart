@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:doctors_book_app/model/model.dart';
-import 'package:equatable/equatable.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:meta/meta.dart';
 
@@ -47,13 +46,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       } else {
         emit(UnAuthenticated());
       }
-    }
-    // on FirebaseAuthException catch (e) {
-    //   if (e.code == 'network-request-failed') {
-    //     emit(Networkauthenticatederor(message: e.toString()));
-    //   }
-    // }
-    catch (e) {
+    } catch (e) {
       if (e.toString().contains('network-request-failed')) {
         emit(Networkauthenticatederor(message: e.toString()));
       } else if (e.toString().contains('email-already-in-use')) {
@@ -63,7 +56,6 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       } else {
         emit(AuthenticatedError(message: e.toString()));
       }
-      print('kjhgfdsasdfgn');
     }
   }
 
@@ -80,30 +72,20 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       } else {
         emit(UnAuthenticated());
       }
-    }
-    //  on FirebaseAuthException catch (e) {
-    //   if (e.code == 'network-request-failed') {
-    //     emit(Networkauthenticatederor(message: e.toString()));
-    //   }
-    // }
-     catch (e) {
+    } catch (e) {
       if (e.toString().contains('network-request-failed')) {
         emit(Networkauthenticatederor(message: e.toString()));
-      }
-      else {
+      } else {
         emit(AuthenticatedError(message: e.toString()));
       }
-      print('sdddddddddddddddddddd');
     }
   }
 
   FutureOr<void> logoutEvent(LogoutEvent event, Emitter<AuthState> emit) async {
     try {
-      print('logout started bloc');
       await FirebaseAuth.instance.signOut();
 
       emit(UnAuthenticated());
-      print('navigation ended bloc');
     } catch (e) {
       emit(AuthenticatedError(message: e.toString()));
     }

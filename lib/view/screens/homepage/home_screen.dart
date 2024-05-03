@@ -99,18 +99,9 @@ class HomeScreen extends StatelessWidget {
                             child: HomeTextfield1(
                               icon1: const Icon(Icons.search_rounded),
                               hint: "Search doctors,category..........",
-                              validator: (value) {
-                                // if (value == null || value.isEmpty) {
-                                //   return "Please enter a valid email";
-                                // } else {
-                                //   return null;
-                                // }
-                              },
+                              validator: (value) {},
                             ))),
                     Positioned(
-                        // top: MediaQuery.of(context).size.width * 0.1,
-                        // left: MediaQuery.of(context).size.width * 0.38,
-
                         child: StreamBuilder<DocumentSnapshot>(
                             stream: FirebaseFirestore.instance
                                 .collection("users")

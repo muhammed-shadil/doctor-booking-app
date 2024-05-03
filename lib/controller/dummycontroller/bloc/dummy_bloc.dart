@@ -4,10 +4,7 @@ import 'dart:typed_data';
 import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:doctors_book_app/utility/dummydoctors.dart';
-import 'package:doctors_book_app/utility/dummydoctors.dart';
-import 'package:equatable/equatable.dart';
 import 'package:firebase_storage/firebase_storage.dart';
-import 'package:flutter/physics.dart';
 import 'package:flutter/services.dart';
 
 part 'dummy_event.dart';
