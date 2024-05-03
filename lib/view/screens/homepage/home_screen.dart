@@ -1,5 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:doctors_book_app/controller/authentication/bloc/auth_bloc.dart';
+import 'package:doctors_book_app/controller/dummycontroller/bloc/dummy_bloc.dart';
+import 'package:doctors_book_app/utility/dummydoctors.dart';
 import 'package:doctors_book_app/view/screens/homepage/homescreen2.dart';
 import 'package:doctors_book_app/view/widgets/home_textfield.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -12,8 +14,15 @@ class HomeScreenWrapper extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => AuthBloc(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => AuthBloc(),
+        ),
+        BlocProvider(
+          create: (context) => DummyBloc(),
+        )
+      ],
       child: HomeScreen(),
     );
   }
@@ -191,7 +200,11 @@ class HomeScreen extends StatelessWidget {
                                           ],
                                         ),
                                         IconButton(
-                                            onPressed: () {},
+                                            onPressed: () {
+                                              // BlocProvider.of<DummyBloc>(
+                                              //         context)
+                                              //     .add(uploaddDummyEvent());
+                                            },
                                             icon: const Icon(
                                               Icons.favorite_sharp,
                                               size: 30,
