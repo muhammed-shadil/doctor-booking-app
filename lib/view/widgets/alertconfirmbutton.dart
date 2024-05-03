@@ -21,22 +21,16 @@ class Alerlconfirmtbutton extends StatelessWidget {
         onPressed: onpressed,
         style: ElevatedButton.styleFrom(
           shape: RoundedRectangleBorder(
-           
-            borderRadius:
-                BorderRadius.circular(10), // Adjust the border radius here
+            borderRadius: BorderRadius.circular(10),
           ),
-          backgroundColor:
-             color, // Set the button color
+          backgroundColor: color,
         ),
         child: Text(
           buttontext,
           style: const TextStyle(
-              color: Colors.white,
-              fontSize: 20,
-              fontWeight: FontWeight.w400),
+              color: Colors.white, fontSize: 20, fontWeight: FontWeight.w400),
         ),
       ),
     );
-    ;
   }
 }

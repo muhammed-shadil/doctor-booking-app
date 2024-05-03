@@ -28,8 +28,13 @@ class Alerltbutton extends StatelessWidget {
           backgroundColor:
               const Color.fromARGB(255, 238, 219, 225), // Set the button color
         ),
-        child: Row(mainAxisAlignment: MainAxisAlignment.center,
-          children: [Icon(Icons.logout_outlined,color: Color.fromARGB(255, 240, 14, 71),),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Icon(
+              Icons.logout_outlined,
+              color: Color.fromARGB(255, 240, 14, 71),
+            ),
             Text(
               buttontext,
               style: const TextStyle(
@@ -41,6 +46,5 @@ class Alerltbutton extends StatelessWidget {
         ),
       ),
     );
-    ;
   }
 }

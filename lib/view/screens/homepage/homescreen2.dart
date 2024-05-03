@@ -30,7 +30,7 @@ class HomeSpecialist extends StatelessWidget {
                   fontWeight: FontWeight.w500),
             ),
           ),
-          Container(
+          SizedBox(
               height: 120,
               child: ListView.builder(
                   shrinkWrap: true,
@@ -47,9 +47,9 @@ class HomeSpecialist extends StatelessWidget {
                             thirdtext: "12 doctors",
                             icon: Icons.wheelchair_pickup));
                   })),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 12),
-            child: const Text(
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 12),
+            child: Text(
               "GET CARE",
               style: TextStyle(
                   fontSize: 20,
@@ -92,7 +92,7 @@ class HomeSpecialist extends StatelessWidget {
               aspectRatio: 16 / 9,
               autoPlayCurve: Curves.fastOutSlowIn,
               enableInfiniteScroll: true,
-              autoPlayAnimationDuration: Duration(milliseconds: 1000),
+              autoPlayAnimationDuration: const Duration(milliseconds: 1000),
               // viewportFraction: 0.8,
             ),
           ),
@@ -106,7 +106,7 @@ class HomeSpecialist extends StatelessWidget {
                   fontWeight: FontWeight.w500),
             ),
           ),
-          Container(
+          SizedBox(
               height: 180,
               child: ListView.builder(
                   shrinkWrap: true,
@@ -123,7 +123,7 @@ class HomeSpecialist extends StatelessWidget {
                             thirdtext: "12 doctors",
                             icon: Icons.wheelchair_pickup));
                   })),
-          SizedBox(
+          const SizedBox(
             height: 45,
           )
         ],

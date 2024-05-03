@@ -21,12 +21,12 @@ class SettingsListTile extends StatelessWidget {
         titleTextStyle: const TextStyle(
             fontSize: 18, color: Color.fromARGB(255, 118, 114, 114)),
         leading: CircleAvatar(
-          backgroundColor: Color.fromARGB(255, 207, 230, 231),
+          backgroundColor: const Color.fromARGB(255, 207, 230, 231),
           radius: 25,
           child: Icon(
             contentIcon,
             size: 28,
-            color: Color.fromARGB(255, 0, 148, 149),
+            color: const Color.fromARGB(255, 0, 148, 149),
           ),
         ),
         // tileColor: Color.fromARGB(255, 205, 204, 200),

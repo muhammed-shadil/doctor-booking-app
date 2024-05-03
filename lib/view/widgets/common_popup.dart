@@ -39,7 +39,7 @@ class ConfirmAlert extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
+                const Text(
                   "Logout!!",
                   style: TextStyle(
                       color: Color.fromARGB(255, 234, 28, 80),
@@ -60,7 +60,7 @@ class ConfirmAlert extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(vertical: 13),
                   child: Alerlconfirmtbutton(
                     buttontext: "Yes",
-                    color: Color.fromARGB(255, 223, 91, 124),
+                    color: const Color.fromARGB(255, 223, 91, 124),
                     onpressed: onConfirm,
                   ),
                 ),

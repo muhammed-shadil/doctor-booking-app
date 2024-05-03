@@ -28,7 +28,7 @@ class doctorsverticalscroll extends StatelessWidget {
             Container(
               width: 95,
               height: 117,
-              padding: EdgeInsets.symmetric(vertical: 4),
+              padding: const EdgeInsets.symmetric(vertical: 4),
               child: ClipRRect(
                   borderRadius: BorderRadius.circular(15),
                   child: Image.asset(
@@ -41,8 +41,16 @@ class doctorsverticalscroll extends StatelessWidget {
                   // ),
                   ),
             ),
-            Text("Dr.arshak patel",style: TextStyle(fontWeight: FontWeight.w500,fontSize: 17,color:Color.fromARGB(255, 111, 104, 104) ),),
-            Text(firsttext,style: TextStyle(color: Color.fromARGB(255, 158, 153, 153))),
+            const Text(
+              "Dr.arshak patel",
+              style: TextStyle(
+                  fontWeight: FontWeight.w500,
+                  fontSize: 17,
+                  color: Color.fromARGB(255, 111, 104, 104)),
+            ),
+            Text(firsttext,
+                style:
+                    const TextStyle(color: Color.fromARGB(255, 158, 153, 153))),
           ],
         ),
       ),
