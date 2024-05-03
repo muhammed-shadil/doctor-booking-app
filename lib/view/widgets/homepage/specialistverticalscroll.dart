@@ -1,8 +1,18 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
 class Specialistverticalscroll extends StatelessWidget {
-  const Specialistverticalscroll({super.key});
-
+  const Specialistverticalscroll({
+    Key? key,
+    required this.firsttext,
+    required this.secondtext,
+    required this.thirdtext,
+    required this.icon,
+  }) : super(key: key);
+  final String firsttext;
+  final String secondtext;
+  final String thirdtext;
+  final IconData icon;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -10,25 +20,26 @@ class Specialistverticalscroll extends StatelessWidget {
       height: 20,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          color: Color.fromARGB(255, 165, 165, 164)),
-      child: const Padding(
-        padding: EdgeInsets.only(top: 6),
+          color:  Colors.white),
+      child: Padding(
+        padding: const EdgeInsets.only(top: 6),
         child: Column(
           children: [
             Icon(
-              Icons.wheelchair_pickup_sharp,
+              icon,
               size: 34,
-              color: Color.fromARGB(255, 0, 148, 149),
+              color: const Color.fromARGB(255, 0, 148, 149),
             ),
             Text(
-              "Cardeo ",
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
+              firsttext,
+              style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w700,color:Color.fromARGB(255, 99, 95, 95), ),
             ),
             Text(
-              "Specialist",
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
+              secondtext,
+              style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w700,color:Color.fromARGB(255, 99, 95, 95),),
             ),
-            Text("12 doctors")
+            Text(thirdtext,style: const TextStyle(fontSize: 14, color:Color.fromARGB(255, 122, 118, 118),),
+            )
           ],
         ),
       ),
