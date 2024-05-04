@@ -5,15 +5,14 @@ import 'package:flutter/widgets.dart';
 class doctorsverticalscroll extends StatelessWidget {
   const doctorsverticalscroll({
     Key? key,
-    required this.firsttext,
-    required this.secondtext,
-    required this.thirdtext,
-    required this.icon,
+    required this.image,
+    required this.speciality,
+    required this.doctorname,
   }) : super(key: key);
-  final String firsttext;
-  final String secondtext;
-  final String thirdtext;
-  final IconData icon;
+  final String image;
+  final String speciality;
+  final String doctorname;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -31,9 +30,10 @@ class doctorsverticalscroll extends StatelessWidget {
               padding: const EdgeInsets.symmetric(vertical: 4),
               child: ClipRRect(
                   borderRadius: BorderRadius.circular(15),
-                  child: Image.asset(
-                    "assets/3.jpeg",
-                    fit: BoxFit.fill,
+                  child: Image.network(
+                    // "assets/3.jpeg",
+                    image,
+                    fit: BoxFit.cover,
                   )
                   //  Image.network(
                   //   userData['image'],
@@ -41,16 +41,18 @@ class doctorsverticalscroll extends StatelessWidget {
                   // ),
                   ),
             ),
-            const Text(
-              "Dr.arshak patel",
+            Text(
+              // "Dr.arshak patel",
+              doctorname,
               style: TextStyle(
                   fontWeight: FontWeight.w500,
-                  fontSize: 17,
+                  fontSize: (doctorname.length >= 17) ? 13 : 16,
                   color: Color.fromARGB(255, 111, 104, 104)),
             ),
-            Text(firsttext,
-                style:
-                    const TextStyle(color: Color.fromARGB(255, 158, 153, 153))),
+            Text(speciality,
+                style: TextStyle(
+                    color: Color.fromARGB(255, 158, 153, 153),
+                    fontSize: (speciality.length >= 17) ? 12 : 15)),
           ],
         ),
       ),

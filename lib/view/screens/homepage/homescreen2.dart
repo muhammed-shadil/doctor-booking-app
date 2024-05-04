@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:carousel_slider/carousel_options.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:doctors_book_app/view/widgets/homepage/specialistverticalscroll.dart';
 import 'package:doctors_book_app/view/widgets/homepage/specialitylist.dart';
 import 'package:doctors_book_app/view/widgets/homepage/tipconatainer.dart';
@@ -43,7 +44,7 @@ class HomeSpecialist extends StatelessWidget {
                     // final category = snapshot.data?.docs[index].data();
                     // if (category != null) {
                     return Padding(
-                        padding: EdgeInsets.all(8.0),
+                        padding: const EdgeInsets.all(8.0),
                         child: Specialistverticalscroll(
                             firsttext:
                                 specialis.specialistdata[index].firsttext,
@@ -114,20 +115,26 @@ class HomeSpecialist extends StatelessWidget {
           ),
           SizedBox(
               height: 180,
-              child: ListView.builder(
-                  shrinkWrap: true,
-                  itemCount: 10,
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: (BuildContext context, int index) {
-                    // final category = snapshot.data?.docs[index].data();
-                    // if (category != null) {
-                    return const Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: doctorsverticalscroll(
-                            firsttext: "cardeo",
-                            secondtext: "Specialist",
-                            thirdtext: "12 doctors",
-                            icon: Icons.wheelchair_pickup));
+              child: StreamBuilder(
+                  stream: FirebaseFirestore.instance
+                      .collection("doctors")
+                      .snapshots(),
+                  builder: (context, snapshot) {
+                    return ListView.builder(
+                        shrinkWrap: true,
+                        itemCount: snapshot.data!.docs.length,
+                        scrollDirection: Axis.horizontal,
+                        itemBuilder: (BuildContext context, int index) {
+                          // final category = snapshot.data?.docs[index].data();
+                          // if (category != null) {
+                          final doctorsdata = snapshot.data!.docs[index].data();
+                          return Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: doctorsverticalscroll(
+                                  image: doctorsdata["image"],
+                                  speciality: doctorsdata['speciality'],
+                                  doctorname: doctorsdata['doctorname']));
+                        });
                   })),
           const SizedBox(
             height: 20,
