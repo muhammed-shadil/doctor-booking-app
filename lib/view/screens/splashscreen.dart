@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:another_flutter_splash_screen/another_flutter_splash_screen.dart';
 import 'package:doctors_book_app/controller/authentication/bloc/auth_bloc.dart';
 import 'package:doctors_book_app/view/screens/Onboardign_screen.dart';
+import 'package:doctors_book_app/view/screens/bottomnaigation.dart';
 import 'package:doctors_book_app/view/screens/doctorsdetails_screen.dart';
 import 'package:doctors_book_app/view/screens/homepage/home_screen.dart';
 import 'package:doctors_book_app/view/screens/settings_Screen.dart';
@@ -40,7 +41,7 @@ class Splashscreen extends StatelessWidget {
             Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
-                    builder: (_) => const DoctorsDetailsScreen()));
+                    builder: (_) => const BottomNavigationWrapper()));
           } else if (state is UnAuthenticated) {
             Navigator.pushReplacement(context,
                 MaterialPageRoute(builder: (_) => const OnboardingWrapper()));

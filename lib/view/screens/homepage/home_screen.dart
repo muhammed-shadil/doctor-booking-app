@@ -212,7 +212,7 @@ class HomeScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              const HomeSpecialist(),
+               HomeSpecialist(),
             ],
           ),
         ),

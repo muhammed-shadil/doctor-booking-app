@@ -3,13 +3,16 @@ import 'dart:ui';
 import 'package:carousel_slider/carousel_options.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:doctors_book_app/view/widgets/homepage/specialistverticalscroll.dart';
+import 'package:doctors_book_app/view/widgets/homepage/specialitylist.dart';
 import 'package:doctors_book_app/view/widgets/homepage/tipconatainer.dart';
 import 'package:doctors_book_app/view/widgets/homepage/topdoctorsscroll.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class HomeSpecialist extends StatelessWidget {
-  const HomeSpecialist({super.key});
+  HomeSpecialist({super.key});
+
+  specialist specialis = specialist();
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +24,7 @@ class HomeSpecialist extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 12),
+            padding: EdgeInsets.symmetric(horizontal: 15),
             child: Text(
               "SPECIALIST",
               style: TextStyle(
@@ -34,21 +37,24 @@ class HomeSpecialist extends StatelessWidget {
               height: 120,
               child: ListView.builder(
                   shrinkWrap: true,
-                  itemCount: 10,
+                  itemCount: specialis.specialistdata.length,
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (BuildContext context, int index) {
                     // final category = snapshot.data?.docs[index].data();
                     // if (category != null) {
-                    return const Padding(
+                    return Padding(
                         padding: EdgeInsets.all(8.0),
                         child: Specialistverticalscroll(
-                            firsttext: "cardeo",
-                            secondtext: "Specialist",
-                            thirdtext: "12 doctors",
-                            icon: Icons.wheelchair_pickup));
+                            firsttext:
+                                specialis.specialistdata[index].firsttext,
+                            secondtext:
+                                specialis.specialistdata[index].secondtext,
+                            thirdtext:
+                                "${specialis.specialistdata[index].thirdtext} doctors",
+                            icon: specialis.specialistdata[index].icon1));
                   })),
           const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 12),
+            padding: EdgeInsets.only(top: 16, left: 15),
             child: Text(
               "GET CARE",
               style: TextStyle(
@@ -97,7 +103,7 @@ class HomeSpecialist extends StatelessWidget {
             ),
           ),
           const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 12),
+            padding: EdgeInsets.only(top: 16, left: 15),
             child: Text(
               "TOP DOCTORS",
               style: TextStyle(
@@ -124,7 +130,7 @@ class HomeSpecialist extends StatelessWidget {
                             icon: Icons.wheelchair_pickup));
                   })),
           const SizedBox(
-            height: 45,
+            height: 20,
           )
         ],
       ),

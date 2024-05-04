@@ -1,3 +1,4 @@
+import 'package:doctors_book_app/view/widgets/doctorsdetails/appoinment.dart';
 import 'package:doctors_book_app/view/widgets/doctorsdetails/endcontainer.dart';
 import 'package:doctors_book_app/view/widgets/doctorsdetails/middlecontainer.dart';
 import 'package:doctors_book_app/view/widgets/mainbutton.dart';
@@ -47,29 +48,31 @@ class DoctorsDetailsScreen extends StatelessWidget {
                 color: const Color.fromARGB(255, 235, 235, 236),
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 width: MediaQuery.of(context).size.width,
-                height: 70,
-                child: const Column(
+                height: MediaQuery.of(context).size.height*0.3,
+                child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    const Text(
                       "Working time",
                       style: TextStyle(
                           fontSize: 22, color: Color.fromARGB(255, 64, 63, 63)),
                     ),
-                    Padding(
+                    const Padding(
                       padding: EdgeInsets.symmetric(vertical: 10),
                       child: Text("Monday-Friday 09:00 Am - 12:00 Pm"),
                     ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Bookappointmentbutton(
+                          buttontext: "Book appointment",
+                          onpressed: () {},
+                        ),
+                      ],
+                    )
                   ],
                 ),
               ),
-              Container(
-                color: const Color.fromARGB(255, 235, 235, 236),
-                child: Mainbutton(
-                  buttontext: "Book appointment",
-                  onpressed: () {},
-                ),
-              )
             ],
           ),
         ),

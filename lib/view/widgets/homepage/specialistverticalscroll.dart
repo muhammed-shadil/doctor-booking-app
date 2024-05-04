@@ -12,33 +12,45 @@ class Specialistverticalscroll extends StatelessWidget {
   final String firsttext;
   final String secondtext;
   final String thirdtext;
-  final IconData icon;
+  final String icon;
   @override
   Widget build(BuildContext context) {
     return Container(
       width: 80,
       height: 20,
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-          color:  Colors.white),
+          borderRadius: BorderRadius.circular(10), color: Colors.white),
       child: Padding(
-        padding: const EdgeInsets.only(top: 6),
+        padding: const EdgeInsets.only(top: 9),
         child: Column(
           children: [
-            Icon(
-              icon,
-              size: 34,
-              color: const Color.fromARGB(255, 0, 148, 149),
+            SizedBox(
+              child: Image.asset(icon),
+              width: 40,
+              height: 40,
             ),
             Text(
               firsttext,
-              style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w700,color:Color.fromARGB(255, 99, 95, 95), ),
+              style: const TextStyle(
+                fontSize: 12,
+                fontWeight: FontWeight.w700,
+                color: Color.fromARGB(255, 99, 95, 95),
+              ),
             ),
             Text(
               secondtext,
-              style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w700,color:Color.fromARGB(255, 99, 95, 95),),
+              style: const TextStyle(
+                fontSize: 12,
+                fontWeight: FontWeight.w700,
+                color: Color.fromARGB(255, 99, 95, 95),
+              ),
             ),
-            Text(thirdtext,style: const TextStyle(fontSize: 14, color:Color.fromARGB(255, 122, 118, 118),),
+            Text(
+              thirdtext,
+              style: const TextStyle(
+                fontSize: 12,
+                color: Color.fromARGB(255, 122, 118, 118),
+              ),
             )
           ],
         ),
