@@ -1,5 +1,6 @@
 import 'package:doctors_book_app/controller/bottomnavigation/bloc/bottomnavigation_bloc.dart';
 import 'package:doctors_book_app/view/screens/doctorsdetails_screen.dart';
+import 'package:doctors_book_app/view/screens/doctorslistscreen.dart';
 import 'package:doctors_book_app/view/screens/homepage/home_screen.dart';
 import 'package:doctors_book_app/view/screens/settings_Screen.dart';
 import 'package:flashy_tab_bar2/flashy_tab_bar2.dart';
@@ -24,7 +25,8 @@ class BottomNavigation extends StatelessWidget {
 
   List<Widget> screens = [
     HomeScreenWrapper(),
-    HomeScreenWrapper(),
+    DoctorsScreen(),
+    // HomeScreenWrapper(),
     // DoctorsDetailsScreen(),
     HomeScreenWrapper(),
 
