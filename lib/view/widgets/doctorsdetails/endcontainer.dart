@@ -1,9 +1,14 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class Endcontainer extends StatelessWidget {
-  const Endcontainer({super.key});
+  const Endcontainer({
+    Key? key,
+    required this.doctorsdatails,
+  }) : super(key: key);
 
+  final Map<String, dynamic> doctorsdatails;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -22,41 +27,41 @@ class Endcontainer extends StatelessWidget {
           ),
           Container(
             padding: const EdgeInsets.only(bottom: 20),
-            child: const Column(
+            child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Dr .Jane Cooper",
-                  style: TextStyle(
+                  doctorsdatails['doctorname'],
+                  style: const TextStyle(
                       fontSize: 22, color: Color.fromARGB(255, 64, 63, 63)),
                 ),
                 Text(
-                  "MBBS,MD ,FACS",
-                  style: TextStyle(
+                  doctorsdatails['qualifications'],
+                  style: const TextStyle(
                       fontSize: 15, color: Color.fromARGB(255, 92, 91, 91)),
                 ),
                 Text(
-                  "cardeology",
-                  style: TextStyle(
+                  doctorsdatails['speciality'],
+                  style: const TextStyle(
                       fontSize: 15, color: Color.fromARGB(255, 92, 91, 91)),
                 )
               ],
             ),
           ),
-          const SizedBox(
+          SizedBox(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
+                const Text(
                   "About doctor",
                   style: TextStyle(
                       fontSize: 22, color: Color.fromARGB(255, 64, 63, 63)),
                 ),
                 Padding(
-                  padding: EdgeInsets.symmetric(vertical: 15.0),
+                  padding: const EdgeInsets.symmetric(vertical: 15.0),
                   child: Text(
-                    "Dr. Jane Cooper is a board-certified cardiologist with extensive experience in treating cardiovascular conditions. She specializes in interventional cardiology and electrophysiology. With a dedication to advancing cardiac care through research and compassionate patient-centered approach, Dr. Smith is committed to improving the heart health of her patients.",
-                    style: TextStyle(
+                    doctorsdatails['about'],
+                    style: const TextStyle(
                         fontSize: 14,
                         color: Color.fromARGB(255, 158, 156, 156)),
                   ),

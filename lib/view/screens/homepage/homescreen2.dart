@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:carousel_slider/carousel_options.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:doctors_book_app/view/screens/doctorsdetails_screen.dart';
 import 'package:doctors_book_app/view/widgets/homepage/specialistverticalscroll.dart';
 import 'package:doctors_book_app/view/widgets/homepage/specialitylist.dart';
 import 'package:doctors_book_app/view/widgets/homepage/tipconatainer.dart';
@@ -120,21 +121,36 @@ class HomeSpecialist extends StatelessWidget {
                       .collection("doctors")
                       .snapshots(),
                   builder: (context, snapshot) {
-                    return ListView.builder(
-                        shrinkWrap: true,
-                        itemCount: snapshot.data!.docs.length,
-                        scrollDirection: Axis.horizontal,
-                        itemBuilder: (BuildContext context, int index) {
-                          // final category = snapshot.data?.docs[index].data();
-                          // if (category != null) {
-                          final doctorsdata = snapshot.data!.docs[index].data();
-                          return Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: doctorsverticalscroll(
-                                  image: doctorsdata["image"],
-                                  speciality: doctorsdata['speciality'],
-                                  doctorname: doctorsdata['doctorname']));
-                        });
+                    if (snapshot.hasData) {
+                      return ListView.builder(
+                          shrinkWrap: true,
+                          itemCount: snapshot.data!.docs.length,
+                          scrollDirection: Axis.horizontal,
+                          itemBuilder: (BuildContext context, int index) {
+                            // final category = snapshot.data?.docs[index].data();
+                            // if (category != null) {
+                            final doctorsdata =
+                                snapshot.data!.docs[index].data();
+                            return Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (_) =>
+                                                DoctorsDetailsScreen(
+                                                  doctorsdatails: doctorsdata,
+                                                )));
+                                  },
+                                  child: doctorsverticalscroll(
+                                      image: doctorsdata["image"],
+                                      speciality: doctorsdata['speciality'],
+                                      doctorname: doctorsdata['doctorname']),
+                                ));
+                          });
+                    }
+                    return Container();
                   })),
           const SizedBox(
             height: 20,

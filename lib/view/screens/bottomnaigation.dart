@@ -25,8 +25,10 @@ class BottomNavigation extends StatelessWidget {
   List<Widget> screens = [
     HomeScreenWrapper(),
     HomeScreenWrapper(),
-    DoctorsDetailsScreen(),
+    // DoctorsDetailsScreen(),
     HomeScreenWrapper(),
+
+    settingsScreenWrapper(),
     settingsScreenWrapper()
   ];
   @override
@@ -36,36 +38,47 @@ class BottomNavigation extends StatelessWidget {
       if (state is BottomnavigationInitial) {
         return Scaffold(
           body: screens[state.changedindex],
-          bottomNavigationBar: FlashyTabBar(height: 55,iconSize: 28,
-            selectedIndex: state.changedindex,
-            animationCurve: Curves.linear,
-            animationDuration: const Duration(milliseconds: 500),
-            showElevation: true,
-            onItemSelected: (index) =>
-                BlocProvider.of<BottomnavigationBloc>(context)
-                    .add(ChangeindexEvent(changeindex: index)),
-            items: [
-              FlashyTabBarItem(
-                icon:FaIcon(FontAwesomeIcons.houseChimneyMedical),
-                title: Text('Events'),
-              ),
-              FlashyTabBarItem(
-                icon: Icon(Icons.search),
-                title: Text('Search'),
-              ),
-              FlashyTabBarItem(
-                icon: Icon(Icons.highlight),
-                title: Text('Highlights'),
-              ),
-              FlashyTabBarItem(
-                icon: Icon(Icons.settings),
-                title: Text('Settings'),
-              ),
-              FlashyTabBarItem(
-                icon: Icon(Icons.settings),
-                title: Text('한국어'),
-              ),
-            ],
+          bottomNavigationBar: SizedBox(width: MediaQuery.of(context).size.width,height: 67,
+            child: FlashyTabBar(
+              height: 55,
+              iconSize: 28,
+              selectedIndex: state.changedindex,
+              animationCurve: Curves.linear,
+              animationDuration: const Duration(milliseconds: 500),
+              showElevation: true,
+              onItemSelected: (index) =>
+                  BlocProvider.of<BottomnavigationBloc>(context)
+                      .add(ChangeindexEvent(changeindex: index)),
+              items: [
+                FlashyTabBarItem(
+                  icon: const FaIcon(
+                    FontAwesomeIcons.houseChimneyMedical,
+                    size: 23,
+                  ),
+                  title: const Text('HOME'),
+                  activeColor: Color.fromARGB(255, 0, 148, 149),
+                ),
+                FlashyTabBarItem(
+                  icon: const FaIcon(
+                    FontAwesomeIcons.stethoscope,
+                    size: 23,
+                  ),
+                  title: const Text('DOCTORS'),
+                ),
+                FlashyTabBarItem(
+                  icon: const Icon(Icons.search),
+                  title: Text('SEARCH'),
+                ),
+                FlashyTabBarItem(
+                  icon: const Icon(Icons.library_books_outlined),
+                  title: Text('APPOINTMENT'),
+                ),
+                FlashyTabBarItem(
+                  icon: const Icon(Icons.settings),
+                  title: const Text('SETTINGS'),
+                ),
+              ],
+            ),
           ),
         );
       }

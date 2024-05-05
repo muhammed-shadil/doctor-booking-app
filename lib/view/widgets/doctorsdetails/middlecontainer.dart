@@ -1,8 +1,13 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
 class Middlecontainer extends StatelessWidget {
-  const Middlecontainer({super.key});
+  const Middlecontainer({
+    Key? key,
+    required this.doctorsdatails,
+  }) : super(key: key);
 
+  final Map<String, dynamic> doctorsdatails;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -12,10 +17,10 @@ class Middlecontainer extends StatelessWidget {
       ),
       width: MediaQuery.of(context).size.width * 0.85,
       height: MediaQuery.of(context).size.height * 0.11,
-      child: const Row(
+      child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          CircleAvatar(
+          const CircleAvatar(
             backgroundColor: Color.fromARGB(255, 237, 235, 235),
             child: Icon(
               Icons.people_alt,
@@ -28,16 +33,16 @@ class Middlecontainer extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "1000+",
-                style: TextStyle(
+                doctorsdatails['experince'],
+                style: const TextStyle(
                     fontSize: 18, color: Color.fromARGB(255, 92, 91, 91)),
               ),
-              Text("Patients",
+              const Text("Patients",
                   style: TextStyle(color: Color.fromARGB(255, 148, 146, 146)))
             ],
           ),
-          VerticalDivider(),
-          CircleAvatar(
+          const VerticalDivider(),
+          const CircleAvatar(
             backgroundColor: Color.fromARGB(255, 237, 235, 235),
             child: Icon(
               Icons.badge,
@@ -48,10 +53,10 @@ class Middlecontainer extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text("5 Years",
-                  style: TextStyle(
+              Text(doctorsdatails['nopatients'],
+                  style: const TextStyle(
                       fontSize: 18, color: Color.fromARGB(255, 92, 91, 91))),
-              Text("Experiences",
+              const Text("Experiences",
                   style: TextStyle(color: Color.fromARGB(255, 148, 146, 146)))
             ],
           ),
