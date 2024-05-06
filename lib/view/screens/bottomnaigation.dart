@@ -1,3 +1,6 @@
+import 'dart:async';
+
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:doctors_book_app/controller/bottomnavigation/bloc/bottomnavigation_bloc.dart';
 import 'package:doctors_book_app/view/screens/doctorsdetails_screen.dart';
 import 'package:doctors_book_app/view/screens/doctorslistscreen.dart';
@@ -7,10 +10,17 @@ import 'package:flashy_tab_bar2/flashy_tab_bar2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_icon_class/font_awesome_icon_class.dart';
+import 'package:internet_connection_checker/internet_connection_checker.dart';
 
-class BottomNavigationWrapper extends StatelessWidget {
+class BottomNavigationWrapper extends StatefulWidget {
   const BottomNavigationWrapper({super.key});
 
+  @override
+  State<BottomNavigationWrapper> createState() =>
+      _BottomNavigationWrapperState();
+}
+
+class _BottomNavigationWrapperState extends State<BottomNavigationWrapper> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -20,9 +30,14 @@ class BottomNavigationWrapper extends StatelessWidget {
   }
 }
 
-class BottomNavigation extends StatelessWidget {
+class BottomNavigation extends StatefulWidget {
   BottomNavigation({super.key});
 
+  @override
+  State<BottomNavigation> createState() => _BottomNavigationState();
+}
+
+class _BottomNavigationState extends State<BottomNavigation> {
   List<Widget> screens = [
     HomeScreenWrapper(),
     DoctorsScreen(),
@@ -33,6 +48,68 @@ class BottomNavigation extends StatelessWidget {
     settingsScreenWrapper(),
     settingsScreenWrapper()
   ];
+
+  var isDeviceConnected = false;
+  late StreamSubscription subscription;
+  bool isAlertSet = false;
+
+  @override
+  void initState() {
+    super.initState();
+    getConnectivity();
+  }
+
+  getConnectivity() => subscription =
+          Connectivity().onConnectivityChanged.listen((result) async {
+        isDeviceConnected = await InternetConnectionChecker().hasConnection;
+        if (!isDeviceConnected && isAlertSet == false) {
+          showDialogBox();
+          setState(() {
+            isAlertSet = true;
+          });
+        }
+      });
+
+  @override
+  void dispose() {
+    subscription.cancel();
+    super.dispose();
+  }
+
+  showDialogBox() => showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          backgroundColor: const Color.fromARGB(255, 238, 219, 225),
+          icon: const Icon(
+            Icons.warning_amber_rounded,
+            size: 35,
+          ),
+          iconColor: Colors.red,
+          title: const Text('No Network!'),
+          content: const Text('Please check your Internet Connection or try again'),
+          actions: [
+            ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color.fromARGB(255, 234, 28, 80)),
+                onPressed: () async {
+                  Navigator.pop(context);
+                  setState(() {
+                    isAlertSet = false;
+                  });
+                  isDeviceConnected =
+                      await InternetConnectionChecker().hasConnection;
+                  if (!isDeviceConnected) {
+                    showDialogBox();
+                    setState(() {
+                      isAlertSet = true;
+                    });
+                  }
+                },
+                child: const Text('OK',style: TextStyle(color: Colors.white)),)
+          ],
+        ),
+      );
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<BottomnavigationBloc, BottomnavigationState>(
@@ -40,7 +117,9 @@ class BottomNavigation extends StatelessWidget {
       if (state is BottomnavigationInitial) {
         return Scaffold(
           body: screens[state.changedindex],
-          bottomNavigationBar: SizedBox(width: MediaQuery.of(context).size.width,height: 67,
+          bottomNavigationBar: SizedBox(
+            width: MediaQuery.of(context).size.width,
+            height: 67,
             child: FlashyTabBar(
               height: 55,
               iconSize: 28,

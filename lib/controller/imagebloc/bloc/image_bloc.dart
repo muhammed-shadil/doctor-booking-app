@@ -43,6 +43,8 @@ class ImageBloc extends Bloc<ImageEvent, ImageState> {
         } else {
           emit(Uploadimagefailure(msg: "image not selected"));
         }
+      } on SocketException catch (e) {
+        emit(Uploadimagefailure(msg: "Error , $e"));
       } catch (e) {
         emit(Uploadimagefailure(msg: "Error ,while picking image $e"));
       }
