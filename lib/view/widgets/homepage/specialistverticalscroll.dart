@@ -25,12 +25,13 @@ class Specialistverticalscroll extends StatelessWidget {
         child: Column(
           children: [
             SizedBox(
+              width: firsttext.length >= 17 ? 35 : 40,
+              height: firsttext.length >= 17 ? 35 : 40,
               child: Image.asset(icon),
-              width: 40,
-              height: 40,
             ),
             Text(
               firsttext,
+              textAlign: TextAlign.center,
               style: const TextStyle(
                 fontSize: 12,
                 fontWeight: FontWeight.w700,
@@ -39,10 +40,10 @@ class Specialistverticalscroll extends StatelessWidget {
             ),
             Text(
               secondtext,
-              style: const TextStyle(
-                fontSize: 12,
+              style: TextStyle(
+                fontSize: firsttext.length >= 17 ? 10 : 12,
                 fontWeight: FontWeight.w700,
-                color: Color.fromARGB(255, 99, 95, 95),
+                color: const Color.fromARGB(255, 99, 95, 95),
               ),
             ),
             Text(

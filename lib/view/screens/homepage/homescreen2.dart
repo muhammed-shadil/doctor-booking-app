@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:carousel_slider/carousel_options.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:doctors_book_app/view/screens/categaryScreen.dart';
 import 'package:doctors_book_app/view/screens/doctorsdetails_screen.dart';
 import 'package:doctors_book_app/view/widgets/homepage/specialistverticalscroll.dart';
 import 'package:doctors_book_app/view/widgets/homepage/specialitylist.dart';
@@ -37,23 +38,49 @@ class HomeSpecialist extends StatelessWidget {
           ),
           SizedBox(
               height: 120,
-              child: ListView.builder(
-                  shrinkWrap: true,
-                  itemCount: specialis.specialistdata.length,
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: (BuildContext context, int index) {
-                    // final category = snapshot.data?.docs[index].data();
-                    // if (category != null) {
-                    return Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Specialistverticalscroll(
-                            firsttext:
-                                specialis.specialistdata[index].firsttext,
-                            secondtext:
-                                specialis.specialistdata[index].secondtext,
-                            thirdtext:
-                                "${specialis.specialistdata[index].thirdtext} doctors",
-                            icon: specialis.specialistdata[index].icon1));
+              child: StreamBuilder(
+                  stream: FirebaseFirestore.instance
+                      .collection("doctors")
+                      .where("speciality")
+                      .snapshots(),
+                  builder: (context, snapshot) {
+                    if (snapshot.hasData) {
+                      return ListView.builder(
+                          shrinkWrap: true,
+                          itemCount: specialis.specialistdata.length,
+                          scrollDirection: Axis.horizontal,
+                          itemBuilder: (BuildContext context, int index) {
+                            final doctorspecial =
+                                snapshot.data!.docs[index].data();
+
+                            return Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (_) =>  CategoryScreen(title:specialis.specialistdata[index].firsttext,)));
+                                  },
+                                  child: Specialistverticalscroll(
+                                      firsttext:
+                                          specialis.specialistdata[index].firsttext,
+                                          // doctorspecial['speciality'],
+                                      secondtext:
+                                          // specialis.specialistdata[index].firsttext.length >=
+                                          //         20
+                                          //     ? ""
+                                          //     :
+                                               specialis.specialistdata[index]
+                                                  .secondtext,
+                                      thirdtext:
+                                          "${specialis.specialistdata[index].thirdtext} doctors",
+                                      icon: specialis
+                                          .specialistdata[index].icon1),
+                                ));
+                          });
+                    }
+                    return Container();
                   })),
           const Padding(
             padding: EdgeInsets.only(top: 16, left: 15),

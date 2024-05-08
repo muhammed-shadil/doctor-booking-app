@@ -34,9 +34,12 @@ class Splashscreen extends StatelessWidget {
     return BlocListener<AuthBloc, AuthState>(
       listener: (context, state) async {
         Timer(const Duration(seconds: 3), () async {
+
+          
           WidgetsFlutterBinding.ensureInitialized();
           SharedPreferences prefs = await SharedPreferences.getInstance();
           var key = prefs.getBool('loginkey');
+          print("${key}ggggggggggggggggggggggggg");
           if (key == null) {
             Navigator.pushReplacement(context,
                 MaterialPageRoute(builder: (_) => OnboardingWrapper()));

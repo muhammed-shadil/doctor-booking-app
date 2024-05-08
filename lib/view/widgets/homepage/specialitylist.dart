@@ -4,7 +4,8 @@ class specialist {
   List<specialistmodel> specialistdata = [
     specialistmodel(
         icon1: "assets/icons/icons8-kidneys-60 (1).png",
-        firsttext: "cardeo",
+        firsttext: "Cardiology"
+,
         secondtext: "specialist",
         thirdtext: 12),
     specialistmodel(
@@ -24,12 +25,12 @@ class specialist {
         thirdtext: 4),
     specialistmodel(
         icon1: "assets/icons/icons8-heart-organ-50.png",
-        firsttext: "heart",
-        secondtext: "issues",
+        firsttext: "Infectious Diseases",
+        secondtext: "specialist",
         thirdtext: 8),
     specialistmodel(
         icon1: "assets/icons/icons8-cancer-ribbon-50.png",
-        firsttext: "oncology",
+        firsttext: "Oncology",
         secondtext: "specialist",
         thirdtext: 2),
     specialistmodel(
@@ -39,7 +40,7 @@ class specialist {
         thirdtext: 5),
     specialistmodel(
         icon1: "assets/icons/icons8-knee-joint-50.png",
-        firsttext: "Orthopedics",
+        firsttext: "Orthopedic Surgery",
         secondtext: "specialist",
         thirdtext: 4),
   ];
