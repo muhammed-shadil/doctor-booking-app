@@ -19,7 +19,7 @@ final dummydata dummy=dummydata();
 
   Future<Uint8List> uploadingFromAssets(String path) async {
     try {
-      print("333333333333333333333333");
+    
       final byteData = await rootBundle.load(path);
       final imageData = byteData.buffer
           .asUint8List(byteData.offsetInBytes, byteData.lengthInBytes);
@@ -32,7 +32,7 @@ final dummydata dummy=dummydata();
  Future<String> uploadImage(
       String path, Uint8List image, String name) async {
     try {
-      print("2222222222222222222222");
+    
       final ref = FirebaseStorage.instance.ref(path).child(name);
       await ref.putData(image);
       final url = await ref.getDownloadURL();
@@ -43,7 +43,7 @@ final dummydata dummy=dummydata();
   }
   FutureOr<void> uploadDummyEvent(uploaddDummyEvent event, Emitter<DummyState> emit)async {
     try {
-      print("1111111111111111111");
+     
       for (var doc in doctors) {
         final file = await uploadingFromAssets(doc.image);
         final url = await uploadImage('doctors', file, doc.doctorname);

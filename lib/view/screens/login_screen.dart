@@ -1,4 +1,5 @@
 import 'package:doctors_book_app/controller/authentication/bloc/auth_bloc.dart';
+import 'package:doctors_book_app/view/screens/bottomnaigation.dart';
 import 'package:doctors_book_app/view/screens/settings_Screen.dart';
 import 'package:doctors_book_app/view/screens/signup_screen.dart';
 import 'package:doctors_book_app/view/widgets/loading.dart';
@@ -66,7 +67,7 @@ class LoginScreen extends StatelessWidget {
               Navigator.pushAndRemoveUntil(
                   context,
                   MaterialPageRoute(
-                      builder: (_) => const settingsScreenWrapper()),
+                      builder: (_) => const BottomNavigationWrapper()),
                   (route) => false);
               ScaffoldMessenger.of(context).showSnackBar(
                 const SnackBar(

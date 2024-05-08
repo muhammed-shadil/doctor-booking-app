@@ -1,4 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:doctors_book_app/view/screens/newappointmentScreen.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -18,8 +20,9 @@ class DoctorsDetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     // print(doctorsdatails);
     return Scaffold(
-      body: SafeArea(
-        child: SingleChildScrollView(
+        body: SafeArea(
+      child: CustomScrollView(slivers: [
+        SliverToBoxAdapter(
           child: Column(
             children: [
               Container(
@@ -35,7 +38,8 @@ class DoctorsDetailsScreen extends StatelessWidget {
                                 // color: Color.fromARGB(255, 0, 148, 149),
                                 ),
                             width: MediaQuery.of(context).size.width,
-                            height: MediaQuery.of(context).size.height * 0.69,
+                            height:
+                                MediaQuery.of(context).size.height * 0.69,
                             child: Image.network(
                               doctorsdatails['image'],
                               fit: BoxFit.cover,
@@ -94,7 +98,8 @@ class DoctorsDetailsScreen extends StatelessWidget {
                     const Text(
                       "Working time",
                       style: TextStyle(
-                          fontSize: 22, color: Color.fromARGB(255, 64, 63, 63)),
+                          fontSize: 22,
+                          color: Color.fromARGB(255, 64, 63, 63)),
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 10),
@@ -105,7 +110,13 @@ class DoctorsDetailsScreen extends StatelessWidget {
                       children: [
                         Bookappointmentbutton(
                           buttontext: "Book appointment",
-                          onpressed: () {},
+                          onpressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (_) =>
+                                        NewAppointmentScreen()));
+                          },
                         ),
                       ],
                     )
@@ -114,8 +125,8 @@ class DoctorsDetailsScreen extends StatelessWidget {
               ),
             ],
           ),
-        ),
-      ),
-    );
+        )
+      ]),
+    ));
   }
 }

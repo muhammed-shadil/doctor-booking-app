@@ -33,7 +33,7 @@ class Middlecontainer extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                doctorsdatails['experince'],
+                doctorsdatails['nopatients'],
                 style: const TextStyle(
                     fontSize: 18, color: Color.fromARGB(255, 92, 91, 91)),
               ),
@@ -53,7 +53,7 @@ class Middlecontainer extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(doctorsdatails['nopatients'],
+              Text(doctorsdatails['experince'],
                   style: const TextStyle(
                       fontSize: 18, color: Color.fromARGB(255, 92, 91, 91))),
               const Text("Experiences",

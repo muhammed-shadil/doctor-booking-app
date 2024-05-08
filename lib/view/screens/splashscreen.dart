@@ -6,10 +6,12 @@ import 'package:doctors_book_app/view/screens/Onboardign_screen.dart';
 import 'package:doctors_book_app/view/screens/bottomnaigation.dart';
 import 'package:doctors_book_app/view/screens/doctorsdetails_screen.dart';
 import 'package:doctors_book_app/view/screens/homepage/home_screen.dart';
+import 'package:doctors_book_app/view/screens/login_screen.dart';
 import 'package:doctors_book_app/view/screens/settings_Screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SplashScreenWrapper extends StatelessWidget {
   const SplashScreenWrapper({super.key});
@@ -31,21 +33,31 @@ class Splashscreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocListener<AuthBloc, AuthState>(
       listener: (context, state) async {
-        Timer(const Duration(seconds: 3), () {
-          // user != null
-          //     ? Navigator.pushReplacement(context,
-          //         MaterialPageRoute(builder: (_) => settingsScreenWrapper()))
-          //     : Navigator.pushReplacement(context,
-          //         MaterialPageRoute(builder: (_) => OnboardingWrapper()));
-          if (state is Authenticated) {
-            Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(
-                    builder: (_) => const BottomNavigationWrapper()));
-          } else if (state is UnAuthenticated) {
+        Timer(const Duration(seconds: 3), () async {
+          WidgetsFlutterBinding.ensureInitialized();
+          SharedPreferences prefs = await SharedPreferences.getInstance();
+          var key = prefs.getBool('loginkey');
+          if (key == null) {
             Navigator.pushReplacement(context,
-                MaterialPageRoute(builder: (_) => const OnboardingWrapper()));
+                MaterialPageRoute(builder: (_) => OnboardingWrapper()));
+          } else {
+            user != null
+                ? Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                        builder: (_) => BottomNavigationWrapper()))
+                : Navigator.pushReplacement(context,
+                    MaterialPageRoute(builder: (_) => LoginscreenWrapper()));
           }
+          // if (state is Authenticated) {
+          //   Navigator.pushReplacement(
+          //       context,
+          //       MaterialPageRoute(
+          //           builder: (_) => const BottomNavigationWrapper()));
+          // } else if (state is UnAuthenticated) {
+          //   Navigator.pushReplacement(context,
+          //       MaterialPageRoute(builder: (_) => const OnboardingWrapper()));
+          // }
         });
       },
       child: FlutterSplashScreen.fadeIn(

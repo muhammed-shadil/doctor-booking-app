@@ -2,9 +2,11 @@ import 'dart:async';
 
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:doctors_book_app/controller/bottomnavigation/bloc/bottomnavigation_bloc.dart';
+import 'package:doctors_book_app/view/screens/appointmentsScreen.dart';
 import 'package:doctors_book_app/view/screens/doctorsdetails_screen.dart';
 import 'package:doctors_book_app/view/screens/doctorslistscreen.dart';
 import 'package:doctors_book_app/view/screens/homepage/home_screen.dart';
+import 'package:doctors_book_app/view/screens/searchscreen.dart';
 import 'package:doctors_book_app/view/screens/settings_Screen.dart';
 import 'package:flashy_tab_bar2/flashy_tab_bar2.dart';
 import 'package:flutter/material.dart';
@@ -41,11 +43,8 @@ class _BottomNavigationState extends State<BottomNavigation> {
   List<Widget> screens = [
     HomeScreenWrapper(),
     DoctorsScreen(),
-    // HomeScreenWrapper(),
-    // DoctorsDetailsScreen(),
-    HomeScreenWrapper(),
-
-    settingsScreenWrapper(),
+    SearchScreen(),
+    AppointmetsScreen(),
     settingsScreenWrapper()
   ];
 
@@ -77,6 +76,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
   }
 
   showDialogBox() => showDialog(
+        barrierDismissible: false,
         context: context,
         builder: (context) => AlertDialog(
           backgroundColor: const Color.fromARGB(255, 238, 219, 225),
@@ -86,26 +86,28 @@ class _BottomNavigationState extends State<BottomNavigation> {
           ),
           iconColor: Colors.red,
           title: const Text('No Network!'),
-          content: const Text('Please check your Internet Connection or try again'),
+          content:
+              const Text('Please check your Internet Connection or try again'),
           actions: [
             ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color.fromARGB(255, 234, 28, 80)),
-                onPressed: () async {
-                  Navigator.pop(context);
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color.fromARGB(255, 234, 28, 80)),
+              onPressed: () async {
+                Navigator.pop(context);
+                setState(() {
+                  isAlertSet = false;
+                });
+                isDeviceConnected =
+                    await InternetConnectionChecker().hasConnection;
+                if (!isDeviceConnected) {
+                  showDialogBox();
                   setState(() {
-                    isAlertSet = false;
+                    isAlertSet = true;
                   });
-                  isDeviceConnected =
-                      await InternetConnectionChecker().hasConnection;
-                  if (!isDeviceConnected) {
-                    showDialogBox();
-                    setState(() {
-                      isAlertSet = true;
-                    });
-                  }
-                },
-                child: const Text('OK',style: TextStyle(color: Colors.white)),)
+                }
+              },
+              child: const Text('OK', style: TextStyle(color: Colors.white)),
+            )
           ],
         ),
       );
@@ -136,7 +138,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
                     FontAwesomeIcons.houseChimneyMedical,
                     size: 23,
                   ),
-                  title: const Text('HOME'),
+                  title: const Text('HOME', style: TextStyle(fontSize: 12)),
                   activeColor: Color.fromARGB(255, 0, 148, 149),
                 ),
                 FlashyTabBarItem(
@@ -144,19 +146,22 @@ class _BottomNavigationState extends State<BottomNavigation> {
                     FontAwesomeIcons.stethoscope,
                     size: 23,
                   ),
-                  title: const Text('DOCTORS'),
+                  title: const Text('DOCTORS', style: TextStyle(fontSize: 12)),
                 ),
                 FlashyTabBarItem(
                   icon: const Icon(Icons.search),
-                  title: Text('SEARCH'),
+                  title: Text('SEARCH', style: TextStyle(fontSize: 12)),
                 ),
                 FlashyTabBarItem(
                   icon: const Icon(Icons.library_books_outlined),
-                  title: Text('APPOINTMENT'),
+                  title: Text(
+                    'APPOINTMENT',
+                    style: TextStyle(fontSize: 9),
+                  ),
                 ),
                 FlashyTabBarItem(
                   icon: const Icon(Icons.settings),
-                  title: const Text('SETTINGS'),
+                  title: const Text('SETTINGS', style: TextStyle(fontSize: 12)),
                 ),
               ],
             ),

@@ -119,16 +119,15 @@ class HomeSpecialist extends StatelessWidget {
               child: StreamBuilder(
                   stream: FirebaseFirestore.instance
                       .collection("doctors")
+                      .orderBy('nopatients', descending: true)
                       .snapshots(),
                   builder: (context, snapshot) {
                     if (snapshot.hasData) {
                       return ListView.builder(
                           shrinkWrap: true,
-                          itemCount: snapshot.data!.docs.length,
+                          itemCount: 6,
                           scrollDirection: Axis.horizontal,
                           itemBuilder: (BuildContext context, int index) {
-                            // final category = snapshot.data?.docs[index].data();
-                            // if (category != null) {
                             final doctorsdata =
                                 snapshot.data!.docs[index].data();
                             return Padding(

@@ -52,6 +52,7 @@ class MainTextField extends StatelessWidget {
             child: BlocBuilder<PasswordCubit, bool>(
               builder: (context, ispasswordvisible) {
                 return TextFormField(
+                  textInputAction: TextInputAction.next,
                   inputFormatters: [
                     FilteringTextInputFormatter.deny(RegExp(r'\s')),
                   ],

@@ -5,6 +5,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:doctors_book_app/model/model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:meta/meta.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 part 'auth_event.dart';
 part 'auth_state.dart';
@@ -69,6 +70,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       final user = usercredential.user;
       if (user != null) {
         emit(Authenticated(user));
+        var sharedPref = await SharedPreferences.getInstance();
+        sharedPref.setBool("loginkey", true);
       } else {
         emit(UnAuthenticated());
       }
@@ -86,6 +89,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       await FirebaseAuth.instance.signOut();
 
       emit(UnAuthenticated());
+      var sharedPref = await SharedPreferences.getInstance();
+      sharedPref.setBool("loginkey", false);
     } catch (e) {
       emit(AuthenticatedError(message: e.toString()));
     }
