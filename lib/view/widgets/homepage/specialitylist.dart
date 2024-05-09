@@ -33,11 +33,11 @@ class specialist {
         firsttext: "Oncology",
         secondtext: "specialist",
         thirdtext: 2),
-    specialistmodel(
-        icon1: "assets/icons/icons8-neurology-68.png",
-        firsttext: "Ophthalmology",
-        secondtext: "specialist",
-        thirdtext: 5),
+    // specialistmodel(
+    //     icon1: "assets/icons/icons8-neurology-68.png",
+    //     firsttext: "Ophthalmology",
+    //     secondtext: "specialist",
+    //     thirdtext: 5),
     specialistmodel(
         icon1: "assets/icons/icons8-knee-joint-50.png",
         firsttext: "Orthopedic Surgery",

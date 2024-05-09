@@ -38,21 +38,23 @@ class HomeSpecialist extends StatelessWidget {
           ),
           SizedBox(
               height: 120,
-              child: StreamBuilder(
-                  stream: FirebaseFirestore.instance
-                      .collection("doctors")
-                      .where("speciality")
-                      .snapshots(),
-                  builder: (context, snapshot) {
-                    if (snapshot.hasData) {
-                      return ListView.builder(
-                          shrinkWrap: true,
-                          itemCount: specialis.specialistdata.length,
-                          scrollDirection: Axis.horizontal,
-                          itemBuilder: (BuildContext context, int index) {
-                            final doctorspecial =
-                                snapshot.data!.docs[index].data();
-
+              child: ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: specialis.specialistdata.length,
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (BuildContext context, int index) {
+                    
+                    return StreamBuilder(
+                        stream: FirebaseFirestore.instance
+                            .collection("doctors")
+                            .where(
+                              "speciality",
+                              isEqualTo:
+                                  specialis.specialistdata[index].firsttext,
+                            )
+                            .snapshots(),
+                        builder: (context, snapshot) {
+                          if (snapshot.hasData) {
                             return Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: GestureDetector(
@@ -60,27 +62,32 @@ class HomeSpecialist extends StatelessWidget {
                                     Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                            builder: (_) =>  CategoryScreen(title:specialis.specialistdata[index].firsttext,)));
+                                            builder: (_) => CategoryScreen(
+                                                  title: specialis
+                                                      .specialistdata[index]
+                                                      .firsttext,
+                                                )));
                                   },
                                   child: Specialistverticalscroll(
-                                      firsttext:
-                                          specialis.specialistdata[index].firsttext,
-                                          // doctorspecial['speciality'],
+                                      firsttext: specialis
+                                          .specialistdata[index].firsttext,
+                                      // doctorspecial['speciality'],
                                       secondtext:
                                           // specialis.specialistdata[index].firsttext.length >=
                                           //         20
                                           //     ? ""
                                           //     :
-                                               specialis.specialistdata[index]
-                                                  .secondtext,
+                                          specialis
+                                              .specialistdata[index].secondtext,
                                       thirdtext:
-                                          "${specialis.specialistdata[index].thirdtext} doctors",
-                                      icon: specialis
+                                          //  "0 doctors"
+                                           "${snapshot.data!.docs.length} doctors"
+                                      ,icon: specialis
                                           .specialistdata[index].icon1),
                                 ));
-                          });
-                    }
-                    return Container();
+                          }
+                          return Container();
+                        });
                   })),
           const Padding(
             padding: EdgeInsets.only(top: 16, left: 15),
