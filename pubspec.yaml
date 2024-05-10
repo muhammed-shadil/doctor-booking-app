@@ -52,6 +52,10 @@ dependencies:
   connectivity_plus: ^6.0.3
   shared_preferences: ^2.2.3
   easy_date_timeline: ^1.0.7
+  drop_down_list: ^0.0.6
+  dropdown_model_list: ^2.1.1
+  uuid: ^4.4.0
+  dropdown_button2: ^2.3.9
 dev_dependencies:
   flutter_test:
     sdk: flutter

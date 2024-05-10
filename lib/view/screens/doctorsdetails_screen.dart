@@ -38,8 +38,7 @@ class DoctorsDetailsScreen extends StatelessWidget {
                                 // color: Color.fromARGB(255, 0, 148, 149),
                                 ),
                             width: MediaQuery.of(context).size.width,
-                            height:
-                                MediaQuery.of(context).size.height * 0.69,
+                            height: MediaQuery.of(context).size.height * 0.69,
                             child: Image.network(
                               doctorsdatails['image'],
                               fit: BoxFit.cover,
@@ -98,8 +97,7 @@ class DoctorsDetailsScreen extends StatelessWidget {
                     const Text(
                       "Working time",
                       style: TextStyle(
-                          fontSize: 22,
-                          color: Color.fromARGB(255, 64, 63, 63)),
+                          fontSize: 22, color: Color.fromARGB(255, 64, 63, 63)),
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 10),
@@ -114,8 +112,9 @@ class DoctorsDetailsScreen extends StatelessWidget {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (_) =>
-                                        NewAppointmentScreen()));
+                                    builder: (_) => NewAppointmentScreenWrapper(
+                                        doctorname:
+                                            doctorsdatails['doctorname'])));
                           },
                         ),
                       ],

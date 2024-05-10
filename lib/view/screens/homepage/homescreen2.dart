@@ -43,7 +43,6 @@ class HomeSpecialist extends StatelessWidget {
                   itemCount: specialis.specialistdata.length,
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (BuildContext context, int index) {
-                    
                     return StreamBuilder(
                         stream: FirebaseFirestore.instance
                             .collection("doctors")
@@ -81,8 +80,8 @@ class HomeSpecialist extends StatelessWidget {
                                               .specialistdata[index].secondtext,
                                       thirdtext:
                                           //  "0 doctors"
-                                           "${snapshot.data!.docs.length} doctors"
-                                      ,icon: specialis
+                                          "${snapshot.data!.docs.length} doctors",
+                                      icon: specialis
                                           .specialistdata[index].icon1),
                                 ));
                           }
