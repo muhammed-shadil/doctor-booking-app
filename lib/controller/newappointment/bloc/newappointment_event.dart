@@ -25,3 +25,9 @@ class NewpatientEvent extends NewappointmentEvent {
     required this.patientdetails,
   });
 }
+class DropdowngenderEvent extends NewappointmentEvent {
+final String selectgender;
+  DropdowngenderEvent({
+    required this.selectgender,
+  });
+}

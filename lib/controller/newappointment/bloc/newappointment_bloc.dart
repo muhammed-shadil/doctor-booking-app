@@ -44,5 +44,8 @@ class NewappointmentBloc
         emit(NewpatientErrorState(msg: e.toString()));
       }
     });
+    on<DropdowngenderEvent>((event, emit){
+      emit(DropdowngenderState(gender: event.selectgender));
+    });
   }
 }

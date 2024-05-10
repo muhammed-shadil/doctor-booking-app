@@ -25,7 +25,7 @@ class Successpop extends StatelessWidget {
         child: AlertDialog(
           shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(27)),
-              side: BorderSide(color: const Color.fromARGB(255, 44, 176, 176))),
+              side: BorderSide(color: Color.fromARGB(255, 44, 176, 176))),
           icon: Icon(
             icon,
             color: iconColor,
@@ -40,29 +40,27 @@ class Successpop extends StatelessWidget {
                 const Text(
                   "SUCCESS ",
                   style: TextStyle(
-                      color: const Color.fromARGB(255, 44, 176, 176),
+                      color: Color.fromARGB(255, 44, 176, 176),
                       fontWeight: FontWeight.w600,
                       fontSize: 29),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 10, top: 10),
-                  child: Text(
-                    msg,
-                    style: const TextStyle(fontSize: 21,
-                      color: Color.fromARGB(255, 116, 116, 115),
-                    ),
-                    textAlign: TextAlign.center
-                  ),
+                  child: Text(msg,
+                      style: const TextStyle(
+                        fontSize: 21,
+                        color: Color.fromARGB(255, 116, 116, 115),
+                      ),
+                      textAlign: TextAlign.center),
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 13),
                   child: Alerlconfirmtbutton(
                     buttontext: "OK",
-                   color: const Color.fromARGB(255, 115, 118, 145),
-                   onpressed: onConfirm,
+                    color: const Color.fromARGB(255, 115, 118, 145),
+                    onpressed: onConfirm,
                   ),
                 ),
-               
               ],
             ),
           ),

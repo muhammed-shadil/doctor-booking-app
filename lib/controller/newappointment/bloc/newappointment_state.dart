@@ -31,3 +31,9 @@ class NewpatientErrorState extends NewappointmentState {
     required this.msg,
   });
 }
+class DropdowngenderState extends NewappointmentState {
+  final String gender;
+  DropdowngenderState({
+    required this.gender,
+  });
+}
