@@ -32,7 +32,7 @@ class _AppointmetsScreenState extends State<AppointmetsScreen> {
                 children: [
                   Text(
                     DateFormat('dd-MM-yyyy').format(ss),
-                    style: TextStyle(fontSize: 18),
+                    style: const TextStyle(fontSize: 18),
                   ),
                   IconButton(
                       onPressed: () {
