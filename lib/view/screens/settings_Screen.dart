@@ -45,7 +45,7 @@ class SettingsScreen extends StatelessWidget {
                   builder: (context) => ConfirmAlert(
                       msg: "Are you sure you want to log out?",
                       icon: Icons.logout_outlined,
-                      iconColor: Color.fromARGB(255, 231, 93, 127),
+                      iconColor: const Color.fromARGB(255, 231, 93, 127),
                       onConfirm: () {
                         authBloc.add(LogoutEvent());
                         Navigator.pushAndRemoveUntil(

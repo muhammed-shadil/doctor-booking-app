@@ -43,7 +43,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
   List<Widget> screens = [
     HomeScreenWrapper(),
     DoctorsScreen(),
-    SearchScreen(),
+    SearchScreenWrapper(),
     AppointmetsScreen(),
     settingsScreenWrapper()
   ];
