@@ -174,6 +174,7 @@ class _NewAppointmentScreenState extends State<NewAppointmentScreen> {
                           BlocProvider.of<NewappointmentBloc>(context)
                               .add(datepickEvent(date: selectedDate));
                           // fetchBookedTimeSlots(selectedDate, widget.doctorname);
+                          print(selectedDate);
                         },
                         activeColor: const Color.fromARGB(255, 44, 176, 176),
                         dayProps: const EasyDayProps(
@@ -373,7 +374,7 @@ class _NewAppointmentScreenState extends State<NewAppointmentScreen> {
                         height: MediaQuery.of(context).size.height * 0.09,
                         child: Mainbutton(
                           buttontext: "Confirm ",
-                          onpressed: () {
+                          onpressed: () {print("$date gggggggggg");
                             if (formKey.currentState!.validate()) {
                               patient patientsdetails = patient(
                                   patientname: patientcontroller.text,
@@ -385,7 +386,7 @@ class _NewAppointmentScreenState extends State<NewAppointmentScreen> {
                                   time: selecttime,
                                   date: date,
                                   doctorname: widget.doctorname);
-
+                              print(date);
                               BlocProvider.of<NewappointmentBloc>(context).add(
                                   NewpatientEvent(
                                       patientdetails: patientsdetails));
