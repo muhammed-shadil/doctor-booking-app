@@ -100,7 +100,7 @@ class DoctorsScreen extends StatelessWidget {
                                                   .toUpperCase(),
                                               style: const TextStyle(
                                                   fontSize: 18,
-                                                  fontWeight: FontWeight.w500),
+                                                  fontWeight: FontWeight.w500,color: Color.fromARGB(255, 122, 118, 118)),
                                             ),
                                             Padding(
                                               padding:

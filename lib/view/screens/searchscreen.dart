@@ -25,12 +25,14 @@ class SearchScreen extends StatefulWidget {
 
 class _SearchScreenState extends State<SearchScreen> {
   String name = "";
+  String specialty = "";
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<SearchBloc, SearchState>(
       builder: (context, state) {
         if (state is SearchDoctorsState) {
           name = state.result;
+          specialty = state.result;
         }
         return Scaffold(
             backgroundColor: const Color.fromARGB(255, 240, 240, 241),
@@ -95,35 +97,16 @@ class _SearchScreenState extends State<SearchScreen> {
                           var data = snapshots.data!.docs[index].data()
                               as Map<String, dynamic>;
 
-                          // if (name.isEmpty) {
-                          //   return ListTile(
-                          //     title: Text(
-                          //       data['doctorname'],
-                          //       maxLines: 1,
-                          //       overflow: TextOverflow.ellipsis,
-                          //       style: TextStyle(
-                          //           color: Colors.black54,
-                          //           fontSize: 16,
-                          //           fontWeight: FontWeight.bold),
-                          //     ),
-                          //     subtitle: Text(
-                          //       data['speciality'],
-                          //       maxLines: 1,
-                          //       overflow: TextOverflow.ellipsis,
-                          //       style: TextStyle(
-                          //           color: Colors.black54,
-                          //           fontSize: 16,
-                          //           fontWeight: FontWeight.bold),
-                          //     ),
-                          //     leading: CircleAvatar(
-                          //       backgroundImage: NetworkImage(data['image']),
-                          //     ),
-                          //   );
-                          // }
-                          if (data['doctorname']
-                              .toString()
-                              .toLowerCase()
-                              .contains(name.toLowerCase())) {
+                          if ((name.isEmpty ||
+                                  data['doctorname']
+                                      .toString()
+                                      .toLowerCase()
+                                      .contains(name.toLowerCase())) ||
+                              (specialty.isEmpty ||
+                                  data['speciality']
+                                      .toString()
+                                      .toLowerCase()
+                                      .contains(specialty.toLowerCase()))) {
                             return GestureDetector(
                               onTap: () {
                                 Navigator.push(

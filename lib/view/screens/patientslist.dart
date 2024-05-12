@@ -5,6 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:intl/intl.dart';
 
 class PatientsList extends StatelessWidget {
@@ -64,7 +65,7 @@ class PatientsList extends StatelessWidget {
                 ),
                 Container(
                   width: MediaQuery.of(context).size.width * 0.85,
-                  height: MediaQuery.of(context).size.height*0.84,
+                  height: MediaQuery.of(context).size.height * 0.84,
                   child: StreamBuilder(
                       stream: FirebaseFirestore.instance
                           .collection('users')
@@ -231,15 +232,21 @@ class PatientsList extends StatelessWidget {
                                 });
                           }
                         }
-                        return Center(
+                        return Container(
                           child: hasPatients
                               ? Container()
-                              : Text(
-                                  textAlign: TextAlign.center,
-                                  'No patients found for $doctorname on ${DateFormat('dd-MM-yyyy').format(selectdate)}',
-                                  style: const TextStyle(
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.w400),
+                              : Column(
+                                  children: [
+                                    SvgPicture.asset(
+                                        "assets/checkup-with-doctor-n8ChwgYoAQ.svg"),
+                                    Text(
+                                      textAlign: TextAlign.center,
+                                      'No patients found for $doctorname on ${DateFormat('dd-MM-yyyy').format(selectdate)}',
+                                      style: const TextStyle(color: Color.fromARGB(255, 124, 124, 124),
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.w400),
+                                    ),
+                                  ],
                                 ),
                         );
                       }),

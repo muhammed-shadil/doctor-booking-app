@@ -13,7 +13,7 @@ class SettingsListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 70,
+      height: 60,
       width: 370,
       child: ListTile(
         trailing: const Icon(Icons.arrow_forward_ios,size: 15,),
@@ -22,10 +22,10 @@ class SettingsListTile extends StatelessWidget {
             fontSize: 18, color: Color.fromARGB(255, 118, 114, 114)),
         leading: CircleAvatar(
           backgroundColor: const Color.fromARGB(255, 207, 230, 231),
-          radius: 25,
+          radius: 23,
           child: Icon(
             contentIcon,
-            size: 28,
+            size: 24,
             color: const Color.fromARGB(255, 0, 148, 149),
           ),
         ),

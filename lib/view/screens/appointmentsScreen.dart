@@ -53,15 +53,18 @@ class _AppointmetsScreenState extends State<AppointmetsScreen> {
           child: Column(
             children: [
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(2.0),
                 child: BlocBuilder<NewappointmentBloc, NewappointmentState>(
                   builder: (context, state) {
                     return Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(
-                          DateFormat('dd-MM-yyyy').format(ss),
-                          style: const TextStyle(fontSize: 18),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 11.0),
+                          child: Text(
+                            DateFormat('dd-MM-yyyy').format(ss),
+                            style: const TextStyle(fontSize: 18),
+                          ),
                         ),
                         IconButton(
                             onPressed: () {
@@ -103,7 +106,10 @@ class _AppointmetsScreenState extends State<AppointmetsScreen> {
                                 bottomPickerTheme: BottomPickerTheme.plumPlate,
                               ).show(context);
                             },
-                            icon: const Icon(Icons.calendar_month)),
+                            icon: const Icon(
+                              Icons.calendar_month,
+                              color: Color.fromARGB(255, 0, 148, 149),
+                            )),
                       ],
                     );
                   },
@@ -117,7 +123,7 @@ class _AppointmetsScreenState extends State<AppointmetsScreen> {
                     if (snapshot.connectionState == ConnectionState.waiting) {
                       return SizedBox(
                         width: MediaQuery.of(context).size.width,
-                        height: MediaQuery.of(context).size.height*0.5,
+                        height: MediaQuery.of(context).size.height * 0.5,
                         child: const Center(
                           child: CircularProgressIndicator(),
                         ),
@@ -184,7 +190,9 @@ class _AppointmetsScreenState extends State<AppointmetsScreen> {
                                                 .toUpperCase(),
                                             style: const TextStyle(
                                                 fontSize: 18,
-                                                fontWeight: FontWeight.w500),
+                                                fontWeight: FontWeight.w500,
+                                                color: Color.fromARGB(
+                                                    255, 122, 118, 118)),
                                           ),
                                           Padding(
                                             padding: const EdgeInsets.symmetric(
