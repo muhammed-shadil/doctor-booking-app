@@ -27,13 +27,13 @@ class _BottomNavigationWrapperState extends State<BottomNavigationWrapper> {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => BottomnavigationBloc(),
-      child: BottomNavigation(),
+      child: const BottomNavigation(),
     );
   }
 }
 
 class BottomNavigation extends StatefulWidget {
-  BottomNavigation({super.key});
+  const BottomNavigation({super.key});
 
   @override
   State<BottomNavigation> createState() => _BottomNavigationState();
@@ -41,11 +41,11 @@ class BottomNavigation extends StatefulWidget {
 
 class _BottomNavigationState extends State<BottomNavigation> {
   List<Widget> screens = [
-    HomeScreenWrapper(),
-    DoctorsScreen(),
-    SearchScreenWrapper(),
-    AppointmetsScreen(),
-    settingsScreenWrapper()
+    const HomeScreenWrapper(),
+    const DoctorsScreen(),
+    const SearchScreenWrapper(),
+    const AppointmentScreenWrapper(),
+    const settingsScreenWrapper()
   ];
 
   var isDeviceConnected = false;
@@ -139,7 +139,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
                     size: 23,
                   ),
                   title: const Text('HOME', style: TextStyle(fontSize: 12)),
-                  activeColor: Color.fromARGB(255, 0, 148, 149),
+                  activeColor: const Color.fromARGB(255, 0, 148, 149),
                 ),
                 FlashyTabBarItem(
                   icon: const FaIcon(
@@ -150,11 +150,11 @@ class _BottomNavigationState extends State<BottomNavigation> {
                 ),
                 FlashyTabBarItem(
                   icon: const Icon(Icons.search),
-                  title: Text('SEARCH', style: TextStyle(fontSize: 12)),
+                  title: const Text('SEARCH', style: TextStyle(fontSize: 12)),
                 ),
                 FlashyTabBarItem(
                   icon: const Icon(Icons.library_books_outlined),
-                  title: Text(
+                  title: const Text(
                     'APPOINTMENT',
                     style: TextStyle(fontSize: 9),
                   ),

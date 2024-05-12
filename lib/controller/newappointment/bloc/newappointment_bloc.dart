@@ -47,5 +47,7 @@ class NewappointmentBloc
     on<DropdowngenderEvent>((event, emit){
       emit(DropdowngenderState(gender: event.selectgender));
     });
+
+    
   }
 }

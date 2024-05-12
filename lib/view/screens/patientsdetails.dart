@@ -44,7 +44,7 @@ class PatientsDetails extends StatelessWidget {
                     ),
                   ),
                   const Padding(
-                    padding: EdgeInsets.only(left: 50),
+                    padding: EdgeInsets.only(left: 35),
                     child: Text(
                       "Patients Details",
                       style: TextStyle(
@@ -83,14 +83,17 @@ class PatientsDetails extends StatelessWidget {
                         firstname: "Patientname :",
                         secondname: patietsdata['patientname']),
                     patientRow(
-                        firstname: "Age                :", secondname: patietsdata['age']),
+                        firstname: "Age                :",
+                        secondname: patietsdata['age']),
                     patientRow(
                         firstname: "Gender           :",
                         secondname: patietsdata['gender']),
                     patientRow(
-                        firstname: "Email             :", secondname: patietsdata['email']),
+                        firstname: "Email             :",
+                        secondname: patietsdata['email']),
                     patientRow(
-                        firstname: "Phone            :", secondname: patietsdata['phone']),
+                        firstname: "Phone            :",
+                        secondname: patietsdata['phone']),
                   ],
                 ),
               ),
@@ -122,7 +125,8 @@ class PatientsDetails extends StatelessWidget {
                         firstname: "Doctor           :",
                         secondname: patietsdata['doctorname']),
                     patientRow(
-                        firstname: "Time              :", secondname: patietsdata['time']),
+                        firstname: "Time              :",
+                        secondname: patietsdata['time']),
                     // patientRow(
                     //     firstname: "Date              :",
                     //     secondname: patietsdata['date']),
