@@ -14,13 +14,13 @@ class OnboardingWrapper extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => OnbordingBloc(),
-      child: OnboadingScreen(),
+      child: const OnboadingScreen(),
     );
   }
 }
 
 class OnboadingScreen extends StatefulWidget {
-  OnboadingScreen({super.key});
+  const OnboadingScreen({super.key});
 
   @override
   State<OnboadingScreen> createState() => _OnboadingScreenState();
@@ -63,8 +63,8 @@ class _OnboadingScreenState extends State<OnboadingScreen> {
                     }),
               ),
               Positioned(
-                  bottom: MediaQuery.of(context).size.height*0.07,
-                  left: MediaQuery.of(context).size.width*0.18,
+                  bottom: MediaQuery.of(context).size.height * 0.07,
+                  left: MediaQuery.of(context).size.width * 0.18,
                   child: SizedBox(
                     child: Column(
                       children: [
@@ -77,7 +77,8 @@ class _OnboadingScreenState extends State<OnboadingScreen> {
                               Navigator.pushReplacement(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (_) => LoginscreenWrapper()));
+                                      builder: (_) =>
+                                          const LoginscreenWrapper()));
                             } else {
                               pageController.nextPage(
                                 duration: const Duration(milliseconds: 500),

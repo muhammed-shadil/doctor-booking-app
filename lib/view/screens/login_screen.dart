@@ -166,10 +166,6 @@ class LoginScreen extends StatelessWidget {
                                               email: emailcontroller.text,
                                               password:
                                                   passwordcontroller.text));
-
-                                      // authBlocBlo.add(LoginEvent(
-                                      //     email: _emailcontroller.text,
-                                      //     password: _passwordcontroller.text));
                                     }
                                   },
                                   buttontext: "Sign in",

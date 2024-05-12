@@ -237,7 +237,7 @@ class PatientsList extends StatelessWidget {
                               : Text(
                                   textAlign: TextAlign.center,
                                   'No patients found for $doctorname on ${DateFormat('dd-MM-yyyy').format(selectdate)}',
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       fontSize: 18,
                                       fontWeight: FontWeight.w400),
                                 ),

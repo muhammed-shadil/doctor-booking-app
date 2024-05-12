@@ -20,13 +20,13 @@ class Alerltbutton extends StatelessWidget {
         style: ElevatedButton.styleFrom(
           shape: RoundedRectangleBorder(
             side: const BorderSide(
-              color: Color.fromARGB(255, 240, 14, 71), // Set the button color
+              color: Color.fromARGB(255, 240, 14, 71), 
             ),
             borderRadius:
-                BorderRadius.circular(10), // Adjust the border radius here
+                BorderRadius.circular(10),
           ),
           backgroundColor:
-              const Color.fromARGB(255, 238, 219, 225), // Set the button color
+              const Color.fromARGB(255, 238, 219, 225), 
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,

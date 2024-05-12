@@ -53,6 +53,7 @@ class HomeSpecialist extends StatelessWidget {
                             )
                             .snapshots(),
                         builder: (context, snapshot) {
+                          
                           if (snapshot.hasData) {
                             return Padding(
                                 padding: const EdgeInsets.all(8.0),
@@ -155,6 +156,12 @@ class HomeSpecialist extends StatelessWidget {
                       .orderBy('nopatients', descending: true)
                       .snapshots(),
                   builder: (context, snapshot) {
+                    if (snapshot.connectionState ==
+                                      ConnectionState.waiting) {
+                                    return const Center(
+                                      child: CircularProgressIndicator(),
+                                    );
+                                  }
                     if (snapshot.hasData) {
                       return ListView.builder(
                           shrinkWrap: true,

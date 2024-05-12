@@ -101,8 +101,15 @@ class SettingsScreen extends StatelessWidget {
                                 builder: (context, snapshot) {
                                   if (snapshot.connectionState ==
                                       ConnectionState.waiting) {
-                                    return const Center(
-                                      child: CircularProgressIndicator(),
+                                    return SizedBox(
+                                      width: MediaQuery.of(context).size.width *
+                                          0.88,
+                                      height:
+                                          MediaQuery.of(context).size.width *
+                                              0.235,
+                                      child: const Center(
+                                        child: CircularProgressIndicator(),
+                                      ),
                                     );
                                   }
                                   if (snapshot.hasData) {
@@ -122,7 +129,8 @@ class SettingsScreen extends StatelessWidget {
                                         height:
                                             MediaQuery.of(context).size.width *
                                                 0.235,
-                                        child: SingleChildScrollView(scrollDirection: Axis.horizontal,
+                                        child: SingleChildScrollView(
+                                          scrollDirection: Axis.horizontal,
                                           child: Row(
                                             mainAxisAlignment:
                                                 MainAxisAlignment.spaceBetween,
@@ -132,11 +140,13 @@ class SettingsScreen extends StatelessWidget {
                                                   Padding(
                                                     padding:
                                                         const EdgeInsets.only(
-                                                            left: 13, right: 20),
+                                                            left: 13,
+                                                            right: 20),
                                                     child: SizedBox(
                                                       width: 65,
                                                       height: 65,
-                                                      child: (userData['image'] ==
+                                                      child: (userData[
+                                                                  'image'] ==
                                                               null)
                                                           ? const Icon(Icons
                                                               .person_4_outlined)
@@ -147,17 +157,21 @@ class SettingsScreen extends StatelessWidget {
                                                                           10),
                                                               child:
                                                                   Image.network(
-                                                                userData['image'],
-                                                                fit: BoxFit.cover,
+                                                                userData[
+                                                                    'image'],
+                                                                fit: BoxFit
+                                                                    .cover,
                                                               ),
                                                             ),
                                                     ),
                                                   ),
                                                   Column(
                                                     crossAxisAlignment:
-                                                        CrossAxisAlignment.start,
+                                                        CrossAxisAlignment
+                                                            .start,
                                                     mainAxisAlignment:
-                                                        MainAxisAlignment.center,
+                                                        MainAxisAlignment
+                                                            .center,
                                                     children: [
                                                       const Text(
                                                         "Hello!",
@@ -169,17 +183,25 @@ class SettingsScreen extends StatelessWidget {
                                                               255, 0, 148, 149),
                                                         ),
                                                       ),
-                                                      Container(width: 179,
+                                                      SizedBox(
+                                                        width: 179,
                                                         child: Text(
                                                           "${userData['username']}"
-                                                              .toUpperCase(),maxLines: 1,
-                                                              overflow: TextOverflow.ellipsis,
-                                                          style: const TextStyle(
+                                                              .toUpperCase(),
+                                                          maxLines: 1,
+                                                          overflow: TextOverflow
+                                                              .ellipsis,
+                                                          style:
+                                                              const TextStyle(
                                                             fontWeight:
                                                                 FontWeight.w900,
                                                             fontSize: 23,
-                                                            color: Color.fromARGB(
-                                                                255, 0, 148, 149),
+                                                            color:
+                                                                Color.fromARGB(
+                                                                    255,
+                                                                    0,
+                                                                    148,
+                                                                    149),
                                                           ),
                                                         ),
                                                       )
@@ -194,7 +216,8 @@ class SettingsScreen extends StatelessWidget {
                                                     right: 7),
                                                 decoration: BoxDecoration(
                                                     borderRadius:
-                                                        BorderRadius.circular(5),
+                                                        BorderRadius.circular(
+                                                            5),
                                                     color: const Color.fromARGB(
                                                         255, 226, 235, 237)),
                                                 child: IconButton(
@@ -207,12 +230,6 @@ class SettingsScreen extends StatelessWidget {
                                                                     userDatas:
                                                                         userData,
                                                                   )));
-                                                      // Navigator.push(
-                                                      //     context,
-                                                      //     MaterialPageRoute(
-                                                      //         builder: (_) =>
-                                                      //             OnboardingWrapper())
-                                                      //             );
                                                     },
                                                     icon: const Icon(
                                                       Icons.edit,
@@ -242,17 +259,14 @@ class SettingsScreen extends StatelessWidget {
                 content: 'Privacy policy',
                 contentIcon: Icons.privacy_tip_sharp,
               ),
-
               const SettingsListTile(
                 content: 'Feedback and support',
                 contentIcon: Icons.thumb_up_alt,
               ),
-
               const SettingsListTile(
                 content: 'FAQs',
                 contentIcon: Icons.question_answer,
               ),
-
               const SettingsListTile(
                 content: 'Help',
                 contentIcon: Icons.live_help,
@@ -260,34 +274,12 @@ class SettingsScreen extends StatelessWidget {
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.04,
               ),
-
               Alerltbutton(
                 buttontext: "Log out",
                 onpressed: () {
                   authBloc.add(LogoutConfirmEvent());
                 },
               )
-              // Mainbutton(buttontext: "Logout",onpressed: (){},)
-              // Container(
-              //   decoration: BoxDecoration(
-              //     borderRadius: BorderRadius.circular(10),
-              //     color: Color.fromARGB(255, 205, 204, 200),
-              //   ),
-              //   width: 350,
-              //   height: 85,
-              //   child: const Row(
-              //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              //     children: [
-              //       CircleAvatar(
-              //         radius: 30,
-              //       ),
-              //       Text(
-              //         "about us",
-              //       ),
-              //       Icon(Icons.arrow_forward_ios)
-              //     ],
-              //   ),
-              // ),
             ],
           ),
         ),

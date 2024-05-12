@@ -41,15 +41,12 @@ class Dropdownfield extends StatelessWidget {
           autovalidateMode: AutovalidateMode.onUserInteraction,
           isExpanded: true,
           decoration: const InputDecoration(
-            // Add Horizontal padding using menuItemStyleData.padding so it matches
-            // the menu padding when button's width is not specified.
             contentPadding: EdgeInsets.symmetric(vertical: 0),
             border: UnderlineInputBorder(
               borderSide: BorderSide(
                 color: Color.fromARGB(255, 68, 73, 53),
               ),
             ),
-            // Add more decoration..
           ),
           hint: const Text(
             'Select Your Gender',
@@ -72,7 +69,6 @@ class Dropdownfield extends StatelessWidget {
             print(value);
             BlocProvider.of<NewappointmentBloc>(context)
                 .add(DropdowngenderEvent(selectgender: value.toString()));
-            //Do something when selected item is changed.
           },
           // onSaved: (value) {
           //   selectedValue = value.toString();

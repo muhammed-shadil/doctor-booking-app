@@ -5,7 +5,7 @@ import 'package:doctors_book_app/view/widgets/dropdownfield.dart';
 import 'package:doctors_book_app/view/widgets/loading.dart';
 import 'package:easy_date_timeline/easy_date_timeline.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/foundation.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_icon_class/font_awesome_icon_class.dart';
@@ -97,7 +97,6 @@ class _NewAppointmentScreenState extends State<NewAppointmentScreen> {
               builder: (context) => Successpop(
                   msg: "Your appointment booking successfully scheduled.",
                   icon: FontAwesomeIcons.checkToSlot,
-                  // Icons.file_download_done_sharp,
                   iconColor: const Color.fromARGB(255, 44, 176, 176),
                   onConfirm: () {
                     Navigator.pushAndRemoveUntil(
@@ -374,7 +373,8 @@ class _NewAppointmentScreenState extends State<NewAppointmentScreen> {
                         height: MediaQuery.of(context).size.height * 0.09,
                         child: Mainbutton(
                           buttontext: "Confirm ",
-                          onpressed: () {print("$date gggggggggg");
+                          onpressed: () {
+                            print("$date gggggggggg");
                             if (formKey.currentState!.validate()) {
                               patient patientsdetails = patient(
                                   patientname: patientcontroller.text,

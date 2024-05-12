@@ -76,7 +76,7 @@ class PatientsDetails extends StatelessWidget {
               ),
 
               Container(
-                margin: EdgeInsets.only(left: 50),
+                margin: const EdgeInsets.only(left: 50),
                 child: Column(
                   children: [
                     patientRow(
@@ -118,7 +118,7 @@ class PatientsDetails extends StatelessWidget {
               ),
 
               Container(
-                margin: EdgeInsets.only(left: 50),
+                margin: const EdgeInsets.only(left: 50),
                 child: Column(
                   children: [
                     patientRow(

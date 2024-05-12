@@ -35,7 +35,7 @@ class OnbordingMainWidget extends StatelessWidget {
           child: Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(30),
-              color: Color.fromARGB(255, 228, 227, 227),
+              color: const Color.fromARGB(255, 228, 227, 227),
             ),
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height * 0.59,
@@ -44,7 +44,8 @@ class OnbordingMainWidget extends StatelessWidget {
         Positioned(
           top: MediaQuery.of(context).size.width * 0.79,
           left: MediaQuery.of(context).size.width * 0.07,
-          child: Container(padding: EdgeInsets.only(top: 30,left: 24,right: 24),
+          child: Container(
+            padding: const EdgeInsets.only(top: 30, left: 24, right: 24),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
               color: Colors.white,
@@ -60,14 +61,17 @@ class OnbordingMainWidget extends StatelessWidget {
                     text: TextSpan(
                         text: onBoarding.title1,
                         style: const TextStyle(
-                            fontSize: 29,
-                            fontWeight: FontWeight.w300,
-                            color: Color.fromARGB(255, 0, 148, 149),),
+                          fontSize: 29,
+                          fontWeight: FontWeight.w300,
+                          color: Color.fromARGB(255, 0, 148, 149),
+                        ),
                         children: [
                           TextSpan(
                             text: onBoarding.title2,
-                            style: const TextStyle(color:  Color.fromARGB(255, 0, 148, 149),
-                                fontWeight: FontWeight.w500, fontSize: 29),
+                            style: const TextStyle(
+                                color: Color.fromARGB(255, 0, 148, 149),
+                                fontWeight: FontWeight.w500,
+                                fontSize: 29),
                           )
                         ]),
                   ),
@@ -75,9 +79,10 @@ class OnbordingMainWidget extends StatelessWidget {
                   Text(
                     onBoarding.description,
                     style: const TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w400,
-                        color:  Color.fromARGB(255, 159, 155, 155),),
+                      fontSize: 16,
+                      fontWeight: FontWeight.w400,
+                      color: Color.fromARGB(255, 159, 155, 155),
+                    ),
                     textAlign: TextAlign.center,
                   ),
                   // const SizedBox(height: 20),

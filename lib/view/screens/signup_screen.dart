@@ -46,10 +46,11 @@ class Signupscreen extends StatelessWidget {
             LoadingDialog.hide(context);
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
-                content: Text(
-                    "${state.message}"),
+                content: Text(state.message),
               ),
-            );print("No user Found with this email or password did not match${state.message}");
+            );
+            print(
+                "No user Found with this email or password did not match${state.message}");
           } else if (state is AuthLoading) {
             LoadingDialog.show(context);
           } else if (state is Networkauthenticatederor) {

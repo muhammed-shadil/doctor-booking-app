@@ -25,58 +25,38 @@ class DoctorsScreen extends StatelessWidget {
             child: SingleChildScrollView(
               child: Column(children: [
                 const Row(
-                  children: [
-                    // Container(
-                    //   margin: const EdgeInsets.all(20),
-                    //   width: 37,
-                    //   height: 35,
-                    //   decoration: BoxDecoration(
-                    //     border: Border.all(
-                    //         color: const Color.fromARGB(255, 186, 183, 183)),
-                    //     borderRadius: BorderRadius.circular(10),
-                    //   ),
-                    //   child: Center(
-                    //     child: IconButton(
-                    //       icon: const Icon(
-                    //         Icons.arrow_back,
-                    //         size: 22,
-                    //         color: Color.fromARGB(255, 151, 151, 150),
-                    //       ),
-                    //       onPressed: () {
-                    //         Navigator.pop(context);
-                    //       },
-                    //     ),
-                    //   ),
-                    // ),
-                    // Center(
-                    //   child: Padding(
-                    //     padding: EdgeInsets.only(left: 50),
-                    //     child: Text(
-                    //       "DOCTORS",
-                    // style: TextStyle(
-                    //     fontSize: 24,
-                    //     fontWeight: FontWeight.w600,
-                    //     color: Color.fromARGB(255, 118, 115, 115)),
-                    //     ),
-                    //   ),
-                    // )
-                  ],
+                  children: [],
                 ),
                 StreamBuilder(
                     stream: FirebaseFirestore.instance
                         .collection("doctors")
                         .snapshots(),
                     builder: (context, snapshot) {
+                      if (snapshot.connectionState == ConnectionState.waiting) {
+                        return SizedBox(
+                          width: MediaQuery.of(context).size.width * 0.88,
+                          height: MediaQuery.of(context).size.height * 0.6,
+                          child: const Center(
+                            child: CircularProgressIndicator(),
+                          ),
+                        );
+                      }
                       if (snapshot.hasData) {
                         return ListView.builder(
                           physics: const NeverScrollableScrollPhysics(),
                           shrinkWrap: true,
                           itemCount: snapshot.data!.docs.length,
                           itemBuilder: (BuildContext context, int index) {
-                            
                             final doctorsdata =
                                 snapshot.data!.docs[index].data();
-                            return GestureDetector(onTap: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>DoctorsDetailsScreen(doctorsdatails: doctorsdata)));},
+                            return GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (_) => DoctorsDetailsScreen(
+                                            doctorsdatails: doctorsdata)));
+                              },
                               child: Card(
                                 color: Colors.white,
                                 child: Padding(
@@ -123,18 +103,19 @@ class DoctorsScreen extends StatelessWidget {
                                                   fontWeight: FontWeight.w500),
                                             ),
                                             Padding(
-                                              padding: const EdgeInsets.symmetric(
-                                                  vertical: 4),
+                                              padding:
+                                                  const EdgeInsets.symmetric(
+                                                      vertical: 4),
                                               child: Text(
                                                 doctorsdata['speciality'],
-                                                style: TextStyle(
+                                                style: const TextStyle(
                                                     color: Color.fromARGB(
                                                         255, 121, 120, 120)),
                                               ),
                                             ),
                                             Text(
                                               doctorsdata['time'],
-                                              style: TextStyle(
+                                              style: const TextStyle(
                                                   color: Color.fromARGB(
                                                       255, 75, 74, 74)),
                                             ),
@@ -145,8 +126,8 @@ class DoctorsScreen extends StatelessWidget {
                                           flex: 1,
                                           child: Icon(
                                             Icons.favorite_border,
-                                            color:
-                                                Color.fromARGB(255, 0, 148, 149),
+                                            color: Color.fromARGB(
+                                                255, 0, 148, 149),
                                           )),
                                     ],
                                   ),

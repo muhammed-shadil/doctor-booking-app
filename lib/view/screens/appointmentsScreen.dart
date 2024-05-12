@@ -56,7 +56,8 @@ class _AppointmetsScreenState extends State<AppointmetsScreen> {
                 padding: const EdgeInsets.all(8.0),
                 child: BlocBuilder<NewappointmentBloc, NewappointmentState>(
                   builder: (context, state) {
-                    return Row(mainAxisAlignment: MainAxisAlignment.center,
+                    return Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
                           DateFormat('dd-MM-yyyy').format(ss),
@@ -93,9 +94,7 @@ class _AppointmetsScreenState extends State<AppointmetsScreen> {
                                 onChange: (index) {
                                   BlocProvider.of<NewappointmentBloc>(context)
                                       .add(datepickEvent(date: index));
-                                  // setState(() {
-                                  //   ss = index;
-                                  // });
+
                                   print(ss);
                                 },
                                 onSubmit: (index) {
@@ -115,6 +114,15 @@ class _AppointmetsScreenState extends State<AppointmetsScreen> {
                       .collection("doctors")
                       .snapshots(),
                   builder: (context, snapshot) {
+                    if (snapshot.connectionState == ConnectionState.waiting) {
+                      return SizedBox(
+                        width: MediaQuery.of(context).size.width,
+                        height: MediaQuery.of(context).size.height*0.5,
+                        child: const Center(
+                          child: CircularProgressIndicator(),
+                        ),
+                      );
+                    }
                     if (snapshot.hasData) {
                       return ListView.builder(
                         physics: const NeverScrollableScrollPhysics(),

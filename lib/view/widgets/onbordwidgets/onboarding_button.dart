@@ -63,7 +63,7 @@ class _CustomOutlinedButtonState extends State<CustomOutlinedButton>
         ),
         child: Card(
           elevation: 0,
-          color:  Color.fromARGB(255, 0, 148, 149),
+          color:  const Color.fromARGB(255, 0, 148, 149),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10),
           ),
@@ -72,7 +72,7 @@ class _CustomOutlinedButtonState extends State<CustomOutlinedButton>
             alignment: Alignment.center,
             width:  MediaQuery.of(context).size.width*0.6,
             decoration: BoxDecoration(
-              border: Border.all(color: widget.color ??  Color.fromARGB(255, 0, 148, 149),),
+              border: Border.all(color: widget.color ??  const Color.fromARGB(255, 0, 148, 149),),
               borderRadius: BorderRadius.circular(
                 widget.borderRadius ?? 20,
               ),

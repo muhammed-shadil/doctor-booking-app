@@ -22,7 +22,9 @@ class patientRow extends StatelessWidget {
                 fontWeight: FontWeight.w400,
                 color: Color.fromARGB(255, 156, 153, 153)),
           ),
-          SizedBox(width: 10,),
+          const SizedBox(
+            width: 10,
+          ),
           Text(
             secondname,
             style: const TextStyle(
