@@ -56,7 +56,8 @@ class SettingsScreen extends StatelessWidget {
                       },
                       onReject: () {
                         Navigator.pop(context);
-                      }));
+                      },
+                      title: "Logout!!"));
             }
           },
           child: Column(

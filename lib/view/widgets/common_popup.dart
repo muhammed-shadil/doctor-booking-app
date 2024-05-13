@@ -9,9 +9,11 @@ class ConfirmAlert extends StatelessWidget {
       this.iconColor,
       required this.icon,
       required this.onConfirm,
-      required this.onReject});
+      required this.onReject,
+      required this.title});
 
   final String msg;
+  final String title;
   final Color? iconColor;
 
   final IconData icon;
@@ -39,9 +41,9 @@ class ConfirmAlert extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text(
-                  "Logout!!",
-                  style: TextStyle(
+                Text(
+                  title,
+                  style: const TextStyle(
                       color: Color.fromARGB(255, 234, 28, 80),
                       fontWeight: FontWeight.w600,
                       fontSize: 29),

@@ -14,7 +14,14 @@ class CategoryScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Category"),
+        centerTitle: true,
+        title: const Text(
+          "Category",
+          style: TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.w600,
+              color: Color.fromARGB(255, 118, 115, 115)),
+        ),
       ),
       body: StreamBuilder(
           stream: FirebaseFirestore.instance

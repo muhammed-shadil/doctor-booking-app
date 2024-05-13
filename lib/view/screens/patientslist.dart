@@ -1,6 +1,9 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:doctors_book_app/view/screens/patientsdetails.dart';
+import 'package:doctors_book_app/view/widgets/alertbutton.dart';
+import 'package:doctors_book_app/view/widgets/cancellingbutton.dart';
+import 'package:doctors_book_app/view/widgets/common_popup.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -78,7 +81,12 @@ class PatientsList extends StatelessWidget {
                       builder: (context, snapshot) {
                         print(selectdate);
                         print(doctorname);
-
+                        if (snapshot.connectionState ==
+                            ConnectionState.waiting) {
+                          return const Center(
+                            child: CircularProgressIndicator(),
+                          );
+                        }
                         if (snapshot.hasData) {
                           if (snapshot.data!.docs.isNotEmpty) {
                             hasPatients = true;
@@ -111,7 +119,7 @@ class PatientsList extends StatelessWidget {
                                                 0.8,
                                         height:
                                             MediaQuery.of(context).size.height *
-                                                0.2,
+                                                0.28,
                                         child: Column(
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
@@ -224,6 +232,51 @@ class PatientsList extends StatelessWidget {
                                                 ),
                                               ],
                                             ),
+                                            SizedBox(
+                                              width: MediaQuery.of(context)
+                                                  .size
+                                                  .width,
+                                              height: MediaQuery.of(context)
+                                                      .size
+                                                      .height *
+                                                  0.105,
+                                              child: Center(
+                                                child: Cancelbutton(
+                                                  buttontext: "cancel",
+                                                  onpressed: () {
+                                                    showDialog(
+                                                        context: context,
+                                                        builder: (context) =>
+                                                            ConfirmAlert(
+                                                                msg:
+                                                                    "Do you want to cancel this appointment ?",
+                                                                icon: Icons
+                                                                    .cancel_presentation_rounded,
+                                                                iconColor:
+                                                                    const Color
+                                                                        .fromARGB(
+                                                                        255,
+                                                                        231,
+                                                                        93,
+                                                                        127),
+                                                                onConfirm: () {
+                                                                  Navigator.pop(
+                                                                      context);
+                                                                  // authBloc.add(LogoutEvent());
+                                                                  // Navigator.pushAndRemoveUntil(
+                                                                  //     context,
+                                                                  //     MaterialPageRoute(
+                                                                  //         builder: (_) => const LoginscreenWrapper()),
+                                                                  //     (route) => false);
+                                                                },
+                                                                onReject: () {
+                                                                  Navigator.pop(
+                                                                      context);
+                                                                }, title: 'CANCEL',));
+                                                  },
+                                                ),
+                                              ),
+                                            )
                                           ],
                                         ),
                                       ),
@@ -242,7 +295,9 @@ class PatientsList extends StatelessWidget {
                                     Text(
                                       textAlign: TextAlign.center,
                                       'No patients found for $doctorname on ${DateFormat('dd-MM-yyyy').format(selectdate)}',
-                                      style: const TextStyle(color: Color.fromARGB(255, 124, 124, 124),
+                                      style: const TextStyle(
+                                          color: Color.fromARGB(
+                                              255, 124, 124, 124),
                                           fontSize: 18,
                                           fontWeight: FontWeight.w400),
                                     ),
