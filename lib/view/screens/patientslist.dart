@@ -111,8 +111,7 @@ class PatientsList extends StatelessWidget {
                                         decoration: BoxDecoration(
                                           borderRadius:
                                               BorderRadius.circular(20),
-                                          color: const Color.fromARGB(
-                                              255, 236, 240, 240),
+                                          color: Color.fromARGB(255, 11, 86, 86),
                                         ),
                                         width:
                                             MediaQuery.of(context).size.width *
@@ -191,8 +190,7 @@ class PatientsList extends StatelessWidget {
                                                         ),
                                                         Text(
                                                           patietsdata[
-                                                                  'patientname']
-                                                              .toUpperCase(),
+                                                              'patientname'],
                                                           style:
                                                               const TextStyle(
                                                                   fontSize: 18,
@@ -204,79 +202,83 @@ class PatientsList extends StatelessWidget {
                                                         ),
                                                       ],
                                                     ),
-                                                    Row(
-                                                      children: [
-                                                        const Text(
-                                                          "Patient Age: ",
-                                                          style: TextStyle(
-                                                              color: Colors
-                                                                  .black38,
-                                                              fontSize: 16,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w400),
-                                                        ),
-                                                        Text(
-                                                          " ${patietsdata['age']} years",
-                                                          style: const TextStyle(
-                                                              color: Colors
-                                                                  .black45,
-                                                              fontSize: 18,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w500),
-                                                        )
-                                                      ],
-                                                    ),
+                                                    // Expanded(
+                                                    //   child: Row(
+                                                    //     children: [
+                                                    //       const Text(
+                                                    //         "Patient Age: ",
+                                                    //         style: TextStyle(
+                                                    //             color: Colors
+                                                    //                 .black38,
+                                                    //             fontSize: 16,
+                                                    //             fontWeight:
+                                                    //                 FontWeight
+                                                    //                     .w400),
+                                                    //       ),
+                                                    //       Text(
+                                                    //         " ${patietsdata['age']} years",
+                                                    //         style: const TextStyle(
+                                                    //             color: Colors
+                                                    //                 .black45,
+                                                    //             fontSize: 18,
+                                                    //             fontWeight:
+                                                    //                 FontWeight
+                                                    //                     .w500),
+                                                    //       )
+                                                    //     ],
+                                                    //   ),
+                                                    // )
                                                   ],
                                                 ),
                                               ],
                                             ),
-                                            SizedBox(
-                                              width: MediaQuery.of(context)
-                                                  .size
-                                                  .width,
-                                              height: MediaQuery.of(context)
-                                                      .size
-                                                      .height *
-                                                  0.105,
-                                              child: Center(
-                                                child: Cancelbutton(
-                                                  buttontext: "cancel",
-                                                  onpressed: () {
-                                                    showDialog(
-                                                        context: context,
-                                                        builder: (context) =>
-                                                            ConfirmAlert(
-                                                                msg:
-                                                                    "Do you want to cancel this appointment ?",
-                                                                icon: Icons
-                                                                    .cancel_presentation_rounded,
-                                                                iconColor:
-                                                                    const Color
-                                                                        .fromARGB(
-                                                                        255,
-                                                                        231,
-                                                                        93,
-                                                                        127),
-                                                                onConfirm: () {
-                                                                  Navigator.pop(
-                                                                      context);
-                                                                  // authBloc.add(LogoutEvent());
-                                                                  // Navigator.pushAndRemoveUntil(
-                                                                  //     context,
-                                                                  //     MaterialPageRoute(
-                                                                  //         builder: (_) => const LoginscreenWrapper()),
-                                                                  //     (route) => false);
-                                                                },
-                                                                onReject: () {
-                                                                  Navigator.pop(
-                                                                      context);
-                                                                }, title: 'CANCEL',));
-                                                  },
-                                                ),
-                                              ),
-                                            )
+                                            // SizedBox(
+                                            //   width: MediaQuery.of(context)
+                                            //       .size
+                                            //       .width,
+                                            //   height: MediaQuery.of(context)
+                                            //           .size
+                                            //           .height *
+                                            //       0.09,
+                                            //   child: Center(
+                                            //     child: Cancelbutton(
+                                            //       buttontext: "cancel",
+                                            //       onpressed: () {
+                                            //         showDialog(
+                                            //             context: context,
+                                            //             builder: (context) =>
+                                            //                 ConfirmAlert(
+                                            //                   msg:
+                                            //                       "Do you want to cancel this appointment ?",
+                                            //                   icon: Icons
+                                            //                       .cancel_presentation_rounded,
+                                            //                   iconColor:
+                                            //                       const Color
+                                            //                           .fromARGB(
+                                            //                           255,
+                                            //                           231,
+                                            //                           93,
+                                            //                           127),
+                                            //                   onConfirm: () {
+                                            //                     Navigator.pop(
+                                            //                         context);
+                                            //                     // authBloc.add(LogoutEvent());
+                                            //                     // Navigator.pushAndRemoveUntil(
+                                            //                     //     context,
+                                            //                     //     MaterialPageRoute(
+                                            //                     //         builder: (_) => const LoginscreenWrapper()),
+                                            //                     //     (route) => false);
+                                            //                   },
+                                            //                   onReject: () {
+                                            //                     Navigator.pop(
+                                            //                         context);
+                                            //                   },
+                                            //                   title: 'CANCEL',
+                                            //                 ));
+                                            //       },
+                                            //     ),
+                                            //   ),
+                                            // )
                                           ],
                                         ),
                                       ),

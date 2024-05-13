@@ -40,37 +40,7 @@ class HomeScreen extends StatelessWidget {
       backgroundColor: const Color.fromARGB(255, 240, 240, 241),
       body: SafeArea(
         child: SingleChildScrollView(
-          child:
-              //  BlocListener<AuthBloc, AuthState>(
-              //   listener: (context, state) {
-              //     if (state is UnAuthenticated) {
-              //       ScaffoldMessenger.of(context).showSnackBar(
-              //         const SnackBar(
-              //           content: Text("Sign out"),
-              //         ),
-              //       );
-              //     } else if (state is LogoutConfirm) {
-              //       showDialog(
-              //           context: context,
-              //           builder: (context) => ConfirmAlert(
-              //               msg: "Are you sure you want to log out?",
-              //               icon: Icons.logout_outlined,
-              //               iconColor: Color.fromARGB(255, 231, 93, 127),
-              //               onConfirm: () {
-              //                 authBloc.add(LogoutEvent());
-              //                 Navigator.pushAndRemoveUntil(
-              //                     context,
-              //                     MaterialPageRoute(
-              //                         builder: (_) => const LoginscreenWrapper()),
-              //                     (route) => false);
-              //               },
-              //               onReject: () {
-              //                 Navigator.pop(context);
-              //               }));
-              //     }
-              //   },
-              // child:
-              Column(
+          child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
@@ -212,7 +182,7 @@ class HomeScreen extends StatelessWidget {
                   ],
                 ),
               ),
-               HomeSpecialist(),
+              HomeSpecialist(),
             ],
           ),
         ),
