@@ -1,13 +1,10 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:doctors_book_app/view/screens/patientsdetails.dart';
-import 'package:doctors_book_app/view/widgets/alertbutton.dart';
 import 'package:doctors_book_app/view/widgets/cancellingbutton.dart';
 import 'package:doctors_book_app/view/widgets/common_popup.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:intl/intl.dart';
 
@@ -27,7 +24,7 @@ class PatientsList extends StatelessWidget {
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(
-            physics: NeverScrollableScrollPhysics(),
+            physics: const NeverScrollableScrollPhysics(),
             child: Column(
               children: [
                 Row(
@@ -66,9 +63,9 @@ class PatientsList extends StatelessWidget {
                     )
                   ],
                 ),
-                Container(
+                SizedBox(
                   width: MediaQuery.of(context).size.width * 0.85,
-                  height: MediaQuery.of(context).size.height * 0.84,
+                  height: MediaQuery.of(context).size.height * 0.85,
                   child: StreamBuilder(
                       stream: FirebaseFirestore.instance
                           .collection('users')
@@ -79,8 +76,8 @@ class PatientsList extends StatelessWidget {
                           .orderBy("time")
                           .snapshots(),
                       builder: (context, snapshot) {
-                        print(selectdate);
-                        print(doctorname);
+                        // print(selectdate);
+                        // print(doctorname);
                         if (snapshot.connectionState ==
                             ConnectionState.waiting) {
                           return const Center(
@@ -95,7 +92,7 @@ class PatientsList extends StatelessWidget {
                                 itemBuilder: (BuildContext context, int index) {
                                   final patietsdata =
                                       snapshot.data!.docs[index].data();
-                                  print("${patietsdata['date']}ppppppppppp");
+                                  // print("${patietsdata['date']}ppppppppppp");
                                   return InkWell(
                                     onTap: () {
                                       Navigator.push(
@@ -111,14 +108,12 @@ class PatientsList extends StatelessWidget {
                                         decoration: BoxDecoration(
                                           borderRadius:
                                               BorderRadius.circular(20),
-                                          color: Color.fromARGB(255, 11, 86, 86),
+                                          color: const Color.fromARGB(
+                                              255, 247, 250, 250),
                                         ),
                                         width:
                                             MediaQuery.of(context).size.width *
                                                 0.8,
-                                        height:
-                                            MediaQuery.of(context).size.height *
-                                                0.28,
                                         child: Column(
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
@@ -172,113 +167,108 @@ class PatientsList extends StatelessWidget {
                                                 const SizedBox(
                                                   width: 17,
                                                 ),
-                                                Column(
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
-                                                  children: [
-                                                    Row(
-                                                      children: [
-                                                        const Text(
-                                                          "Patient Name: ",
-                                                          style: TextStyle(
-                                                              fontSize: 16,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w400,
-                                                              color: Colors
-                                                                  .black38),
-                                                        ),
-                                                        Text(
-                                                          patietsdata[
-                                                              'patientname'],
-                                                          style:
-                                                              const TextStyle(
-                                                                  fontSize: 18,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w500,
-                                                                  color: Colors
-                                                                      .black45),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                    // Expanded(
-                                                    //   child: Row(
-                                                    //     children: [
-                                                    //       const Text(
-                                                    //         "Patient Age: ",
-                                                    //         style: TextStyle(
-                                                    //             color: Colors
-                                                    //                 .black38,
-                                                    //             fontSize: 16,
-                                                    //             fontWeight:
-                                                    //                 FontWeight
-                                                    //                     .w400),
-                                                    //       ),
-                                                    //       Text(
-                                                    //         " ${patietsdata['age']} years",
-                                                    //         style: const TextStyle(
-                                                    //             color: Colors
-                                                    //                 .black45,
-                                                    //             fontSize: 18,
-                                                    //             fontWeight:
-                                                    //                 FontWeight
-                                                    //                     .w500),
-                                                    //       )
-                                                    //     ],
-                                                    //   ),
-                                                    // )
-                                                  ],
+                                                Container(
+                                                  child: Column(
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
+                                                    children: [
+                                                      Row(
+                                                        children: [
+                                                          const Text(
+                                                            "Patient Name: ",
+                                                            style: TextStyle(
+                                                                fontSize: 16,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w400,
+                                                                color: Colors
+                                                                    .black38),
+                                                          ),
+                                                          Text(
+                                                            patietsdata[
+                                                                'patientname'],
+                                                            style: const TextStyle(
+                                                                fontSize: 18,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w500,
+                                                                color: Colors
+                                                                    .black45),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                      Row(
+                                                        children: [
+                                                          const Text(
+                                                            "Patient Age: ",
+                                                            style: TextStyle(
+                                                                color: Colors
+                                                                    .black38,
+                                                                fontSize: 16,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w400),
+                                                          ),
+                                                          Text(
+                                                            " ${patietsdata['age']} years",
+                                                            style: const TextStyle(
+                                                                color: Colors
+                                                                    .black45,
+                                                                fontSize: 18,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w500),
+                                                          )
+                                                        ],
+                                                      )
+                                                    ],
+                                                  ),
                                                 ),
                                               ],
                                             ),
-                                            // SizedBox(
-                                            //   width: MediaQuery.of(context)
-                                            //       .size
-                                            //       .width,
-                                            //   height: MediaQuery.of(context)
-                                            //           .size
-                                            //           .height *
-                                            //       0.09,
-                                            //   child: Center(
-                                            //     child: Cancelbutton(
-                                            //       buttontext: "cancel",
-                                            //       onpressed: () {
-                                            //         showDialog(
-                                            //             context: context,
-                                            //             builder: (context) =>
-                                            //                 ConfirmAlert(
-                                            //                   msg:
-                                            //                       "Do you want to cancel this appointment ?",
-                                            //                   icon: Icons
-                                            //                       .cancel_presentation_rounded,
-                                            //                   iconColor:
-                                            //                       const Color
-                                            //                           .fromARGB(
-                                            //                           255,
-                                            //                           231,
-                                            //                           93,
-                                            //                           127),
-                                            //                   onConfirm: () {
-                                            //                     Navigator.pop(
-                                            //                         context);
-                                            //                     // authBloc.add(LogoutEvent());
-                                            //                     // Navigator.pushAndRemoveUntil(
-                                            //                     //     context,
-                                            //                     //     MaterialPageRoute(
-                                            //                     //         builder: (_) => const LoginscreenWrapper()),
-                                            //                     //     (route) => false);
-                                            //                   },
-                                            //                   onReject: () {
-                                            //                     Navigator.pop(
-                                            //                         context);
-                                            //                   },
-                                            //                   title: 'CANCEL',
-                                            //                 ));
-                                            //       },
-                                            //     ),
-                                            //   ),
-                                            // )
+                                            SizedBox(
+                                              width: MediaQuery.of(context)
+                                                  .size
+                                                  .width,
+                                              height: MediaQuery.of(context)
+                                                      .size
+                                                      .height *
+                                                  0.1,
+                                              child: Center(
+                                                child: Cancelbutton(
+                                                  buttontext: "cancel",
+                                                  onpressed: () {
+                                                    showDialog(
+                                                        context: context,
+                                                        builder: (context) =>
+                                                            ConfirmAlert(
+                                                              msg:
+                                                                  "Do you want to cancel this appointment ?",
+                                                              icon: Icons
+                                                                  .cancel_presentation_rounded,
+                                                              iconColor:
+                                                                  const Color
+                                                                      .fromARGB(
+                                                                      255,
+                                                                      231,
+                                                                      93,
+                                                                      127),
+                                                              onConfirm: () {
+                                                                Navigator.pop(
+                                                                    context);
+                                                              },
+                                                              onReject: () {
+                                                                Navigator.pop(
+                                                                    context);
+                                                              },
+                                                              title: 'CANCEL',
+                                                            ));
+                                                  },
+                                                ),
+                                              ),
+                                            )
+                                            //
                                           ],
                                         ),
                                       ),

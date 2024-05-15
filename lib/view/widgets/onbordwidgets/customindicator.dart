@@ -1,3 +1,4 @@
+import 'package:doctors_book_app/utility/constants.dart';
 import 'package:doctors_book_app/view/widgets/onbordwidgets/onbordingdata.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +19,7 @@ class CustomIndicator extends StatelessWidget {
         activeShape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(5),
         ),
-        activeColor:  Color.fromARGB(255, 0, 148, 149),
+        activeColor:  Colorpalette.primarycolor,
       ),
     );
   }

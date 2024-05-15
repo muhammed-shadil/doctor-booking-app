@@ -21,7 +21,7 @@ class patient {
     this.email,
     this.phone,
     this.time,
-    this.date,
+     this.date,
     this.doctorname,
   });
 

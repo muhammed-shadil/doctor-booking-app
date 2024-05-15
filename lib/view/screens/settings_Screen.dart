@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:doctors_book_app/controller/authentication/bloc/auth_bloc.dart';
+import 'package:doctors_book_app/utility/constants.dart';
 import 'package:doctors_book_app/view/screens/edit_screen.dart';
 import 'package:doctors_book_app/view/screens/login_screen.dart';
 import 'package:doctors_book_app/view/widgets/alertbutton.dart';
@@ -70,11 +71,11 @@ class SettingsScreen extends StatelessWidget {
                     return Stack(
                       children: [
                         Container(
-                          decoration: const BoxDecoration(
+                          decoration:  const BoxDecoration(
                             borderRadius: BorderRadius.only(
                                 bottomLeft: Radius.circular(40),
                                 bottomRight: Radius.circular(40)),
-                            color: Color.fromARGB(255, 0, 148, 149),
+                            color: Colorpalette.primarycolor,
                           ),
                           width: MediaQuery.of(context).size.width,
                           height: MediaQuery.of(context).size.height * 0.18,
@@ -180,8 +181,7 @@ class SettingsScreen extends StatelessWidget {
                                                           fontWeight:
                                                               FontWeight.w300,
                                                           fontSize: 20,
-                                                          color: Color.fromARGB(
-                                                              255, 0, 148, 149),
+                                                          color:Colorpalette.primarycolor
                                                         ),
                                                       ),
                                                       SizedBox(
@@ -198,11 +198,7 @@ class SettingsScreen extends StatelessWidget {
                                                                 FontWeight.w900,
                                                             fontSize: 23,
                                                             color:
-                                                                Color.fromARGB(
-                                                                    255,
-                                                                    0,
-                                                                    148,
-                                                                    149),
+                                                                Colorpalette.primarycolor
                                                           ),
                                                         ),
                                                       )
@@ -235,8 +231,7 @@ class SettingsScreen extends StatelessWidget {
                                                     icon: const Icon(
                                                       Icons.edit,
                                                       size: 27,
-                                                      color: Color.fromARGB(
-                                                          255, 0, 148, 149),
+                                                      color: Colorpalette.primarycolor
                                                     )),
                                               )
                                             ],

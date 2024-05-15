@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:doctors_book_app/utility/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -35,7 +36,7 @@ class MainTextField extends StatelessWidget {
           children: [
             Icon(
               preficsicon,
-              color: const Color.fromARGB(255, 0, 148, 149),
+              color:  Colorpalette.primarycolor,
             ),
             Padding(
               padding: const EdgeInsets.only(left: 8),
@@ -104,7 +105,7 @@ class MainTextField extends StatelessWidget {
                       hintText: text,
                       suffixIcon: (obscuretext)
                           ? IconButton(
-                              color: const Color.fromARGB(255, 0, 148, 149),
+                              color:  Colorpalette.primarycolor,
                               onPressed: () {
                                 context.read<PasswordCubit>().visibilityicon();
                               },

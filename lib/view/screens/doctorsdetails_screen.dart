@@ -1,13 +1,9 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:doctors_book_app/view/screens/newappointmentScreen.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-
 import 'package:doctors_book_app/view/widgets/doctorsdetails/appoinment.dart';
 import 'package:doctors_book_app/view/widgets/doctorsdetails/endcontainer.dart';
 import 'package:doctors_book_app/view/widgets/doctorsdetails/middlecontainer.dart';
-import 'package:doctors_book_app/view/widgets/mainbutton.dart';
 
 class DoctorsDetailsScreen extends StatelessWidget {
   const DoctorsDetailsScreen({
@@ -27,7 +23,7 @@ class DoctorsDetailsScreen extends StatelessWidget {
             children: [
               Container(
                 width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height*0.95,
+                height: MediaQuery.of(context).size.height * 0.95,
                 child: Stack(
                   children: [
                     Positioned(
@@ -35,7 +31,7 @@ class DoctorsDetailsScreen extends StatelessWidget {
                         children: [
                           Container(
                             decoration: const BoxDecoration(
-                                // color: Color.fromARGB(255, 0, 148, 149),
+                                // color: Colorpalette.primarycolor,
                                 ),
                             width: MediaQuery.of(context).size.width,
                             height: MediaQuery.of(context).size.height * 0.69,

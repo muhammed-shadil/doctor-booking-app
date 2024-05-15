@@ -1,6 +1,5 @@
 import 'dart:ui';
 
-import 'package:carousel_slider/carousel_options.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:doctors_book_app/view/screens/categaryScreen.dart';
@@ -10,7 +9,6 @@ import 'package:doctors_book_app/view/widgets/homepage/specialitylist.dart';
 import 'package:doctors_book_app/view/widgets/homepage/tipconatainer.dart';
 import 'package:doctors_book_app/view/widgets/homepage/topdoctorsscroll.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class HomeSpecialist extends StatelessWidget {
   HomeSpecialist({super.key});

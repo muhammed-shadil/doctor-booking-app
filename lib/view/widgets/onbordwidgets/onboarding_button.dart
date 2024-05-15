@@ -1,4 +1,5 @@
 
+import 'package:doctors_book_app/utility/constants.dart';
 import 'package:flutter/material.dart';
 
 class CustomOutlinedButton extends StatefulWidget {
@@ -63,7 +64,7 @@ class _CustomOutlinedButtonState extends State<CustomOutlinedButton>
         ),
         child: Card(
           elevation: 0,
-          color:  const Color.fromARGB(255, 0, 148, 149),
+          color:   Colorpalette.primarycolor,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10),
           ),

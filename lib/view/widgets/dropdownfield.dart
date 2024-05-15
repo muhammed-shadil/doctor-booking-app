@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:doctors_book_app/utility/constants.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -25,7 +26,7 @@ class Dropdownfield extends StatelessWidget {
         children: [
           Icon(
             preficsicon,
-            color: const Color.fromARGB(255, 0, 148, 149),
+            color:  Colorpalette.primarycolor,
           ),
           Padding(
             padding: const EdgeInsets.only(left: 8),

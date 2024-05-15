@@ -34,7 +34,6 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final authBloc = BlocProvider.of<AuthBloc>(context);
 
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 240, 240, 241),
@@ -87,7 +86,7 @@ class HomeScreen extends StatelessWidget {
                               if (snapshot.hasData) {
                                 final userData = snapshot.data?.data()
                                     as Map<String, dynamic>?;
-                                print(userData);
+                                // print(userData);
                                 if (userData != null) {
                                   return Container(
                                     decoration: BoxDecoration(
@@ -99,7 +98,6 @@ class HomeScreen extends StatelessWidget {
                                     child: Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
-                                      // crossAxisAlignment: CrossAxisAlignment.end,
                                       children: [
                                         Row(
                                           children: [

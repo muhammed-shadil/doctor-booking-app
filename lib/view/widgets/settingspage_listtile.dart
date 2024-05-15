@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:doctors_book_app/utility/constants.dart';
 import 'package:flutter/material.dart';
 
 class SettingsListTile extends StatelessWidget {
@@ -26,7 +27,7 @@ class SettingsListTile extends StatelessWidget {
           child: Icon(
             contentIcon,
             size: 24,
-            color: const Color.fromARGB(255, 0, 148, 149),
+            color:  Colorpalette.primarycolor,
           ),
         ),
         // tileColor: Color.fromARGB(255, 205, 204, 200),

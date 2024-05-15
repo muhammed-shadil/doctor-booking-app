@@ -39,7 +39,7 @@ class NewappointmentBloc
             .doc(patients.uid)
             .set(patients.toMap());
 
-        emit(NewpatientSuccessState());
+        emit(NewpatientSuccessState(patientdetails: patients));
       } catch (e) {
         emit(NewpatientErrorState(msg: e.toString()));
       }

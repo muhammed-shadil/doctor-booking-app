@@ -1,7 +1,8 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:doctors_book_app/utility/constants.dart';
+import 'package:doctors_book_app/view/widgets/cancellingbutton.dart';
+import 'package:doctors_book_app/view/widgets/common_popup.dart';
 import 'package:doctors_book_app/view/widgets/patientrowdetails.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class PatientsDetails extends StatelessWidget {
@@ -55,14 +56,14 @@ class PatientsDetails extends StatelessWidget {
                   )
                 ],
               ),
-              const Row(
+               const Row(
                 children: [
                   Padding(
                     padding: EdgeInsets.only(left: 13.0, right: 8),
                     child: Icon(
                       Icons.person,
                       size: 28,
-                      color: Color.fromARGB(255, 0, 148, 149),
+                      color: Colorpalette.primarycolor,
                     ),
                   ),
                   Text(
@@ -74,7 +75,6 @@ class PatientsDetails extends StatelessWidget {
                   ),
                 ],
               ),
-
               Container(
                 margin: const EdgeInsets.only(left: 50),
                 child: Column(
@@ -97,14 +97,14 @@ class PatientsDetails extends StatelessWidget {
                   ],
                 ),
               ),
-              const Row(
+               const Row(
                 children: [
                   Padding(
                     padding: EdgeInsets.only(left: 13.0, right: 8),
                     child: Icon(
                       Icons.av_timer,
                       size: 28,
-                      color: Color.fromARGB(255, 0, 148, 149),
+                      color: Colorpalette.primarycolor,
                     ),
                   ),
                   Text(
@@ -116,7 +116,6 @@ class PatientsDetails extends StatelessWidget {
                   ),
                 ],
               ),
-
               Container(
                 margin: const EdgeInsets.only(left: 50),
                 child: Column(
@@ -133,10 +132,32 @@ class PatientsDetails extends StatelessWidget {
                   ],
                 ),
               ),
-
-              // Text(patietsdata['email']),
-              // // Text(patietsdata['date']),
-              // Text(patietsdata['time']),
+              SizedBox(
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height * 0.2,
+                child: Center(
+                  child: Cancelbutton(
+                    buttontext: "cancel",
+                    onpressed: () {
+                      showDialog(
+                          context: context,
+                          builder: (context) => ConfirmAlert(
+                                msg: "Do you want to cancel this appointment ?",
+                                icon: Icons.cancel_presentation_rounded,
+                                iconColor:
+                                    const Color.fromARGB(255, 231, 93, 127),
+                                onConfirm: () {
+                                  Navigator.pop(context);
+                                },
+                                onReject: () {
+                                  Navigator.pop(context);
+                                },
+                                title: 'CANCEL',
+                              ));
+                    },
+                  ),
+                ),
+              )
             ],
           ),
         ),

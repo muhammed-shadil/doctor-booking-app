@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:doctors_book_app/controller/bottomnavigation/bloc/bottomnavigation_bloc.dart';
+import 'package:doctors_book_app/utility/constants.dart';
 import 'package:doctors_book_app/view/screens/appointmentsScreen.dart';
 import 'package:doctors_book_app/view/screens/doctorsdetails_screen.dart';
 import 'package:doctors_book_app/view/screens/doctorslistscreen.dart';
@@ -13,6 +14,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_icon_class/font_awesome_icon_class.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
+import 'package:telephony/telephony.dart';
 
 class BottomNavigationWrapper extends StatefulWidget {
   const BottomNavigationWrapper({super.key});
@@ -52,12 +54,18 @@ class _BottomNavigationState extends State<BottomNavigation> {
   late StreamSubscription subscription;
   bool isAlertSet = false;
 
+  final telephony = Telephony.instance;
   @override
   void initState() {
+
     super.initState();
     getConnectivity();
+    smspermission();
   }
-
+  smspermission()async{
+     bool? permissionsGranted = await telephony.requestPhoneAndSmsPermissions;
+   
+  }
   getConnectivity() => subscription =
           Connectivity().onConnectivityChanged.listen((result) async {
         isDeviceConnected = await InternetConnectionChecker().hasConnection;
@@ -139,7 +147,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
                     size: 23,
                   ),
                   title: const Text('HOME', style: TextStyle(fontSize: 12)),
-                  activeColor: const Color.fromARGB(255, 0, 148, 149),
+                  activeColor:  Colorpalette.primarycolor,
                 ),
                 FlashyTabBarItem(
                   icon: const FaIcon(

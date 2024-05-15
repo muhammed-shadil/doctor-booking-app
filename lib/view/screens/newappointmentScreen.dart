@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:doctors_book_app/controller/commenfucntions.dart';
 import 'package:doctors_book_app/view/screens/bottomnaigation.dart';
 import 'package:doctors_book_app/view/widgets/dropdownfield.dart';
 import 'package:doctors_book_app/view/widgets/loading.dart';
@@ -15,6 +16,8 @@ import 'package:doctors_book_app/model/patientmodel.dart';
 import 'package:doctors_book_app/view/widgets/mainbutton.dart';
 import 'package:doctors_book_app/view/widgets/successpop.dart';
 import 'package:doctors_book_app/view/widgets/textfield.dart';
+import 'package:intl/intl.dart';
+import 'package:telephony/telephony.dart';
 import 'package:uuid/uuid.dart';
 
 class NewAppointmentScreenWrapper extends StatelessWidget {
@@ -49,6 +52,7 @@ class _NewAppointmentScreenState extends State<NewAppointmentScreen> {
   String uuid = const Uuid().v4();
   String? gender;
   final user = FirebaseAuth.instance.currentUser;
+  final Telephony telephony = Telephony.instance;
   TextEditingController patientcontroller = TextEditingController();
   TextEditingController gendercontroller = TextEditingController();
   TextEditingController agecontroller = TextEditingController();
@@ -56,6 +60,7 @@ class _NewAppointmentScreenState extends State<NewAppointmentScreen> {
   TextEditingController phonecontroller = TextEditingController();
 
   TextEditingController emailcontroller = TextEditingController();
+  Functions functions = Functions();
   final regemail = RegExp(r"^[a-zA-Z0-9_\-\.\S]{4,}[@][a-z]+[\.][a-z]{2,3}$");
 
   final age = RegExp(r'^(1[0-9]|[2-9][0-9]|100)$');
@@ -91,21 +96,7 @@ class _NewAppointmentScreenState extends State<NewAppointmentScreen> {
           fetchBookedTimeSlots(state.dates, widget.doctorname);
         } else if (state is NewpatientSuccessState) {
           LoadingDialog.hide(context);
-
-          showDialog(
-              context: context,
-              builder: (context) => Successpop(
-                  msg: "Your appointment booking successfully scheduled.",
-                  icon: FontAwesomeIcons.checkToSlot,
-                  iconColor: const Color.fromARGB(255, 44, 176, 176),
-                  onConfirm: () {
-                    Navigator.pushAndRemoveUntil(
-                        context,
-                        MaterialPageRoute(
-                            builder: (_) => const BottomNavigationWrapper()),
-                        (route) => false);
-                  },
-                  onReject: () {}));
+          functions.confirmdialoage(context, state.patientdetails);
         } else if (state is NewpatientloadingState) {
           LoadingDialog.show(context);
         } else if (state is NewpatientErrorState) {
@@ -116,7 +107,7 @@ class _NewAppointmentScreenState extends State<NewAppointmentScreen> {
             ),
           );
         } else if (state is DropdowngenderState) {
-          gender = state.gender;
+          gender = state.gender; 
         }
       },
       child: Scaffold(
@@ -168,12 +159,13 @@ class _NewAppointmentScreenState extends State<NewAppointmentScreen> {
                         ],
                       ),
                       EasyDateTimeLine(
+                        disabledDates: _getDisabledDates(),
                         initialDate: DateTime.now(),
                         onDateChange: (selectedDate) {
                           BlocProvider.of<NewappointmentBloc>(context)
                               .add(datepickEvent(date: selectedDate));
                           // fetchBookedTimeSlots(selectedDate, widget.doctorname);
-                          print(selectedDate);
+                          // print(selectedDate);
                         },
                         activeColor: const Color.fromARGB(255, 44, 176, 176),
                         dayProps: const EasyDayProps(
@@ -374,7 +366,7 @@ class _NewAppointmentScreenState extends State<NewAppointmentScreen> {
                         child: Mainbutton(
                           buttontext: "Confirm ",
                           onpressed: () {
-                            print("$date gggggggggg");
+                            // print("$date gggggggggg");
                             if (formKey.currentState!.validate()) {
                               patient patientsdetails = patient(
                                   patientname: patientcontroller.text,
@@ -386,7 +378,7 @@ class _NewAppointmentScreenState extends State<NewAppointmentScreen> {
                                   time: selecttime,
                                   date: date,
                                   doctorname: widget.doctorname);
-                              print(date);
+                              // print(date);
                               BlocProvider.of<NewappointmentBloc>(context).add(
                                   NewpatientEvent(
                                       patientdetails: patientsdetails));
@@ -407,4 +399,16 @@ class _NewAppointmentScreenState extends State<NewAppointmentScreen> {
       ),
     );
   }
+}
+
+List<DateTime> _getDisabledDates() {
+  List<DateTime> disabledDates = [];
+
+  DateTime currentDate = DateTime.now();
+
+  for (int i = 1; i < currentDate.day; i++) {
+    disabledDates.add(DateTime(currentDate.year, currentDate.month, i));
+  }
+
+  return disabledDates;
 }

@@ -75,25 +75,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
     final imageblo = BlocProvider.of<ImageBloc>(context);
     return Scaffold(
         backgroundColor: const Color.fromARGB(255, 240, 240, 241),
-        // appBar: AppBar(leading:Container(margin: EdgeInsets.all(6),
-        //         width: 20,
-        //         height: 30,
-        //         decoration: BoxDecoration(border: Border.all(),
-        //             borderRadius: BorderRadius.circular(10), color: Color.fromARGB(255, 255, 255, 255)),
-        //         child: IconButton(
-        //           icon: const Icon(
-        //             Icons.arrow_back,
-        //             color: Color.fromARGB(255, 151, 151, 150),
-        //           ),
-        //           onPressed: () {
-        //             Navigator.pop(context);
-        //           },
-        //         ),
-        //       ),
-        //   title: Text("Edit profile"),
-        //   centerTitle: true,
-        //   titleTextStyle: TextStyle(fontSize: 28,color: Color.fromARGB(255,143,136,136),fontWeight: FontWeight.w500),
-        // ),
+        
         body: SafeArea(
             child: SingleChildScrollView(
           child: Form(

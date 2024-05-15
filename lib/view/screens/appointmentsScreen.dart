@@ -2,7 +2,7 @@ import 'package:bottom_picker/bottom_picker.dart';
 import 'package:bottom_picker/resources/arrays.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:doctors_book_app/controller/newappointment/bloc/newappointment_bloc.dart';
-import 'package:doctors_book_app/view/screens/doctorsdetails_screen.dart';
+import 'package:doctors_book_app/utility/constants.dart';
 import 'package:doctors_book_app/view/screens/patientslist.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -42,7 +42,7 @@ class _AppointmetsScreenState extends State<AppointmetsScreen> {
         appBar: AppBar(
           centerTitle: true,
           title: const Text(
-            "Appointment",
+            "Appointments",
             style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.w600,
@@ -70,17 +70,16 @@ class _AppointmetsScreenState extends State<AppointmetsScreen> {
                             onPressed: () {
                               BottomPicker.date(
                                 buttonSingleColor:
-                                    const Color.fromARGB(255, 0, 148, 149),
-                                pickerTitle: const Text(
+                                   Colorpalette.primarycolor,
+                                pickerTitle:  const Text(
                                   'Pick the date',
                                   style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     fontSize: 15,
-                                    color: Color.fromARGB(255, 0, 148, 149),
+                                    color: Colorpalette.primarycolor,
                                   ),
                                 ),
                                 dateOrder: DatePickerDateOrder.dmy,
-                                initialDateTime: DateTime.now(),
                                 maxDateTime: DateTime(
                                     DateTime.now().year,
                                     DateTime.now().month + 1,
@@ -98,17 +97,19 @@ class _AppointmetsScreenState extends State<AppointmetsScreen> {
                                   BlocProvider.of<NewappointmentBloc>(context)
                                       .add(datepickEvent(date: index));
 
-                                  print(ss);
+                                  // print(ss);
                                 },
                                 onSubmit: (index) {
-                                  print(ss);
+                                  BlocProvider.of<NewappointmentBloc>(context)
+                                      .add(datepickEvent(date: index));
+                                  // print(index);
                                 },
                                 bottomPickerTheme: BottomPickerTheme.plumPlate,
                               ).show(context);
                             },
-                            icon: const Icon(
+                            icon:  const Icon(
                               Icons.calendar_month,
-                              color: Color.fromARGB(255, 0, 148, 149),
+                              color: Colorpalette.primarycolor,
                             )),
                       ],
                     );
@@ -213,12 +214,12 @@ class _AppointmetsScreenState extends State<AppointmetsScreen> {
                                         ],
                                       ),
                                     ),
-                                    const Expanded(
+                                     const Expanded(
                                         flex: 1,
                                         child: Icon(
                                           Icons.favorite_border,
                                           color:
-                                              Color.fromARGB(255, 0, 148, 149),
+                                              Colorpalette.primarycolor,
                                         )),
                                   ],
                                 ),

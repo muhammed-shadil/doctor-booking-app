@@ -23,7 +23,9 @@ class datepickedState extends NewappointmentState {
 
 class NewpatientloadingState extends NewappointmentState {}
 
-class NewpatientSuccessState extends NewappointmentState {}
+class NewpatientSuccessState extends NewappointmentState {final patient patientdetails;
+
+  NewpatientSuccessState({required this.patientdetails});}
 
 class NewpatientErrorState extends NewappointmentState {
   String msg;

@@ -1,7 +1,6 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:doctors_book_app/utility/constants.dart';
 import 'package:doctors_book_app/view/screens/doctorsdetails_screen.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class CategoryScreen extends StatelessWidget {
@@ -107,7 +106,7 @@ class CategoryScreen extends StatelessWidget {
                                 flex: 1,
                                 child: Icon(
                                   Icons.favorite_border,
-                                  color: Color.fromARGB(255, 0, 148, 149),
+                                  color: Colorpalette.primarycolor,
                                 )),
                           ],
                         ),

@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:doctors_book_app/utility/constants.dart';
 import 'package:flutter/material.dart';
 
 class Middlecontainer extends StatelessWidget {
@@ -20,11 +21,11 @@ class Middlecontainer extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          const CircleAvatar(
-            backgroundColor: Color.fromARGB(255, 237, 235, 235),
+           CircleAvatar(
+            backgroundColor: const Color.fromARGB(255, 237, 235, 235),
             child: Icon(
               Icons.people_alt,
-              color: Color.fromARGB(255, 0, 148, 149),
+              color: Colorpalette.primarycolor,
               size: 25,
             ),
           ),
@@ -42,11 +43,11 @@ class Middlecontainer extends StatelessWidget {
             ],
           ),
           const VerticalDivider(),
-          const CircleAvatar(
-            backgroundColor: Color.fromARGB(255, 237, 235, 235),
+           CircleAvatar(
+            backgroundColor: const Color.fromARGB(255, 237, 235, 235),
             child: Icon(
               Icons.badge,
-              color: Color.fromARGB(255, 0, 148, 149),
+              color: Colorpalette.primarycolor,
             ),
           ),
           Column(

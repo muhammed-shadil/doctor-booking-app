@@ -13,7 +13,7 @@ class Cancelbutton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: MediaQuery.of(context).size.width * 0.3,
+      width: MediaQuery.of(context).size.width * 0.34,
       height: MediaQuery.of(context).size.width * 0.1,
       child: ElevatedButton(
         onPressed: onpressed,

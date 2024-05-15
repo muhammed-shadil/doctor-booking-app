@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:animate_do/animate_do.dart';
+import 'package:doctors_book_app/utility/constants.dart';
 import 'package:flutter/material.dart';
 
 import 'package:doctors_book_app/view/widgets/onbordwidgets/onbordingdata.dart';
@@ -20,7 +21,7 @@ class OnbordingMainWidget extends StatelessWidget {
         Positioned(
           child: Container(
             decoration: const BoxDecoration(
-                // color: Color.fromARGB(255, 0, 148, 149),
+                // color: Colorpalette.primarycolor,
                 ),
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height * 0.58,
@@ -60,16 +61,16 @@ class OnbordingMainWidget extends StatelessWidget {
                     textAlign: TextAlign.center,
                     text: TextSpan(
                         text: onBoarding.title1,
-                        style: const TextStyle(
+                        style:  TextStyle(
                           fontSize: 29,
                           fontWeight: FontWeight.w300,
-                          color: Color.fromARGB(255, 0, 148, 149),
+                          color: Colorpalette.primarycolor,
                         ),
                         children: [
                           TextSpan(
                             text: onBoarding.title2,
-                            style: const TextStyle(
-                                color: Color.fromARGB(255, 0, 148, 149),
+                            style:  TextStyle(
+                                color: Colorpalette.primarycolor,
                                 fontWeight: FontWeight.w500,
                                 fontSize: 29),
                           )

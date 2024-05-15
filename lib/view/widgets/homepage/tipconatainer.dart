@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:doctors_book_app/utility/constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -39,10 +40,10 @@ class Autoscrollcontainer extends StatelessWidget {
           ),
           Container(
               padding: const EdgeInsets.only(left: 14, right: 2),
-              decoration: const BoxDecoration(
+              decoration:  const BoxDecoration(
                   border: Border(
                       left: BorderSide(
-                          color: Color.fromARGB(255, 0, 148, 149), width: 3))),
+                          color: Colorpalette.primarycolor, width: 3))),
               child: Text(
                 describtion
                 // "Regular exercise can help lower your risk of heart disease and high blood pressure",
