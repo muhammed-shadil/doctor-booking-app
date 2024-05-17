@@ -304,9 +304,10 @@ class PatientsList extends StatelessWidget {
                                                                         93,
                                                                         127),
                                                                 onConfirm: () {
-                                                                  cancelappo.add(Cancelappointment(
-                                                                      uuid: patietsdata[
-                                                                          'uid']));
+                                                                  cancelappo.add(
+                                                                      Cancelappointment(
+                                                                          uuid:
+                                                                              patietsdata['uid']));
                                                                 },
                                                                 onReject: () {
                                                                   Navigator.pop(

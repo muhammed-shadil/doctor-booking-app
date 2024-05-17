@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:doctors_book_app/controller/authentication/bloc/auth_bloc.dart';
 import 'package:doctors_book_app/controller/dummycontroller/bloc/dummy_bloc.dart';
 import 'package:doctors_book_app/utility/dummydoctors.dart';
+import 'package:doctors_book_app/view/screens/favorite.dart';
 import 'package:doctors_book_app/view/screens/homepage/homescreen2.dart';
 import 'package:doctors_book_app/view/widgets/home_textfield.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -158,18 +159,18 @@ class HomeScreen extends StatelessWidget {
                                             ),
                                           ],
                                         ),
-                                        IconButton(
-                                            onPressed: () {
-                                              // BlocProvider.of<DummyBloc>(
-                                              //         context)
-                                              //     .add(uploaddDummyEvent());
-                                            },
-                                            icon: const Icon(
-                                              Icons.favorite_sharp,
-                                              size: 30,
-                                              color: Color.fromARGB(
-                                                  255, 0, 148, 149),
-                                            ))
+                                        Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(8),color: Colors.white,),padding: EdgeInsets.all(4),margin: EdgeInsets.only(right: 10),
+                                          child: GestureDetector(
+                                              onTap: () {
+                                                Navigator.push(context, MaterialPageRoute(builder: (_)=>const FavoriteScreenWrpper()));
+                                              },
+                                              child: const Icon(
+                                                Icons.favorite_sharp,
+                                                size: 28,
+                                                color: Color.fromARGB(
+                                                    255, 0, 148, 149),
+                                              )),
+                                        )
                                       ],
                                     ),
                                   );
