@@ -84,9 +84,9 @@ class DoctorsDetailsScreen extends StatelessWidget {
               ),
               Container(
                 color: const Color.fromARGB(255, 235, 235, 236),
-                padding: const EdgeInsets.symmetric(horizontal: 20),
+                padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 10),
                 width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height * 0.22,
+                height: MediaQuery.of(context).size.height * 0.24,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [

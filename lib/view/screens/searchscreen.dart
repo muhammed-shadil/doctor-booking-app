@@ -37,6 +37,7 @@ class _SearchScreenState extends State<SearchScreen> {
         return Scaffold(
             backgroundColor: const Color.fromARGB(255, 240, 240, 241),
             appBar: AppBar(
+                automaticallyImplyLeading: false,
                 backgroundColor: const Color.fromARGB(255, 240, 240, 241),
                 toolbarHeight: 100,
                 title: Column(
@@ -61,8 +62,6 @@ class _SearchScreenState extends State<SearchScreen> {
                             borderSide: const BorderSide(
                                 width: 0, style: BorderStyle.none),
                           ),
-                          // border: OutlineInputBorder(borderSide: BorderSide(color: Colors.transparent),borderRadius: BorderRadius.circular(10)
-                          //    ),
                           suffixIcon: const Icon(Icons.search),
                           hintStyle: const TextStyle(
                               fontSize: 18,
@@ -72,9 +71,6 @@ class _SearchScreenState extends State<SearchScreen> {
                       onChanged: (val) {
                         BlocProvider.of<SearchBloc>(context)
                             .add(SearchdoctorEvent(name: val));
-                        // setState(() {
-                        //   name = val;
-                        // });
                       },
                     ),
                   ],
@@ -91,56 +87,63 @@ class _SearchScreenState extends State<SearchScreen> {
                   } else if (snapshots.hasError) {
                     return const Text('something went wrong');
                   } else if (snapshots.hasData) {
+                    var filterDocs = snapshots.data!.docs.where((doc) {
+                      var data = doc.data() as Map<String, dynamic>;
+                      var matchesName = name.isEmpty ||
+                          data['doctorname']
+                              .toString()
+                              .toLowerCase()
+                              .contains(name.toLowerCase());
+                      var matchesSpecialty = specialty.isEmpty ||
+                          data['speciality']
+                              .toString()
+                              .toLowerCase()
+                              .contains(specialty.toLowerCase());
+                      return matchesName || matchesSpecialty;
+                    }).toList();
+
+                    if (filterDocs.isEmpty) {
+                      return const Center(child: Text('No user found'));
+                    }
+
                     return ListView.builder(
                         itemCount: snapshots.data!.docs.length,
                         itemBuilder: (context, index) {
                           var data = snapshots.data!.docs[index].data()
                               as Map<String, dynamic>;
 
-                          if ((name.isEmpty ||
-                                  data['doctorname']
-                                      .toString()
-                                      .toLowerCase()
-                                      .contains(name.toLowerCase())) ||
-                              (specialty.isEmpty ||
-                                  data['speciality']
-                                      .toString()
-                                      .toLowerCase()
-                                      .contains(specialty.toLowerCase()))) {
-                            return GestureDetector(
-                              onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (_) => DoctorsDetailsScreen(
-                                            doctorsdatails: data)));
-                              },
-                              child: ListTile(
-                                title: Text(
-                                  data['doctorname'],
-                                  maxLines: 1,
-                                  overflow: TextOverflow.ellipsis,
-                                  style: const TextStyle(
-                                      color: Colors.black54,
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                subtitle: Text(
-                                  data['speciality'],
-                                  maxLines: 1,
-                                  overflow: TextOverflow.ellipsis,
-                                  style: const TextStyle(
-                                      color: Colors.black54,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w400),
-                                ),
-                                leading: CircleAvatar(
-                                  backgroundImage: NetworkImage(data['image']),
-                                ),
+                          return GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (_) => DoctorsDetailsScreen(
+                                          doctorsdatails: data)));
+                            },
+                            child: ListTile(
+                              title: Text(
+                                data['doctorname'],
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                style: const TextStyle(
+                                    color: Colors.black54,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold),
                               ),
-                            );
-                          }
-                          return Container();
+                              subtitle: Text(
+                                data['speciality'],
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                style: const TextStyle(
+                                    color: Colors.black54,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w400),
+                              ),
+                              leading: CircleAvatar(
+                                backgroundImage: NetworkImage(data['image']),
+                              ),
+                            ),
+                          );
                         });
                   }
                   return Container();

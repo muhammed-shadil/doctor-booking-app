@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:doctors_book_app/view/screens/searchscreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -19,6 +20,10 @@ class HomeTextfield1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onTap: () {
+        Navigator.push(context,
+            MaterialPageRoute(builder: (_) => const SearchScreenWrapper()));
+      },
       inputFormatters: [
         FilteringTextInputFormatter.deny(RegExp(r'\s')),
       ],
