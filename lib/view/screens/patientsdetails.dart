@@ -139,21 +139,21 @@ class PatientsDetails extends StatelessWidget {
                   child: Cancelbutton(
                     buttontext: "cancel",
                     onpressed: () {
-                      showDialog(
-                          context: context,
-                          builder: (context) => ConfirmAlert(
-                                msg: "Do you want to cancel this appointment ?",
-                                icon: Icons.cancel_presentation_rounded,
-                                iconColor:
-                                    const Color.fromARGB(255, 231, 93, 127),
-                                onConfirm: () {
-                                  Navigator.pop(context);
-                                },
-                                onReject: () {
-                                  Navigator.pop(context);
-                                },
-                                title: 'CANCEL',
-                              ));
+                      // showDialog(
+                      //     context: context,
+                      //     builder: (context) => ConfirmAlert(
+                      //           msg: "Do you want to cancel this appointment ?",
+                      //           icon: Icons.cancel_presentation_rounded,
+                      //           iconColor:
+                      //               const Color.fromARGB(255, 231, 93, 127),
+                      //           onConfirm: () {
+                      //             Navigator.pop(context);
+                      //           },
+                      //           onReject: () {
+                      //             Navigator.pop(context);
+                      //           },
+                      //           title: 'CANCEL',
+                      //         ));
                     },
                   ),
                 ),

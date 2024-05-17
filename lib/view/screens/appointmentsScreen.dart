@@ -142,7 +142,7 @@ class _AppointmetsScreenState extends State<AppointmetsScreen> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (_) => PatientsList(
+                                      builder: (_) => PatientListWrapper(
                                             selectdate: ss,
                                             doctorname:
                                                 doctorsdata['doctorname'],

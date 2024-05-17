@@ -23,9 +23,11 @@ class datepickedState extends NewappointmentState {
 
 class NewpatientloadingState extends NewappointmentState {}
 
-class NewpatientSuccessState extends NewappointmentState {final patient patientdetails;
+class NewpatientSuccessState extends NewappointmentState {
+  final patient patientdetails;
 
-  NewpatientSuccessState({required this.patientdetails});}
+  NewpatientSuccessState({required this.patientdetails});
+}
 
 class NewpatientErrorState extends NewappointmentState {
   String msg;
@@ -33,9 +35,18 @@ class NewpatientErrorState extends NewappointmentState {
     required this.msg,
   });
 }
+
 class DropdowngenderState extends NewappointmentState {
   final String gender;
   DropdowngenderState({
     required this.gender,
   });
 }
+
+class Cancelappointmentsuccess extends NewappointmentState {
+  
+}
+
+class Cancelappointmentloading extends NewappointmentState {}
+
+class Cancelappointmenterror extends NewappointmentState {}

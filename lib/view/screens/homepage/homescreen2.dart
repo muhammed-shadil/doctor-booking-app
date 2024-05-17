@@ -149,7 +149,7 @@ class HomeSpecialist extends StatelessWidget {
               height: 180,
               child: StreamBuilder(
                   stream: FirebaseFirestore.instance
-                      .collection("doctors")
+                      .collection("doctors") 
                       .orderBy('nopatients', descending: true)
                       .snapshots(),
                   builder: (context, snapshot) {

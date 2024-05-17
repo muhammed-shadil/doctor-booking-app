@@ -61,6 +61,7 @@ dependencies:
   flutter_svg: ^2.0.10
   easy_search_bar: ^2.5.0
   telephony: ^0.2.0
+  favorite_button: ^0.0.4
 dev_dependencies:
   flutter_test:
     sdk: flutter

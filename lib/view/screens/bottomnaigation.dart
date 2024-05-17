@@ -44,7 +44,7 @@ class BottomNavigation extends StatefulWidget {
 class _BottomNavigationState extends State<BottomNavigation> {
   List<Widget> screens = [
     const HomeScreenWrapper(),
-    const DoctorsScreen(),
+    const DoctorsListwrpper(),
     const SearchScreenWrapper(),
     const AppointmentScreenWrapper(),
     const settingsScreenWrapper()
