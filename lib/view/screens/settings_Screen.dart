@@ -1,13 +1,19 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:doctors_book_app/controller/authentication/bloc/auth_bloc.dart';
 import 'package:doctors_book_app/utility/constants.dart';
+import 'package:doctors_book_app/view/screens/FAQS/FAQS.dart';
+import 'package:doctors_book_app/view/screens/aboutus/aboutus.dart';
 import 'package:doctors_book_app/view/screens/edit_screen.dart';
+import 'package:doctors_book_app/view/screens/feedback_and_support/feedback_and_support.dart';
 import 'package:doctors_book_app/view/screens/login_screen.dart';
+import 'package:doctors_book_app/view/screens/privacypolicy/privacypolicy.dart';
 import 'package:doctors_book_app/view/widgets/alertbutton.dart';
 import 'package:doctors_book_app/view/widgets/common_popup.dart';
 import 'package:doctors_book_app/view/widgets/settingspage_listtile.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class settingsScreenWrapper extends StatelessWidget {
@@ -71,7 +77,7 @@ class SettingsScreen extends StatelessWidget {
                     return Stack(
                       children: [
                         Container(
-                          decoration:  const BoxDecoration(
+                          decoration: const BoxDecoration(
                             borderRadius: BorderRadius.only(
                                 bottomLeft: Radius.circular(40),
                                 bottomRight: Radius.circular(40)),
@@ -178,11 +184,11 @@ class SettingsScreen extends StatelessWidget {
                                                       const Text(
                                                         "Hello!",
                                                         style: TextStyle(
-                                                          fontWeight:
-                                                              FontWeight.w300,
-                                                          fontSize: 20,
-                                                          color:Colorpalette.primarycolor
-                                                        ),
+                                                            fontWeight:
+                                                                FontWeight.w300,
+                                                            fontSize: 20,
+                                                            color: Colorpalette
+                                                                .primarycolor),
                                                       ),
                                                       SizedBox(
                                                         width: 179,
@@ -192,14 +198,13 @@ class SettingsScreen extends StatelessWidget {
                                                           maxLines: 1,
                                                           overflow: TextOverflow
                                                               .ellipsis,
-                                                          style:
-                                                              const TextStyle(
-                                                            fontWeight:
-                                                                FontWeight.w900,
-                                                            fontSize: 23,
-                                                            color:
-                                                                Colorpalette.primarycolor
-                                                          ),
+                                                          style: const TextStyle(
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w900,
+                                                              fontSize: 23,
+                                                              color: Colorpalette
+                                                                  .primarycolor),
                                                         ),
                                                       )
                                                     ],
@@ -228,11 +233,10 @@ class SettingsScreen extends StatelessWidget {
                                                                         userData,
                                                                   )));
                                                     },
-                                                    icon: const Icon(
-                                                      Icons.edit,
-                                                      size: 27,
-                                                      color: Colorpalette.primarycolor
-                                                    )),
+                                                    icon: const Icon(Icons.edit,
+                                                        size: 27,
+                                                        color: Colorpalette
+                                                            .primarycolor)),
                                               )
                                             ],
                                           ),
@@ -247,21 +251,50 @@ class SettingsScreen extends StatelessWidget {
                   },
                 ),
               ),
-              const SettingsListTile(
-                content: 'About Us',
-                contentIcon: Icons.info,
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (_) => const AboutUsScreen()));
+                },
+                child: const SettingsListTile(
+                  content: 'About Us',
+                  contentIcon: Icons.info,
+                ),
               ),
-              const SettingsListTile(
-                content: 'Privacy policy',
-                contentIcon: Icons.privacy_tip_sharp,
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (_) => const PrivacypolicyScreen()));
+                },
+                child: const SettingsListTile(
+                  content: 'Privacy policy',
+                  contentIcon: Icons.privacy_tip_sharp,
+                ),
               ),
-              const SettingsListTile(
-                content: 'Feedback and support',
-                contentIcon: Icons.thumb_up_alt,
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (_) => const FeedbackandSupportScreen()));
+                },
+                child: const SettingsListTile(
+                  content: 'Feedback and support',
+                  contentIcon: Icons.thumb_up_alt,
+                ),
               ),
-              const SettingsListTile(
-                content: 'FAQs',
-                contentIcon: Icons.question_answer,
+              GestureDetector(onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (_) => const FAQsScreen()));
+                },
+                child: const SettingsListTile(
+                  content: 'FAQs',
+                  contentIcon: Icons.question_answer,
+                ),
               ),
               const SettingsListTile(
                 content: 'Help',
