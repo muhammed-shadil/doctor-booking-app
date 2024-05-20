@@ -1,7 +1,4 @@
-import 'package:doctors_book_app/utility/constants.dart';
 import 'package:doctors_book_app/view/screens/FAQS/contents.dart';
-import 'package:doctors_book_app/view/screens/aboutus/text_and_details.dart';
-import 'package:doctors_book_app/view/screens/aboutus/unorderedlist.dart';
 import 'package:flutter/material.dart';
 
 class FAQsScreen extends StatelessWidget {
