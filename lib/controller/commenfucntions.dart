@@ -29,3 +29,32 @@ class Functions {
             onReject: () {}));
   }
 }
+
+List<int> parseAvailability(String availability) {
+  Map<String, int> dayMap = {
+    "sun": DateTime.sunday,
+    "mon": DateTime.monday,
+    "tue": DateTime.tuesday,
+    "wed": DateTime.wednesday,
+    "thu": DateTime.thursday,
+    "fri": DateTime.friday,
+    "sat": DateTime.saturday,
+  };
+
+  List<int> availableDays = [];
+
+  List<String> ranges = availability.split(',');
+  for (String range in ranges) {
+    List<String> days = range.split('-');
+    if (days.length == 1) {
+      availableDays.add(dayMap[days[0].trim()]!);
+    } else if (days.length == 2) {
+      int start = dayMap[days[0].trim()]!;
+      int end = dayMap[days[1].trim()]!;
+      for (int i = start; i <= end; i++) {
+        availableDays.add(i);
+      }
+    }
+  }
+  return availableDays;
+}

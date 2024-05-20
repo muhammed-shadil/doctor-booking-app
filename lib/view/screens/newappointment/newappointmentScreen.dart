@@ -1,36 +1,36 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:doctors_book_app/controller/commenfucntions.dart';
-import 'package:doctors_book_app/view/screens/bottomnaigation.dart';
-import 'package:doctors_book_app/view/widgets/dropdownfield.dart';
-import 'package:doctors_book_app/view/widgets/loading.dart';
 import 'package:easy_date_timeline/easy_date_timeline.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:font_awesome_icon_class/font_awesome_icon_class.dart';
-
-import 'package:doctors_book_app/controller/newappointment/bloc/newappointment_bloc.dart';
-import 'package:doctors_book_app/model/patientmodel.dart';
-import 'package:doctors_book_app/view/widgets/mainbutton.dart';
-import 'package:doctors_book_app/view/widgets/successpop.dart';
-import 'package:doctors_book_app/view/widgets/textfield.dart';
-import 'package:intl/intl.dart';
 import 'package:telephony/telephony.dart';
 import 'package:uuid/uuid.dart';
+
+import 'package:doctors_book_app/controller/commenfucntions.dart';
+import 'package:doctors_book_app/controller/newappointment/bloc/newappointment_bloc.dart';
+import 'package:doctors_book_app/model/patientmodel.dart';
+import 'package:doctors_book_app/utility/constants.dart';
+import 'package:doctors_book_app/view/widgets/dropdownfield.dart';
+import 'package:doctors_book_app/view/widgets/loading.dart';
+import 'package:doctors_book_app/view/widgets/mainbutton.dart';
+import 'package:doctors_book_app/view/widgets/textfield.dart';
 
 class NewAppointmentScreenWrapper extends StatelessWidget {
   const NewAppointmentScreenWrapper({
     Key? key,
     required this.doctorname,
+    required this.doctordates,
   }) : super(key: key);
   final String doctorname;
+
+  final String doctordates;
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => NewappointmentBloc(),
-      child: NewAppointmentScreen(doctorname: doctorname),
+      child: NewAppointmentScreen(
+          doctorname: doctorname, doctordates: doctordates),
     );
   }
 }
@@ -39,8 +39,11 @@ class NewAppointmentScreen extends StatefulWidget {
   const NewAppointmentScreen({
     Key? key,
     required this.doctorname,
+    required this.doctordates,
   }) : super(key: key);
   final String doctorname;
+
+  final String doctordates;
   @override
   State<NewAppointmentScreen> createState() => _NewAppointmentScreenState();
 }
@@ -68,6 +71,7 @@ class _NewAppointmentScreenState extends State<NewAppointmentScreen> {
   final name = RegExp(r'^[A-Za-z]+$');
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   List<dynamic> bookedTimeSlots = [];
+  List<int> availableDays = [];
   void fetchBookedTimeSlots(DateTime selectedDate, String doctorname) {
     FirebaseFirestore.instance
         .collection("users")
@@ -81,6 +85,41 @@ class _NewAppointmentScreenState extends State<NewAppointmentScreen> {
         bookedTimeSlots = querySnapshot.docs.map((doc) => doc['time']).toList();
       });
     });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+
+    fetchDoctorAvailability();
+  }
+
+  void fetchDoctorAvailability() {
+    String doctorAvailability = widget.doctordates;
+
+    setState(() {
+      availableDays = parseAvailability(doctorAvailability);
+    });
+  }
+
+  List<DateTime> _getDisabledDates() {
+    List<DateTime> disabledDates = [];
+    DateTime currentDate = DateTime.now();
+    DateTime endDate = currentDate.add(const Duration(days: 60));
+    for (DateTime date = currentDate.subtract(const Duration(days: 30));
+        date.isBefore(currentDate);
+        date = date.add(const Duration(days: 1))) {
+      disabledDates.add(date);
+    }
+    for (DateTime date = currentDate;
+        date.isBefore(endDate);
+        date = date.add(const Duration(days: 1))) {
+      if (!availableDays.contains(date.weekday)) {
+        disabledDates.add(date);
+      }
+    }
+
+    return disabledDates;
   }
 
   @override
@@ -107,7 +146,7 @@ class _NewAppointmentScreenState extends State<NewAppointmentScreen> {
             ),
           );
         } else if (state is DropdowngenderState) {
-          gender = state.gender; 
+          gender = state.gender;
         }
       },
       child: Scaffold(
@@ -146,15 +185,10 @@ class _NewAppointmentScreenState extends State<NewAppointmentScreen> {
                               ),
                             ),
                           ),
-                          const Padding(
+                          Padding(
                             padding: EdgeInsets.only(left: 30),
-                            child: Text(
-                              "New Appointment",
-                              style: TextStyle(
-                                  fontSize: 24,
-                                  fontWeight: FontWeight.w600,
-                                  color: Color.fromARGB(255, 118, 115, 115)),
-                            ),
+                            child: Text("New Appointment",
+                                style: Textstyles.pagetitlestyle),
                           )
                         ],
                       ),
@@ -399,16 +433,4 @@ class _NewAppointmentScreenState extends State<NewAppointmentScreen> {
       ),
     );
   }
-}
-
-List<DateTime> _getDisabledDates() {
-  List<DateTime> disabledDates = [];
-
-  DateTime currentDate = DateTime.now();
-
-  for (int i = 1; i < currentDate.day; i++) {
-    disabledDates.add(DateTime(currentDate.year, currentDate.month, i));
-  }
-
-  return disabledDates;
 }

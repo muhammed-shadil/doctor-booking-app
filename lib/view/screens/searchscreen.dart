@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:doctors_book_app/controller/searching%20bloc/bloc/search_bloc.dart';
+import 'package:doctors_book_app/utility/constants.dart';
 import 'package:doctors_book_app/view/screens/doctorsdetails_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -42,17 +43,12 @@ class _SearchScreenState extends State<SearchScreen> {
                 toolbarHeight: 100,
                 title: Column(
                   children: [
-                    const Padding(
-                      padding: EdgeInsets.symmetric(vertical: 10),
-                      child: Text(
-                        "Search Doctors",
-                        style: TextStyle(
-                            fontSize: 24,
-                            fontWeight: FontWeight.w600,
-                            color: Color.fromARGB(255, 118, 115, 115)),
-                      ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 10),
+                      child: Text("Search Doctors",
+                          style: Textstyles.pagetitlestyle),
                     ),
-                    TextField(
+                    TextField(autofocus: true,
                       decoration: InputDecoration(
                           contentPadding: const EdgeInsets.all(8),
                           filled: true,

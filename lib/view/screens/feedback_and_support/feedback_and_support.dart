@@ -1,3 +1,4 @@
+import 'package:doctors_book_app/utility/constants.dart';
 import 'package:doctors_book_app/view/screens/aboutus/text_and_details.dart';
 import 'package:flutter/material.dart';
 
@@ -35,15 +36,10 @@ class FeedbackandSupportScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const Padding(
+                  Padding(
                     padding: EdgeInsets.only(left: 23),
-                    child: Text(
-                      "Feedback and Support",
-                      style: TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.w600,
-                          color: Color.fromARGB(255, 118, 115, 115)),
-                    ),
+                    child: Text("Feedback and Support",
+                        style: Textstyles.pagetitlestyle),
                   )
                 ],
               ),

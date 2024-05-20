@@ -37,15 +37,10 @@ class PrivacypolicyScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const Padding(
-                    padding: EdgeInsets.only(left: 40),
-                    child: Text(
-                      "Privacy Policy",
-                      style: TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.w600,
-                          color: Color.fromARGB(255, 118, 115, 115)),
-                    ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 40),
+                    child: Text("Privacy Policy",
+                        style: Textstyles.pagetitlestyle),
                   )
                 ],
               ),

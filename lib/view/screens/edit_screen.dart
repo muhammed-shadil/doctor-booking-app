@@ -2,6 +2,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:doctors_book_app/controller/imagebloc/bloc/image_bloc.dart';
 import 'package:doctors_book_app/model/model.dart';
+import 'package:doctors_book_app/utility/constants.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -75,7 +76,6 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
     final imageblo = BlocProvider.of<ImageBloc>(context);
     return Scaffold(
         backgroundColor: const Color.fromARGB(255, 240, 240, 241),
-        
         body: SafeArea(
             child: SingleChildScrollView(
           child: Form(
@@ -164,16 +164,10 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                       ),
                                     ),
                                   ),
-                                  const Padding(
+                                  Padding(
                                     padding: EdgeInsets.only(left: 50),
-                                    child: Text(
-                                      "Edit profile",
-                                      style: TextStyle(
-                                          fontSize: 24,
-                                          fontWeight: FontWeight.w600,
-                                          color: Color.fromARGB(
-                                              255, 118, 115, 115)),
-                                    ),
+                                    child: Text("Edit profile",
+                                        style: Textstyles.pagetitlestyle),
                                   )
                                 ],
                               ),

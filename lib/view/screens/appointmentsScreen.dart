@@ -29,25 +29,28 @@ class AppointmetsScreen extends StatefulWidget {
 }
 
 class _AppointmetsScreenState extends State<AppointmetsScreen> {
-  DateTime ss = DateTime.now();
+  DateTime initialdat = DateTime.now();
+
+  @override
+  void initState() {
+    super.initState();
+    BlocProvider.of<NewappointmentBloc>(context)
+        .add(datepickEvent(date: initialdat));
+    
+  }
+
   @override
   Widget build(BuildContext context) {
     return BlocListener<NewappointmentBloc, NewappointmentState>(
       listener: (context, state) {
         if (state is datepickedState) {
-          ss = state.dates;
+          initialdat = state.dates;
         }
       },
       child: Scaffold(
         appBar: AppBar(
           centerTitle: true,
-          title: const Text(
-            "Appointments",
-            style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.w600,
-                color: Color.fromARGB(255, 118, 115, 115)),
-          ),
+          title: Text("Appointments", style: Textstyles.pagetitlestyle),
         ),
         body: SingleChildScrollView(
           child: Column(
@@ -62,16 +65,16 @@ class _AppointmetsScreenState extends State<AppointmetsScreen> {
                         Padding(
                           padding: const EdgeInsets.only(left: 11.0),
                           child: Text(
-                            DateFormat('dd-MM-yyyy').format(ss),
+                            DateFormat('dd-MM-yyyy').format(initialdat),
                             style: const TextStyle(fontSize: 18),
                           ),
                         ),
                         IconButton(
                             onPressed: () {
                               BottomPicker.date(
-                                buttonSingleColor:
-                                   Colorpalette.primarycolor,
-                                pickerTitle:  const Text(
+                                initialDateTime: DateTime.now(),
+                                buttonSingleColor: Colorpalette.primarycolor,
+                                pickerTitle: const Text(
                                   'Pick the date',
                                   style: TextStyle(
                                     fontWeight: FontWeight.bold,
@@ -107,7 +110,7 @@ class _AppointmetsScreenState extends State<AppointmetsScreen> {
                                 bottomPickerTheme: BottomPickerTheme.plumPlate,
                               ).show(context);
                             },
-                            icon:  const Icon(
+                            icon: const Icon(
                               Icons.calendar_month,
                               color: Colorpalette.primarycolor,
                             )),
@@ -143,7 +146,7 @@ class _AppointmetsScreenState extends State<AppointmetsScreen> {
                                   context,
                                   MaterialPageRoute(
                                       builder: (_) => PatientListWrapper(
-                                            selectdate: ss,
+                                            selectdate: initialdat,
                                             doctorname:
                                                 doctorsdata['doctorname'],
                                           )));
@@ -214,12 +217,11 @@ class _AppointmetsScreenState extends State<AppointmetsScreen> {
                                         ],
                                       ),
                                     ),
-                                     const Expanded(
+                                    const Expanded(
                                         flex: 1,
                                         child: Icon(
-                                          Icons.favorite_border,
-                                          color:
-                                              Colorpalette.primarycolor,
+                                          Icons.arrow_forward_ios_rounded,
+                                          color: Colorpalette.primarycolor,
                                         )),
                                   ],
                                 ),

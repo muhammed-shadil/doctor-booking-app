@@ -1,3 +1,4 @@
+import 'package:doctors_book_app/utility/constants.dart';
 import 'package:doctors_book_app/view/screens/FAQS/contents.dart';
 import 'package:flutter/material.dart';
 
@@ -35,15 +36,9 @@ class FAQsScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const Padding(
+                  Padding(
                     padding: EdgeInsets.only(left: 70),
-                    child: Text(
-                      "FAQs",
-                      style: TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.w600,
-                          color: Color.fromARGB(255, 118, 115, 115)),
-                    ),
+                    child: Text("FAQs", style: Textstyles.pagetitlestyle),
                   )
                 ],
               ),

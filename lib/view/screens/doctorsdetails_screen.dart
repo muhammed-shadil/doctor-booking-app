@@ -1,5 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:doctors_book_app/view/screens/newappointmentScreen.dart';
+import 'package:doctors_book_app/view/screens/newappointment/newappointmentScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:doctors_book_app/view/widgets/doctorsdetails/appoinment.dart';
 import 'package:doctors_book_app/view/widgets/doctorsdetails/endcontainer.dart';
@@ -23,7 +23,7 @@ class DoctorsDetailsScreen extends StatelessWidget {
             children: [
               Container(
                 width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height * 0.95,
+                height: MediaQuery.of(context).size.height * 0.96,
                 child: Stack(
                   children: [
                     Positioned(
@@ -84,9 +84,10 @@ class DoctorsDetailsScreen extends StatelessWidget {
               ),
               Container(
                 color: const Color.fromARGB(255, 235, 235, 236),
-                padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 10),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                 width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height * 0.24,
+                height: MediaQuery.of(context).size.height * 0.28,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -99,6 +100,10 @@ class DoctorsDetailsScreen extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(vertical: 10),
                       child: Text(doctorsdatails['time']),
                     ),
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 10),
+                      child: Text("${doctorsdatails['date']}".toUpperCase()),
+                    ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -110,7 +115,8 @@ class DoctorsDetailsScreen extends StatelessWidget {
                                 MaterialPageRoute(
                                     builder: (_) => NewAppointmentScreenWrapper(
                                         doctorname:
-                                            doctorsdatails['doctorname'])));
+                                            doctorsdatails['doctorname'],
+                                        doctordates: doctorsdatails['date'])));
                           },
                         ),
                       ],

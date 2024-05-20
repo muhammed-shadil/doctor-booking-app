@@ -44,19 +44,14 @@ class PatientsDetails extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const Padding(
+                  Padding(
                     padding: EdgeInsets.only(left: 35),
-                    child: Text(
-                      "Patients Details",
-                      style: TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.w600,
-                          color: Color.fromARGB(255, 118, 115, 115)),
-                    ),
+                    child: Text("Patients Details",
+                        style: Textstyles.pagetitlestyle),
                   )
                 ],
               ),
-               const Row(
+              const Row(
                 children: [
                   Padding(
                     padding: EdgeInsets.only(left: 13.0, right: 8),
@@ -97,7 +92,7 @@ class PatientsDetails extends StatelessWidget {
                   ],
                 ),
               ),
-               const Row(
+              const Row(
                 children: [
                   Padding(
                     padding: EdgeInsets.only(left: 13.0, right: 8),

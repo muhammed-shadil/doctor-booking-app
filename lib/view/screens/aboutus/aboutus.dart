@@ -37,15 +37,9 @@ class AboutUsScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const Padding(
+                  Padding(
                     padding: EdgeInsets.only(left: 40),
-                    child: Text(
-                      "ABOUT US",
-                      style: TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.w600,
-                          color: Color.fromARGB(255, 118, 115, 115)),
-                    ),
+                    child: Text("ABOUT US", style: Textstyles.pagetitlestyle),
                   )
                 ],
               ),
