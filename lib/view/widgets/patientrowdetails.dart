@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class patientRow extends StatelessWidget {
   const patientRow({
@@ -17,20 +18,20 @@ class patientRow extends StatelessWidget {
         children: [
           Text(
             firstname,
-            style: const TextStyle(
-                fontSize: 20,
+            style:  TextStyle(
+                fontSize: 20.sp,
                 fontWeight: FontWeight.w400,
-                color: Color.fromARGB(255, 156, 153, 153)),
+                color: const Color.fromARGB(255, 156, 153, 153)),
           ),
           const SizedBox(
             width: 10,
           ),
           Text(
             secondname,
-            style: const TextStyle(
-                fontSize: 18,
+            style:  TextStyle(
+                fontSize: 18.sp,
                 fontWeight: FontWeight.w400,
-                color: Color.fromARGB(255, 92, 89, 89)),
+                color: const Color.fromARGB(255, 92, 89, 89)),
           ),
         ],
       ),

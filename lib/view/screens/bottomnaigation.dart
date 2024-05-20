@@ -11,6 +11,7 @@ import 'package:doctors_book_app/view/screens/settings_Screen.dart';
 import 'package:flashy_tab_bar2/flashy_tab_bar2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_icon_class/font_awesome_icon_class.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:telephony/telephony.dart';
@@ -145,7 +146,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
                     FontAwesomeIcons.houseChimneyMedical,
                     size: 23,
                   ),
-                  title: const Text('HOME', style: TextStyle(fontSize: 12)),
+                  title:  Text('HOME', style: TextStyle(fontSize: 12.sp)),
                   activeColor: Colorpalette.primarycolor,
                 ),
                 FlashyTabBarItem(
@@ -153,22 +154,22 @@ class _BottomNavigationState extends State<BottomNavigation> {
                     FontAwesomeIcons.stethoscope,
                     size: 23,
                   ),
-                  title: const Text('DOCTORS', style: TextStyle(fontSize: 12)),
+                  title:  Text('DOCTORS', style: TextStyle(fontSize: 12.sp)),
                 ),
                 FlashyTabBarItem(
                   icon: const Icon(Icons.search),
-                  title: const Text('SEARCH', style: TextStyle(fontSize: 12)),
+                  title:  Text('SEARCH', style: TextStyle(fontSize: 12.sp)),
                 ),
                 FlashyTabBarItem(
                   icon: const Icon(Icons.library_books_outlined),
-                  title: const Text(
+                  title:  Text(
                     'APPOINTMENT',
-                    style: TextStyle(fontSize: 9),
+                    style: TextStyle(fontSize: 9.sp),
                   ),
                 ),
                 FlashyTabBarItem(
                   icon: const Icon(Icons.settings),
-                  title: const Text('SETTINGS', style: TextStyle(fontSize: 12)),
+                  title:  Text('SETTINGS', style: TextStyle(fontSize: 12.sp)),
                 ),
               ],
             ),

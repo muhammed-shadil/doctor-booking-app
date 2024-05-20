@@ -6,6 +6,7 @@ import 'package:favorite_button/favorite_button.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DoctorsListwrpper extends StatelessWidget {
   const DoctorsListwrpper({super.key});
@@ -119,11 +120,11 @@ class DoctorsScreen extends StatelessWidget {
                                                   doctorsdata['doctorname']
                                                       .toString()
                                                       .toUpperCase(),
-                                                  style: const TextStyle(
-                                                      fontSize: 18,
+                                                  style:  TextStyle(
+                                                      fontSize: 18.sp,
                                                       fontWeight:
                                                           FontWeight.w500,
-                                                      color: Color.fromRGBO(
+                                                      color: const Color.fromRGBO(
                                                           122, 118, 118, 1)),
                                                 ),
                                                 Padding(

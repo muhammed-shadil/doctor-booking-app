@@ -4,6 +4,7 @@ import 'package:easy_date_timeline/easy_date_timeline.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:telephony/telephony.dart';
 import 'package:uuid/uuid.dart';
 
@@ -232,11 +233,11 @@ class _NewAppointmentScreenState extends State<NewAppointmentScreen> {
                       const SizedBox(
                         height: 20,
                       ),
-                      const Padding(
-                        padding: EdgeInsets.only(left: 15),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 15),
                         child: Text(
                           "Available time",
-                          style: TextStyle(fontSize: 20),
+                          style: TextStyle(fontSize: 20.sp),
                         ),
                       ),
                       const SizedBox(
@@ -317,11 +318,11 @@ class _NewAppointmentScreenState extends State<NewAppointmentScreen> {
                   padding: const EdgeInsets.symmetric(horizontal: 25),
                   child: Column(
                     children: [
-                      const Padding(
+                      Padding(
                         padding: EdgeInsets.only(top: 10, left: 16, bottom: 20),
                         child: Text(
                           "Patient details",
-                          style: TextStyle(fontSize: 20),
+                          style: TextStyle(fontSize: 20.sp),
                         ),
                       ),
                       MainTextField(

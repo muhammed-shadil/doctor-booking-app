@@ -6,6 +6,7 @@ import 'package:favorite_button/favorite_button.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class FavoriteScreenWrpper extends StatelessWidget {
   const FavoriteScreenWrpper({super.key});
@@ -146,12 +147,12 @@ class FavoriteScreen extends StatelessWidget {
                                                                 'doctorname']
                                                             .toString()
                                                             .toUpperCase(),
-                                                        style: const TextStyle(
-                                                            fontSize: 18,
+                                                        style:  TextStyle(
+                                                            fontSize: 18.sp,
                                                             fontWeight:
                                                                 FontWeight.w500,
                                                             color:
-                                                                Color.fromRGBO(
+                                                                const Color.fromRGBO(
                                                                     122,
                                                                     118,
                                                                     118,

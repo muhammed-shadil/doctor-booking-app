@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Alerltbutton extends StatelessWidget {
   const Alerltbutton({
@@ -20,13 +21,11 @@ class Alerltbutton extends StatelessWidget {
         style: ElevatedButton.styleFrom(
           shape: RoundedRectangleBorder(
             side: const BorderSide(
-              color: Color.fromARGB(255, 240, 14, 71), 
+              color: Color.fromARGB(255, 240, 14, 71),
             ),
-            borderRadius:
-                BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(10),
           ),
-          backgroundColor:
-              const Color.fromARGB(255, 238, 219, 225), 
+          backgroundColor: const Color.fromARGB(255, 238, 219, 225),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -37,9 +36,9 @@ class Alerltbutton extends StatelessWidget {
             ),
             Text(
               buttontext,
-              style: const TextStyle(
+              style: TextStyle(
                   color: Color.fromARGB(255, 234, 28, 80),
-                  fontSize: 20,
+                  fontSize: 20.sp,
                   fontWeight: FontWeight.w400),
             ),
           ],

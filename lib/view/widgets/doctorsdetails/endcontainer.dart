@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Endcontainer extends StatelessWidget {
   const Endcontainer({
@@ -26,24 +27,24 @@ class Endcontainer extends StatelessWidget {
             height: 50,
           ),
           Container(
-            padding: const EdgeInsets.only(bottom: 20),
+            padding: const EdgeInsets.only(bottom: 13),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   doctorsdatails['doctorname'],
-                  style: const TextStyle(
-                      fontSize: 22, color: Color.fromARGB(255, 64, 63, 63)),
+                  style:  TextStyle(
+                      fontSize: 22.sp, color: const Color.fromARGB(255, 64, 63, 63)),
                 ),
                 Text(
                   doctorsdatails['qualifications'],
-                  style: const TextStyle(
-                      fontSize: 15, color: Color.fromARGB(255, 92, 91, 91)),
+                  style:  TextStyle(
+                      fontSize: 15.sp, color: const Color.fromARGB(255, 92, 91, 91)),
                 ),
                 Text(
                   doctorsdatails['speciality'],
-                  style: const TextStyle(
-                      fontSize: 15, color: Color.fromARGB(255, 92, 91, 91)),
+                  style:  TextStyle(
+                      fontSize: 15.sp, color: const Color.fromARGB(255, 92, 91, 91)),
                 )
               ],
             ),
@@ -61,9 +62,9 @@ class Endcontainer extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(vertical: 15.0),
                   child: Text(
                     doctorsdatails['about'],
-                    style: const TextStyle(
-                        fontSize: 14,
-                        color: Color.fromARGB(255, 158, 156, 156)),
+                    style:  TextStyle(
+                        fontSize: 14.sp,
+                        color: const Color.fromARGB(255, 158, 156, 156)),
                   ),
                 )
               ],

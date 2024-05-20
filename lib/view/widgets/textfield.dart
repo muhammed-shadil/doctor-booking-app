@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:doctors_book_app/controller/cubit/cubit.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MainTextField extends StatelessWidget {
   const MainTextField({
@@ -36,13 +37,14 @@ class MainTextField extends StatelessWidget {
           children: [
             Icon(
               preficsicon,
-              color:  Colorpalette.primarycolor,
+              color: Colorpalette.primarycolor,
             ),
             Padding(
               padding: const EdgeInsets.only(left: 8),
               child: Text(helpertext,
-                  style: const TextStyle(
-                      color: Color.fromARGB(255, 134, 128, 128), fontSize: 17)),
+                  style: TextStyle(
+                      color: Color.fromARGB(255, 134, 128, 128),
+                      fontSize: 17.sp)),
             )
           ],
         ),
@@ -61,9 +63,9 @@ class MainTextField extends StatelessWidget {
                   validator: validator,
                   keyboardType: keyboard,
                   autovalidateMode: AutovalidateMode.onUserInteraction,
-                  style: const TextStyle(
+                  style: TextStyle(
                     color: Color.fromARGB(255, 68, 73, 53),
-                    fontSize: 16,
+                    fontSize: 16.sp,
                   ),
                   controller: controller,
                   decoration: InputDecoration(
@@ -105,7 +107,7 @@ class MainTextField extends StatelessWidget {
                       hintText: text,
                       suffixIcon: (obscuretext)
                           ? IconButton(
-                              color:  Colorpalette.primarycolor,
+                              color: Colorpalette.primarycolor,
                               onPressed: () {
                                 context.read<PasswordCubit>().visibilityicon();
                               },

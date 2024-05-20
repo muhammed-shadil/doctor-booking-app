@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Specialistverticalscroll extends StatelessWidget {
   const Specialistverticalscroll({
@@ -32,25 +33,25 @@ class Specialistverticalscroll extends StatelessWidget {
             Text(
               firsttext,
               textAlign: TextAlign.center,
-              style: const TextStyle(
-                fontSize: 12,
+              style:  TextStyle(
+                fontSize: 12.sp,
                 fontWeight: FontWeight.w700,
-                color: Color.fromARGB(255, 99, 95, 95),
+                color: const Color.fromARGB(255, 99, 95, 95),
               ),
             ),
             Text(
               secondtext,
               style: TextStyle(
-                fontSize: firsttext.length >= 17 ? 10 : 12,
+                fontSize: firsttext.length >= 17 ? 10.sp : 12.sp,
                 fontWeight: FontWeight.w700,
                 color: const Color.fromARGB(255, 99, 95, 95),
               ),
             ),
             Text(
               thirdtext,
-              style: const TextStyle(
-                fontSize: 12,
-                color: Color.fromARGB(255, 122, 118, 118),
+              style:  TextStyle(
+                fontSize: 12.sp,
+                color: const Color.fromARGB(255, 122, 118, 118),
               ),
             )
           ],

@@ -8,6 +8,7 @@ import 'package:doctors_book_app/view/screens/login_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SplashScreenWrapper extends StatelessWidget {
@@ -61,16 +62,18 @@ class Splashscreen extends StatelessWidget {
             child: Column(
               children: [
                 Image.asset("assets/image-removebg-preview.png"),
-                const Padding(
+                Padding(
                   padding: EdgeInsets.all(8.0),
                   child: Text(
                     "MEDICO",
-                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.w400),
+                    style:
+                        TextStyle(fontSize: 30.sp, fontWeight: FontWeight.w400),
                   ),
                 ),
-                const Text(
+                Text(
                   "YOUR MEDICAL CAMPANION",
-                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.w300),
+                  style:
+                      TextStyle(fontSize: 15.sp, fontWeight: FontWeight.w300),
                 )
               ],
             ),

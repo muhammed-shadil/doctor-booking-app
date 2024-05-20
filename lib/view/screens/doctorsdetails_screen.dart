@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:doctors_book_app/view/widgets/doctorsdetails/appoinment.dart';
 import 'package:doctors_book_app/view/widgets/doctorsdetails/endcontainer.dart';
 import 'package:doctors_book_app/view/widgets/doctorsdetails/middlecontainer.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DoctorsDetailsScreen extends StatelessWidget {
   const DoctorsDetailsScreen({
@@ -23,7 +24,7 @@ class DoctorsDetailsScreen extends StatelessWidget {
             children: [
               SizedBox(
                 width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height * 0.96,
+                height: MediaQuery.of(context).size.height * 0.95,
                 child: Stack(
                   children: [
                     Positioned(
@@ -68,12 +69,12 @@ class DoctorsDetailsScreen extends StatelessWidget {
                       ),
                     ),
                     Positioned(
-                        top: MediaQuery.of(context).size.width * 0.8,
+                        top: MediaQuery.of(context).size.height * 0.43,
                         child: Endcontainer(
                           doctorsdatails: doctorsdatails,
                         )),
                     Positioned(
-                      top: MediaQuery.of(context).size.width * 0.69,
+                      top: MediaQuery.of(context).size.height * 0.37,
                       left: MediaQuery.of(context).size.width * 0.07,
                       child: Middlecontainer(
                         doctorsdatails: doctorsdatails,
@@ -87,17 +88,17 @@ class DoctorsDetailsScreen extends StatelessWidget {
                 padding:
                     const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                 width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height * 0.28,
+                height: MediaQuery.of(context).size.height * 0.26,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
+                     Text(
                       "Working time",
                       style: TextStyle(
-                          fontSize: 22, color: Color.fromARGB(255, 64, 63, 63)),
+                          fontSize: 22.sp, color: Color.fromARGB(255, 64, 63, 63)),
                     ),
                     Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 10),
+                      padding: const EdgeInsets.only(top: 10),
                       child: Text(doctorsdatails['time']),
                     ),
                     Padding(

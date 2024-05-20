@@ -7,6 +7,7 @@ import 'package:doctors_book_app/view/screens/patientslist.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
 
 class AppointmentScreenWrapper extends StatelessWidget {
@@ -36,7 +37,6 @@ class _AppointmetsScreenState extends State<AppointmetsScreen> {
     super.initState();
     BlocProvider.of<NewappointmentBloc>(context)
         .add(datepickEvent(date: initialdat));
-    
   }
 
   @override
@@ -66,7 +66,7 @@ class _AppointmetsScreenState extends State<AppointmetsScreen> {
                           padding: const EdgeInsets.only(left: 11.0),
                           child: Text(
                             DateFormat('dd-MM-yyyy').format(initialdat),
-                            style: const TextStyle(fontSize: 18),
+                            style: TextStyle(fontSize: 18.sp),
                           ),
                         ),
                         IconButton(
@@ -74,11 +74,11 @@ class _AppointmetsScreenState extends State<AppointmetsScreen> {
                               BottomPicker.date(
                                 initialDateTime: DateTime.now(),
                                 buttonSingleColor: Colorpalette.primarycolor,
-                                pickerTitle: const Text(
+                                pickerTitle:  Text(
                                   'Pick the date',
                                   style: TextStyle(
                                     fontWeight: FontWeight.bold,
-                                    fontSize: 15,
+                                    fontSize: 15.sp,
                                     color: Colorpalette.primarycolor,
                                   ),
                                 ),
@@ -91,10 +91,10 @@ class _AppointmetsScreenState extends State<AppointmetsScreen> {
                                     DateTime.now().year,
                                     DateTime.now().month,
                                     DateTime.now().day - 1),
-                                pickerTextStyle: const TextStyle(
-                                  color: Color.fromARGB(255, 0, 86, 86),
+                                pickerTextStyle:  TextStyle(
+                                  color: const Color.fromARGB(255, 0, 86, 86),
                                   fontWeight: FontWeight.w400,
-                                  fontSize: 14,
+                                  fontSize: 14.sp,
                                 ),
                                 onChange: (index) {
                                   BlocProvider.of<NewappointmentBloc>(context)
@@ -192,10 +192,10 @@ class _AppointmetsScreenState extends State<AppointmetsScreen> {
                                             doctorsdata['doctorname']
                                                 .toString()
                                                 .toUpperCase(),
-                                            style: const TextStyle(
-                                                fontSize: 18,
+                                            style:  TextStyle(
+                                                fontSize: 18.sp,
                                                 fontWeight: FontWeight.w500,
-                                                color: Color.fromARGB(
+                                                color: const Color.fromARGB(
                                                     255, 122, 118, 118)),
                                           ),
                                           Padding(

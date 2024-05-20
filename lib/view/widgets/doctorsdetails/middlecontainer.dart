@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:doctors_book_app/utility/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Middlecontainer extends StatelessWidget {
   const Middlecontainer({
@@ -21,7 +22,7 @@ class Middlecontainer extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-           const CircleAvatar(
+          const CircleAvatar(
             backgroundColor: Color.fromARGB(255, 237, 235, 235),
             child: Icon(
               Icons.people_alt,
@@ -35,15 +36,16 @@ class Middlecontainer extends StatelessWidget {
             children: [
               Text(
                 doctorsdatails['nopatients'],
-                style: const TextStyle(
-                    fontSize: 18, color: Color.fromARGB(255, 92, 91, 91)),
+                style: TextStyle(
+                    fontSize: 18.sp,
+                    color: const Color.fromARGB(255, 92, 91, 91)),
               ),
               const Text("Patients",
                   style: TextStyle(color: Color.fromARGB(255, 148, 146, 146)))
             ],
           ),
           const VerticalDivider(),
-           const CircleAvatar(
+          const CircleAvatar(
             backgroundColor: Color.fromARGB(255, 237, 235, 235),
             child: Icon(
               Icons.badge,
@@ -55,8 +57,9 @@ class Middlecontainer extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(doctorsdatails['experince'],
-                  style: const TextStyle(
-                      fontSize: 18, color: Color.fromARGB(255, 92, 91, 91))),
+                  style: TextStyle(
+                      fontSize: 18.sp,
+                      color: const Color.fromARGB(255, 92, 91, 91))),
               const Text("Experiences",
                   style: TextStyle(color: Color.fromARGB(255, 148, 146, 146)))
             ],

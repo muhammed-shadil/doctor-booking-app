@@ -6,6 +6,7 @@ import 'package:doctors_book_app/view/widgets/mainbutton.dart';
 import 'package:doctors_book_app/view/widgets/textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LoginscreenWrapper extends StatelessWidget {
   const LoginscreenWrapper({super.key});
@@ -99,14 +100,14 @@ class LoginScreen extends StatelessWidget {
                       child: Image.asset("assets/image-removebg-preview.png",
                           fit: BoxFit.fitHeight),
                     ),
-                    const Padding(
-                      padding: EdgeInsets.only(top: 5),
+                     Padding(
+                      padding: const EdgeInsets.only(top: 5),
                       child: Text(
                         "Welcome to ",
-                        style: TextStyle(fontSize: 20),
+                        style: TextStyle(fontSize: 20.sp),
                       ),
                     ),
-                    const Text("MEDICO", style: TextStyle(fontSize: 30)),
+                     Text("MEDICO", style: TextStyle(fontSize: 30.sp)),
                     SizedBox(
                       height: MediaQuery.of(context).size.height * 0.04,
                     ),
@@ -177,11 +178,11 @@ class LoginScreen extends StatelessWidget {
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  const Text("Don't you have an account?",
+                                   Text("Don't you have an account?",
                                       style: TextStyle(
-                                          color: Color.fromARGB(
+                                          color: const Color.fromARGB(
                                               255, 134, 128, 128),
-                                          fontSize: 15)),
+                                          fontSize: 15.sp)),
                                   TextButton(
                                     onPressed: () {
                                       Navigator.push(
@@ -190,15 +191,15 @@ class LoginScreen extends StatelessWidget {
                                               builder: (_) =>
                                                   const SignupscreenWrapper()));
                                     },
-                                    child: const Text(
+                                    child:  Text(
                                       "Sign up",
                                       style: TextStyle(
                                           fontFamily: 'Opensans',
                                           fontWeight: FontWeight.w600,
                                           decoration: TextDecoration.underline,
-                                          color: Color.fromARGB(
+                                          color: const Color.fromARGB(
                                               255, 135, 131, 131),
-                                          fontSize: 15),
+                                          fontSize: 15.sp),
                                     ),
                                   ),
                                 ],

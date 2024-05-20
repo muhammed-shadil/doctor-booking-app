@@ -7,6 +7,7 @@ import 'package:doctors_book_app/view/widgets/home_textfield.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HomeScreenWrapper extends StatelessWidget {
   const HomeScreenWrapper({super.key});
@@ -135,21 +136,21 @@ class HomeScreen extends StatelessWidget {
                                                     maxLines: 1,
                                                     overflow:
                                                         TextOverflow.ellipsis,
-                                                    style: const TextStyle(
+                                                    style:  TextStyle(
                                                       fontWeight:
                                                           FontWeight.w900,
-                                                      fontSize: 23,
-                                                      color: Color.fromARGB(
+                                                      fontSize: 23.sp,
+                                                      color: const Color.fromARGB(
                                                           255, 0, 148, 149),
                                                     ),
                                                   ),
                                                 ),
-                                                const Text(
+                                                 Text(
                                                   "Find your best doctor here",
                                                   style: TextStyle(
                                                     fontWeight: FontWeight.w300,
-                                                    fontSize: 18,
-                                                    color: Color.fromARGB(
+                                                    fontSize: 18.sp,
+                                                    color: const Color.fromARGB(
                                                         255, 0, 148, 149),
                                                   ),
                                                 ),

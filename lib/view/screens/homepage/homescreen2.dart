@@ -7,6 +7,7 @@ import 'package:doctors_book_app/view/widgets/homepage/specialitylist.dart';
 import 'package:doctors_book_app/view/widgets/homepage/tipconatainer.dart';
 import 'package:doctors_book_app/view/widgets/homepage/topdoctorsscroll.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HomeSpecialist extends StatelessWidget {
   HomeSpecialist({super.key});
@@ -22,18 +23,18 @@ class HomeSpecialist extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Padding(
+          Padding(
             padding: EdgeInsets.symmetric(horizontal: 15),
             child: Text(
               "SPECIALIST",
               style: TextStyle(
-                  fontSize: 20,
-                  color: Color.fromARGB(255, 121, 118, 118),
+                  fontSize: 20.sp,
+                  color: const Color.fromARGB(255, 121, 118, 118),
                   fontWeight: FontWeight.w500),
             ),
           ),
           SizedBox(
-              height: 120,
+              height: MediaQuery.of(context).size.height * 0.185,
               child: ListView.builder(
                   shrinkWrap: true,
                   itemCount: specialis.specialistdata.length,
@@ -84,13 +85,13 @@ class HomeSpecialist extends StatelessWidget {
                           return Container();
                         });
                   })),
-          const Padding(
-            padding: EdgeInsets.only(top: 16, left: 15),
+          Padding(
+            padding: const EdgeInsets.only(top: 16, left: 15),
             child: Text(
               "GET CARE",
               style: TextStyle(
-                  fontSize: 20,
-                  color: Color.fromARGB(255, 163, 153, 153),
+                  fontSize: 20.sp,
+                  color: const Color.fromARGB(255, 163, 153, 153),
                   fontWeight: FontWeight.w500),
             ),
           ),
@@ -133,18 +134,18 @@ class HomeSpecialist extends StatelessWidget {
               // viewportFraction: 0.8,
             ),
           ),
-          const Padding(
+           Padding(
             padding: EdgeInsets.only(top: 16, left: 15),
             child: Text(
               "TOP DOCTORS",
               style: TextStyle(
-                  fontSize: 20,
+                  fontSize: 20.sp,
                   color: Color.fromARGB(255, 163, 153, 153),
                   fontWeight: FontWeight.w500),
             ),
           ),
           SizedBox(
-              height: 180,
+              height: MediaQuery.of(context).size.height * 0.27,
               child: StreamBuilder(
                   stream: FirebaseFirestore.instance
                       .collection("doctors")

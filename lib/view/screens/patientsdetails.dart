@@ -3,6 +3,7 @@ import 'package:doctors_book_app/utility/constants.dart';
 import 'package:doctors_book_app/view/widgets/cancellingbutton.dart';
 import 'package:doctors_book_app/view/widgets/patientrowdetails.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class PatientsDetails extends StatelessWidget {
   const PatientsDetails({
@@ -50,9 +51,9 @@ class PatientsDetails extends StatelessWidget {
                   )
                 ],
               ),
-              const Row(
+               Row(
                 children: [
-                  Padding(
+                  const Padding(
                     padding: EdgeInsets.only(left: 13.0, right: 8),
                     child: Icon(
                       Icons.person,
@@ -63,7 +64,7 @@ class PatientsDetails extends StatelessWidget {
                   Text(
                     "Personal information",
                     style: TextStyle(
-                        fontSize: 23,
+                        fontSize: 23.sp,
                         fontWeight: FontWeight.w500,
                         color: Color.fromARGB(255, 100, 98, 98)),
                   ),
@@ -91,9 +92,9 @@ class PatientsDetails extends StatelessWidget {
                   ],
                 ),
               ),
-              const Row(
+               Row(
                 children: [
-                  Padding(
+                  const Padding(
                     padding: EdgeInsets.only(left: 13.0, right: 8),
                     child: Icon(
                       Icons.av_timer,
@@ -104,9 +105,9 @@ class PatientsDetails extends StatelessWidget {
                   Text(
                     "Visit time",
                     style: TextStyle(
-                        fontSize: 23,
+                        fontSize: 23.sp,
                         fontWeight: FontWeight.w500,
-                        color: Color.fromARGB(255, 100, 98, 98)),
+                        color: const Color.fromARGB(255, 100, 98, 98)),
                   ),
                 ],
               ),

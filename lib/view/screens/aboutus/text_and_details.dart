@@ -1,5 +1,6 @@
 import 'package:doctors_book_app/utility/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Contents extends StatelessWidget {
   const Contents({super.key, required this.title, required this.content});
@@ -15,8 +16,8 @@ class Contents extends StatelessWidget {
         children: [
           Text(
             title,
-            style: const TextStyle(
-                fontSize: 18,
+            style:  TextStyle(
+                fontSize: 18.sp,
                 color: Colorpalette.primarycolor,
                 fontWeight: FontWeight.w600),
           ),
@@ -24,7 +25,7 @@ class Contents extends StatelessWidget {
             padding: const EdgeInsets.symmetric(vertical: 15),
             child: Text(
               content,
-              style: const TextStyle(fontSize: 16),
+              style:  TextStyle(fontSize: 16.sp),
             ),
           )
         ],

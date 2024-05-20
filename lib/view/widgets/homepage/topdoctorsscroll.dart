@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class doctorsverticalscroll extends StatelessWidget {
   const doctorsverticalscroll({
@@ -15,8 +16,9 @@ class doctorsverticalscroll extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 115,
-      height: 60,
+    
+              width: MediaQuery.of(context).size.width*0.3,
+              height:  MediaQuery.of(context).size.height*0.4,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10), color: Colors.white),
       child: Padding(
@@ -24,8 +26,8 @@ class doctorsverticalscroll extends StatelessWidget {
         child: Column(
           children: [
             Container(
-              width: 95,
-              height: 117,
+              width: MediaQuery.of(context).size.width*0.25,
+              height:  MediaQuery.of(context).size.height*0.17,
               padding: const EdgeInsets.symmetric(vertical: 4),
               child: ClipRRect(
                   borderRadius: BorderRadius.circular(15),
@@ -45,7 +47,7 @@ class doctorsverticalscroll extends StatelessWidget {
               doctorname,
               style: TextStyle(
                   fontWeight: FontWeight.w500,
-                  fontSize: (doctorname.length >= 18) ? 13 : 16,
+                  fontSize: (doctorname.length >= 18) ? 10.sp : 13.sp,
                   color: const Color.fromARGB(255, 111, 104, 104)),
             ),
             Text(speciality,

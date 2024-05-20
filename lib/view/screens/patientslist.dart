@@ -6,6 +6,7 @@ import 'package:doctors_book_app/view/widgets/loading.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:intl/intl.dart';
 
@@ -63,7 +64,8 @@ class PatientsList extends StatelessWidget {
           );
           Navigator.pushAndRemoveUntil(
               context,
-              MaterialPageRoute(builder: (_) => const BottomNavigationWrapper()),
+              MaterialPageRoute(
+                  builder: (_) => const BottomNavigationWrapper()),
               (route) => false);
         }
       },
@@ -152,7 +154,7 @@ class PatientsList extends StatelessWidget {
                                             borderRadius:
                                                 BorderRadius.circular(20),
                                             color: const Color.fromARGB(
-                                                255, 247, 250, 250),
+                                                255, 233, 250, 250),
                                           ),
                                           width: MediaQuery.of(context)
                                                   .size
@@ -169,11 +171,12 @@ class PatientsList extends StatelessWidget {
                                                 children: [
                                                   Text(
                                                     patietsdata['time'],
-                                                    style: const TextStyle(
-                                                        fontSize: 18,
+                                                    style: TextStyle(
+                                                        fontSize: 18.sp,
                                                         fontWeight:
                                                             FontWeight.w600,
-                                                        color: Color.fromARGB(
+                                                        color: const Color
+                                                            .fromARGB(
                                                             255, 0, 148, 149)),
                                                   ),
                                                   const Icon(
@@ -218,10 +221,10 @@ class PatientsList extends StatelessWidget {
                                                     children: [
                                                       Row(
                                                         children: [
-                                                          const Text(
+                                                          Text(
                                                             "Patient Name: ",
                                                             style: TextStyle(
-                                                                fontSize: 16,
+                                                                fontSize: 16.sp,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w400,
@@ -231,8 +234,8 @@ class PatientsList extends StatelessWidget {
                                                           Text(
                                                             patietsdata[
                                                                 'patientname'],
-                                                            style: const TextStyle(
-                                                                fontSize: 18,
+                                                            style:  TextStyle(
+                                                                fontSize: 18.sp,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w500,
@@ -243,22 +246,22 @@ class PatientsList extends StatelessWidget {
                                                       ),
                                                       Row(
                                                         children: [
-                                                          const Text(
+                                                           Text(
                                                             "Patient Age: ",
                                                             style: TextStyle(
                                                                 color: Colors
                                                                     .black38,
-                                                                fontSize: 16,
+                                                                fontSize: 16.sp,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w400),
                                                           ),
                                                           Text(
                                                             " ${patietsdata['age']} years",
-                                                            style: const TextStyle(
+                                                            style:  TextStyle(
                                                                 color: Colors
                                                                     .black45,
-                                                                fontSize: 18,
+                                                                fontSize: 18.sp,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w500),
@@ -331,10 +334,10 @@ class PatientsList extends StatelessWidget {
                                       Text(
                                         textAlign: TextAlign.center,
                                         'No patients found for $doctorname on ${DateFormat('dd-MM-yyyy').format(selectdate)}',
-                                        style: const TextStyle(
-                                            color: Color.fromARGB(
+                                        style:  TextStyle(
+                                            color: const Color.fromARGB(
                                                 255, 124, 124, 124),
-                                            fontSize: 18,
+                                            fontSize: 18.sp,
                                             fontWeight: FontWeight.w400),
                                       ),
                                     ],

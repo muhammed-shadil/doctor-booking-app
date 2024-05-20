@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Specialistverticalscroll extends StatelessWidget {
   const Specialistverticalscroll({
@@ -16,8 +17,8 @@ class Specialistverticalscroll extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 80,
-      height: 20,
+      width: MediaQuery.of(context).size.width*0.22,
+      height: MediaQuery.of(context).size.height*0.05,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10), color: Colors.white),
       child: Padding(
@@ -25,32 +26,32 @@ class Specialistverticalscroll extends StatelessWidget {
         child: Column(
           children: [
             SizedBox(
-              width: firsttext.length >= 17 ? 35 : 40,
-              height: firsttext.length >= 17 ? 35 : 40,
+              width: firsttext.length >= 17 ? 35.sp : 40.sp,
+              height: firsttext.length >= 17 ? 35.sp : 40.sp,
               child: Image.asset(icon),
             ),
             Text(
               firsttext,
               textAlign: TextAlign.center,
-              style: const TextStyle(
-                fontSize: 12,
+              style:  TextStyle(
+                fontSize: 12.sp,
                 fontWeight: FontWeight.w700,
-                color: Color.fromARGB(255, 99, 95, 95),
+                color: const Color.fromARGB(255, 99, 95, 95),
               ),
             ),
             Text(
               secondtext,
               style: TextStyle(
-                fontSize: firsttext.length >= 17 ? 10 : 12,
+                fontSize: firsttext.length >= 17 ? 10.sp : 12.sp,
                 fontWeight: FontWeight.w700,
                 color: const Color.fromARGB(255, 99, 95, 95),
               ),
             ),
             Text(
               thirdtext,
-              style: const TextStyle(
-                fontSize: 12,
-                color: Color.fromARGB(255, 122, 118, 118),
+              style:  TextStyle(
+                fontSize: 12.sp,
+                color: const Color.fromARGB(255, 122, 118, 118),
               ),
             )
           ],

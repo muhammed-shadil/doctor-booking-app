@@ -13,6 +13,7 @@ import 'package:doctors_book_app/view/widgets/settingspage_listtile.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class settingsScreenWrapper extends StatelessWidget {
   const settingsScreenWrapper({super.key});
@@ -87,11 +88,11 @@ class SettingsScreen extends StatelessWidget {
                         Positioned(
                           top: MediaQuery.of(context).size.width * 0.12,
                           left: MediaQuery.of(context).size.width * 0.38,
-                          child: const Text(
+                          child:  Text(
                             "Settings",
                             style: TextStyle(
                               fontWeight: FontWeight.w500,
-                              fontSize: 24,
+                              fontSize: 24.sp,
                               color: Colors.white,
                             ),
                           ),
@@ -179,12 +180,12 @@ class SettingsScreen extends StatelessWidget {
                                                         MainAxisAlignment
                                                             .center,
                                                     children: [
-                                                      const Text(
+                                                       Text(
                                                         "Hello!",
                                                         style: TextStyle(
                                                             fontWeight:
                                                                 FontWeight.w300,
-                                                            fontSize: 20,
+                                                            fontSize: 20.sp,
                                                             color: Colorpalette
                                                                 .primarycolor),
                                                       ),
@@ -196,11 +197,11 @@ class SettingsScreen extends StatelessWidget {
                                                           maxLines: 1,
                                                           overflow: TextOverflow
                                                               .ellipsis,
-                                                          style: const TextStyle(
+                                                          style:  TextStyle(
                                                               fontWeight:
                                                                   FontWeight
                                                                       .w900,
-                                                              fontSize: 23,
+                                                              fontSize: 23.sp,
                                                               color: Colorpalette
                                                                   .primarycolor),
                                                         ),

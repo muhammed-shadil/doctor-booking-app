@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class BulletList extends StatelessWidget {
   final List<String> strings;
@@ -16,10 +17,10 @@ class BulletList extends StatelessWidget {
           return Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
+               Text(
                 '\u2022',
                 style: TextStyle(
-                  fontSize: 24,
+                  fontSize: 24.sp,
                   height: 1,
                 ),
               ),
@@ -32,7 +33,7 @@ class BulletList extends StatelessWidget {
                   textAlign: TextAlign.left,
                   softWrap: true,
                   style: TextStyle(
-                    fontSize: 16,
+                    fontSize: 16.sp,
                     color: Colors.black.withOpacity(0.6),
                     height: 1.55,
                   ),

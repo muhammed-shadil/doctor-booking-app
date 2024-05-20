@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:doctors_book_app/utility/constants.dart';
 import 'package:doctors_book_app/view/screens/doctorsdetails_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CategoryScreen extends StatelessWidget {
   const CategoryScreen({
@@ -74,8 +75,8 @@ class CategoryScreen extends StatelessWidget {
                                     doctorspecial['doctorname']
                                         .toString()
                                         .toUpperCase(),
-                                    style: const TextStyle(
-                                        fontSize: 18,
+                                    style:  TextStyle(
+                                        fontSize: 18.sp,
                                         fontWeight: FontWeight.w500),
                                   ),
                                   Padding(

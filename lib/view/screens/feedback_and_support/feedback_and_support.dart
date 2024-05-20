@@ -1,6 +1,7 @@
 import 'package:doctors_book_app/utility/constants.dart';
 import 'package:doctors_book_app/view/screens/aboutus/text_and_details.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class FeedbackandSupportScreen extends StatelessWidget {
   const FeedbackandSupportScreen({super.key});
@@ -45,9 +46,9 @@ class FeedbackandSupportScreen extends StatelessWidget {
               ),
               Container(
                 padding: const EdgeInsets.all(16),
-                child: const Text(
+                child:  Text(
                   "Welcome to the Feedback and Support page of MEDICO. We value your feedback and are here to assist you with any questions or concerns you may have. Here's how you can reach out to us: ",
-                  style: TextStyle(fontSize: 18),
+                  style: TextStyle(fontSize: 18.sp),
                 ),
               ),
               const Contents(
@@ -75,8 +76,8 @@ class FeedbackandSupportScreen extends StatelessWidget {
                       "Follow us on social media to stay updated on the latest news, updates, and promotions. Connect with us on [social media platforms] to join our community and engage with other users."),
               Container(
                 padding: const EdgeInsets.all(14),
-                child: const Text(
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                child:  Text(
+                    style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w600),
                     "Thank you for choosing MEDICO. We're committed to providing you with an exceptional experience and are here to support you every step of the way."),
               )
             ],

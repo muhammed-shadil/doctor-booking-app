@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:doctors_book_app/utility/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Autoscrollcontainer extends StatelessWidget {
   const Autoscrollcontainer({
@@ -29,10 +30,10 @@ class Autoscrollcontainer extends StatelessWidget {
               title
               // "Did you know?",
               ,
-              style: const TextStyle(
-                fontSize: 17,
+              style:  TextStyle(
+                fontSize: 17.sp,
                 fontWeight: FontWeight.w700,
-                color: Color.fromARGB(255, 161, 157, 157),
+                color: const Color.fromARGB(255, 161, 157, 157),
               ),
             ),
           ),
@@ -46,10 +47,10 @@ class Autoscrollcontainer extends StatelessWidget {
                 describtion
                 // "Regular exercise can help lower your risk of heart disease and high blood pressure",
                 ,
-                style: const TextStyle(
-                  fontSize: 15,
+                style:  TextStyle(
+                  fontSize: 15.sp,
                   fontWeight: FontWeight.w300,
-                  color: Color.fromARGB(255, 150, 149, 149),
+                  color: const Color.fromARGB(255, 150, 149, 149),
                 ),
               ))
         ],

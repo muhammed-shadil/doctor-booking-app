@@ -1,5 +1,6 @@
 import 'package:doctors_book_app/view/widgets/alertconfirmbutton.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Successpop extends StatelessWidget {
   const Successpop(
@@ -36,19 +37,19 @@ class Successpop extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text(
+                 Text(
                   "SUCCESS ",
                   style: TextStyle(
-                      color: Color.fromARGB(255, 44, 176, 176),
+                      color: const Color.fromARGB(255, 44, 176, 176),
                       fontWeight: FontWeight.w600,
-                      fontSize: 29),
+                      fontSize: 29.sp),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 10, top: 10),
                   child: Text(msg,
-                      style: const TextStyle(
-                        fontSize: 21,
-                        color: Color.fromARGB(255, 116, 116, 115),
+                      style:  TextStyle(
+                        fontSize: 21.sp,
+                        color: const Color.fromARGB(255, 116, 116, 115),
                       ),
                       textAlign: TextAlign.center),
                 ),

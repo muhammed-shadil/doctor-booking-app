@@ -2,6 +2,7 @@ import 'package:doctors_book_app/utility/constants.dart';
 import 'package:doctors_book_app/view/screens/aboutus/text_and_details.dart';
 import 'package:doctors_book_app/view/screens/aboutus/unorderedlist.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class PrivacypolicyScreen extends StatelessWidget {
   const PrivacypolicyScreen({super.key});
@@ -47,7 +48,7 @@ class PrivacypolicyScreen extends StatelessWidget {
               const Contents(
                   title: "Last Updated: 20-05-2024",
                   content:
-                      "MEDICO  is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our doctor booking app, [App Name]. Please read this Privacy Policy carefully. By using our app, you consent to the collection, use, disclosure, and safeguarding of your information in accordance with this Privacy Policy."),
+                      "MEDICO  is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our doctor booking app, MEDICO. Please read this Privacy Policy carefully. By using our app, you consent to the collection, use, disclosure, and safeguarding of your information in accordance with this Privacy Policy."),
               const Contents(
                 title: "Data Security",
                 content:
@@ -56,17 +57,17 @@ class PrivacypolicyScreen extends StatelessWidget {
               Container(
                 width: MediaQuery.of(context).size.width,
                 padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: const Column(
+                child:  Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       "Information We Collect",
                       style: TextStyle(
-                          fontSize: 18,
+                          fontSize: 18.sp,
                           color: Colorpalette.primarycolor,
                           fontWeight: FontWeight.w600),
                     ),
-                    BulletList([
+                    const BulletList([
                       'Personal Information: When you register an account, we may collect personal information such as your name, email address, phone number, and date of birth.',
                       "Booking Information: We collect information about the appointments you book through our app, including the doctor's name, appointment date and time, and any notes or preferences you provide.",
                       "Usage Data: We may collect information about how you interact with our app, including the features you use and the actions you take.",
@@ -77,17 +78,17 @@ class PrivacypolicyScreen extends StatelessWidget {
               Container(
                 width: MediaQuery.of(context).size.width,
                 padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: const Column(
+                child:  Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       "How We Use Your Information",
                       style: TextStyle(
-                          fontSize: 18,
+                          fontSize: 18.sp,
                           color: Colorpalette.primarycolor,
                           fontWeight: FontWeight.w600),
                     ),
-                    BulletList([
+                    const BulletList([
                       'To Provide Services: We use your information to facilitate appointment bookings, send appointment reminders, and provide customer support.',
                       'To Improve Our App: We may use your information to analyze app usage trends, identify areas for improvement, and enhance the user experience.',
                       "For Marketing Purposes: With your consent, we may send you promotional communications about our app and related products or services.",

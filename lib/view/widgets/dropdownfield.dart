@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:doctors_book_app/controller/newappointment/bloc/newappointment_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Dropdownfield extends StatelessWidget {
   Dropdownfield({
@@ -59,8 +60,8 @@ class Dropdownfield extends StatelessWidget {
                     value: item,
                     child: Text(
                       item,
-                      style: const TextStyle(
-                          fontSize: 15, color: Color.fromARGB(255, 86, 86, 86)),
+                      style:  TextStyle(
+                          fontSize: 15.sp, color: const Color.fromARGB(255, 86, 86, 86)),
                     ),
                   ))
               .toList(),

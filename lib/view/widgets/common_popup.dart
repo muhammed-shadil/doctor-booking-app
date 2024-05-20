@@ -1,5 +1,6 @@
 import 'package:doctors_book_app/view/widgets/alertconfirmbutton.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ConfirmAlert extends StatelessWidget {
   const ConfirmAlert(
@@ -42,10 +43,10 @@ class ConfirmAlert extends StatelessWidget {
               children: [
                 Text(
                   title,
-                  style: const TextStyle(
-                      color: Color.fromARGB(255, 234, 28, 80),
+                  style:  TextStyle(
+                      color: const Color.fromARGB(255, 234, 28, 80),
                       fontWeight: FontWeight.w600,
-                      fontSize: 29),
+                      fontSize: 29.sp),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 10, top: 10),

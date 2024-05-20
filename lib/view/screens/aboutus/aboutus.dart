@@ -2,6 +2,7 @@ import 'package:doctors_book_app/utility/constants.dart';
 import 'package:doctors_book_app/view/screens/aboutus/text_and_details.dart';
 import 'package:doctors_book_app/view/screens/aboutus/unorderedlist.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AboutUsScreen extends StatelessWidget {
   const AboutUsScreen({super.key});
@@ -56,17 +57,17 @@ class AboutUsScreen extends StatelessWidget {
               Container(
                 width: MediaQuery.of(context).size.width,
                 padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: const Column(
+                child:  Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       "Our Team",
                       style: TextStyle(
-                          fontSize: 18,
+                          fontSize: 18.sp,
                           color: Colorpalette.primarycolor,
                           fontWeight: FontWeight.w600),
                     ),
-                    BulletList([
+                    const BulletList([
                       'Effortless Appointment Booking: Say goodbye to long phone calls and waiting times. With our app, you can book appointments with a wide range of healthcare providers in just a few taps.',
                       'Comprehensive Doctor Directory: Our platform features a diverse network of doctors spanning various specialties and locations, ensuring that you can find the right healthcare professional for your needs.',
                       "Appointment Reminders: Never miss an appointment again! We'll send you timely reminders so you can stay on top of your healthcare schedule.",

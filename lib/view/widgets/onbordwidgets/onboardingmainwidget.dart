@@ -4,6 +4,7 @@ import 'package:doctors_book_app/utility/constants.dart';
 import 'package:flutter/material.dart';
 
 import 'package:doctors_book_app/view/widgets/onbordwidgets/onbordingdata.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class OnbordingMainWidget extends StatelessWidget {
   final Onboarding onBoarding;
@@ -61,26 +62,26 @@ class OnbordingMainWidget extends StatelessWidget {
                     textAlign: TextAlign.center,
                     text: TextSpan(
                         text: onBoarding.title1,
-                        style:  const TextStyle(
-                          fontSize: 29,
+                        style: TextStyle(
+                          fontSize: 29.sp,
                           fontWeight: FontWeight.w300,
                           color: Colorpalette.primarycolor,
                         ),
                         children: [
                           TextSpan(
                             text: onBoarding.title2,
-                            style:  const TextStyle(
+                            style: TextStyle(
                                 color: Colorpalette.primarycolor,
                                 fontWeight: FontWeight.w500,
-                                fontSize: 29),
+                                fontSize: 29.sp),
                           )
                         ]),
                   ),
                   const SizedBox(height: 20),
                   Text(
                     onBoarding.description,
-                    style: const TextStyle(
-                      fontSize: 16,
+                    style: TextStyle(
+                      fontSize: 16.sp,
                       fontWeight: FontWeight.w400,
                       color: Color.fromARGB(255, 159, 155, 155),
                     ),

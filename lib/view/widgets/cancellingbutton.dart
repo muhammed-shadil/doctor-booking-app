@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Cancelbutton extends StatelessWidget {
   const Cancelbutton({
@@ -37,9 +38,9 @@ class Cancelbutton extends StatelessWidget {
               padding: const EdgeInsets.all(2.0),
               child: Text(
                 buttontext,
-                style: const TextStyle(
+                style:  TextStyle(
                     color: Color.fromARGB(255, 226, 83, 119),
-                    fontSize: 18,
+                    fontSize: 18.sp,
                     fontWeight: FontWeight.w400),
               ),
             ),

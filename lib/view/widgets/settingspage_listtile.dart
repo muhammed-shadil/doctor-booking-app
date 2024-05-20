@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:doctors_book_app/utility/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SettingsListTile extends StatelessWidget {
   const SettingsListTile({
@@ -19,8 +20,8 @@ class SettingsListTile extends StatelessWidget {
       child: ListTile(
         trailing: const Icon(Icons.arrow_forward_ios,size: 15,),
         title: Text(content),
-        titleTextStyle: const TextStyle(
-            fontSize: 18, color: Color.fromARGB(255, 118, 114, 114)),
+        titleTextStyle:  TextStyle(
+            fontSize: 18.sp, color: const Color.fromARGB(255, 118, 114, 114)),
         leading: CircleAvatar(
           backgroundColor: const Color.fromARGB(255, 207, 230, 231),
           radius: 23,

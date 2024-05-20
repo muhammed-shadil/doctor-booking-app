@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class doctorsverticalscroll extends StatelessWidget {
   const doctorsverticalscroll({
@@ -45,13 +46,13 @@ class doctorsverticalscroll extends StatelessWidget {
               doctorname,
               style: TextStyle(
                   fontWeight: FontWeight.w500,
-                  fontSize: (doctorname.length >= 18) ? 13 : 16,
+                  fontSize: (doctorname.length >= 18) ? 13.sp : 16.sp,
                   color: const Color.fromARGB(255, 111, 104, 104)),
             ),
             Text(speciality,
                 style: TextStyle(
                     color: const Color.fromARGB(255, 158, 153, 153),
-                    fontSize: (speciality.length >= 17) ? 12 : 15)),
+                    fontSize: (speciality.length >= 17) ? 12.sp : 15.sp)),
           ],
         ),
       ),

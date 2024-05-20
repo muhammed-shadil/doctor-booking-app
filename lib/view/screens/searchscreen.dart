@@ -4,6 +4,7 @@ import 'package:doctors_book_app/utility/constants.dart';
 import 'package:doctors_book_app/view/screens/doctorsdetails_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SearchScreenWrapper extends StatelessWidget {
   const SearchScreenWrapper({super.key});
@@ -59,10 +60,10 @@ class _SearchScreenState extends State<SearchScreen> {
                                 width: 0, style: BorderStyle.none),
                           ),
                           suffixIcon: const Icon(Icons.search),
-                          hintStyle: const TextStyle(
-                              fontSize: 18,
+                          hintStyle:  TextStyle(
+                              fontSize: 18.sp,
                               fontWeight: FontWeight.w300,
-                              color: Color.fromARGB(255, 186, 184, 184)),
+                              color: const Color.fromARGB(255, 186, 184, 184)),
                           hintText: 'Search your doctor.....'),
                       onChanged: (val) {
                         BlocProvider.of<SearchBloc>(context)
@@ -121,18 +122,18 @@ class _SearchScreenState extends State<SearchScreen> {
                                 data['doctorname'],
                                 maxLines: 1,
                                 overflow: TextOverflow.ellipsis,
-                                style: const TextStyle(
+                                style:  TextStyle(
                                     color: Colors.black54,
-                                    fontSize: 18,
+                                    fontSize: 18.sp,
                                     fontWeight: FontWeight.bold),
                               ),
                               subtitle: Text(
                                 data['speciality'],
                                 maxLines: 1,
                                 overflow: TextOverflow.ellipsis,
-                                style: const TextStyle(
+                                style:  TextStyle(
                                     color: Colors.black54,
-                                    fontSize: 16,
+                                    fontSize: 16.sp,
                                     fontWeight: FontWeight.w400),
                               ),
                               leading: CircleAvatar(
