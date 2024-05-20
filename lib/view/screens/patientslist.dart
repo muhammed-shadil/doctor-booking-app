@@ -63,7 +63,7 @@ class PatientsList extends StatelessWidget {
           );
           Navigator.pushAndRemoveUntil(
               context,
-              MaterialPageRoute(builder: (_) => BottomNavigationWrapper()),
+              MaterialPageRoute(builder: (_) => const BottomNavigationWrapper()),
               (route) => false);
         }
       },
@@ -99,7 +99,7 @@ class PatientsList extends StatelessWidget {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.only(left: 35),
+                        padding: const EdgeInsets.only(left: 35),
                         child: Text("Patients List",
                             style: Textstyles.pagetitlestyle),
                       )
@@ -211,63 +211,61 @@ class PatientsList extends StatelessWidget {
                                                   const SizedBox(
                                                     width: 17,
                                                   ),
-                                                  Container(
-                                                    child: Column(
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .start,
-                                                      children: [
-                                                        Row(
-                                                          children: [
-                                                            const Text(
-                                                              "Patient Name: ",
-                                                              style: TextStyle(
-                                                                  fontSize: 16,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w400,
-                                                                  color: Colors
-                                                                      .black38),
-                                                            ),
-                                                            Text(
-                                                              patietsdata[
-                                                                  'patientname'],
-                                                              style: const TextStyle(
-                                                                  fontSize: 18,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w500,
-                                                                  color: Colors
-                                                                      .black45),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                        Row(
-                                                          children: [
-                                                            const Text(
-                                                              "Patient Age: ",
-                                                              style: TextStyle(
-                                                                  color: Colors
-                                                                      .black38,
-                                                                  fontSize: 16,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w400),
-                                                            ),
-                                                            Text(
-                                                              " ${patietsdata['age']} years",
-                                                              style: const TextStyle(
-                                                                  color: Colors
-                                                                      .black45,
-                                                                  fontSize: 18,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w500),
-                                                            )
-                                                          ],
-                                                        )
-                                                      ],
-                                                    ),
+                                                  Column(
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
+                                                    children: [
+                                                      Row(
+                                                        children: [
+                                                          const Text(
+                                                            "Patient Name: ",
+                                                            style: TextStyle(
+                                                                fontSize: 16,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w400,
+                                                                color: Colors
+                                                                    .black38),
+                                                          ),
+                                                          Text(
+                                                            patietsdata[
+                                                                'patientname'],
+                                                            style: const TextStyle(
+                                                                fontSize: 18,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w500,
+                                                                color: Colors
+                                                                    .black45),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                      Row(
+                                                        children: [
+                                                          const Text(
+                                                            "Patient Age: ",
+                                                            style: TextStyle(
+                                                                color: Colors
+                                                                    .black38,
+                                                                fontSize: 16,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w400),
+                                                          ),
+                                                          Text(
+                                                            " ${patietsdata['age']} years",
+                                                            style: const TextStyle(
+                                                                color: Colors
+                                                                    .black45,
+                                                                fontSize: 18,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w500),
+                                                          )
+                                                        ],
+                                                      )
+                                                    ],
                                                   ),
                                                 ],
                                               ),

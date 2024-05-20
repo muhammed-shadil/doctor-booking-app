@@ -4,7 +4,6 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:doctors_book_app/controller/bottomnavigation/bloc/bottomnavigation_bloc.dart';
 import 'package:doctors_book_app/utility/constants.dart';
 import 'package:doctors_book_app/view/screens/appointmentsScreen.dart';
-import 'package:doctors_book_app/view/screens/doctorsdetails_screen.dart';
 import 'package:doctors_book_app/view/screens/doctorslistscreen.dart';
 import 'package:doctors_book_app/view/screens/homepage/home_screen.dart';
 import 'package:doctors_book_app/view/screens/searchscreen.dart';
@@ -57,15 +56,15 @@ class _BottomNavigationState extends State<BottomNavigation> {
   final telephony = Telephony.instance;
   @override
   void initState() {
-
     super.initState();
     getConnectivity();
     smspermission();
   }
-  smspermission()async{
-     bool? permissionsGranted = await telephony.requestPhoneAndSmsPermissions;
-   
+
+  smspermission() async {
+    bool? permissionsGranted = await telephony.requestPhoneAndSmsPermissions;
   }
+
   getConnectivity() => subscription =
           Connectivity().onConnectivityChanged.listen((result) async {
         isDeviceConnected = await InternetConnectionChecker().hasConnection;
@@ -147,7 +146,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
                     size: 23,
                   ),
                   title: const Text('HOME', style: TextStyle(fontSize: 12)),
-                  activeColor:  Colorpalette.primarycolor,
+                  activeColor: Colorpalette.primarycolor,
                 ),
                 FlashyTabBarItem(
                   icon: const FaIcon(

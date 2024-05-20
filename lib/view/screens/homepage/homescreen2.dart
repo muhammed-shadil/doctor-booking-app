@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:doctors_book_app/view/screens/categaryScreen.dart';
@@ -149,7 +147,7 @@ class HomeSpecialist extends StatelessWidget {
               height: 180,
               child: StreamBuilder(
                   stream: FirebaseFirestore.instance
-                      .collection("doctors") 
+                      .collection("doctors")
                       .orderBy('nopatients', descending: true)
                       .snapshots(),
                   builder: (context, snapshot) {

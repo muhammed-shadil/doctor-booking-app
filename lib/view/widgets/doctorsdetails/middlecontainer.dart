@@ -21,8 +21,8 @@ class Middlecontainer extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-           CircleAvatar(
-            backgroundColor: const Color.fromARGB(255, 237, 235, 235),
+           const CircleAvatar(
+            backgroundColor: Color.fromARGB(255, 237, 235, 235),
             child: Icon(
               Icons.people_alt,
               color: Colorpalette.primarycolor,
@@ -43,8 +43,8 @@ class Middlecontainer extends StatelessWidget {
             ],
           ),
           const VerticalDivider(),
-           CircleAvatar(
-            backgroundColor: const Color.fromARGB(255, 237, 235, 235),
+           const CircleAvatar(
+            backgroundColor: Color.fromARGB(255, 237, 235, 235),
             child: Icon(
               Icons.badge,
               color: Colorpalette.primarycolor,

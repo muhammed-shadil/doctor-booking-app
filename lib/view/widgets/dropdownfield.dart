@@ -1,7 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:doctors_book_app/utility/constants.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -67,7 +66,7 @@ class Dropdownfield extends StatelessWidget {
               .toList(),
           validator: validator,
           onChanged: (value) {
-            print(value);
+            // print(value);
             BlocProvider.of<NewappointmentBloc>(context)
                 .add(DropdowngenderEvent(selectgender: value.toString()));
           },

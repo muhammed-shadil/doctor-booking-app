@@ -140,7 +140,7 @@ class DoctorsScreen extends StatelessWidget {
                                                   ),
                                                 ),
                                                 Text(
-                                                  doctorsdata['time'],
+                                                  "${doctorsdata['date']}".toUpperCase(),
                                                   style: const TextStyle(
                                                       color: Color.fromARGB(
                                                           255, 75, 74, 74)),

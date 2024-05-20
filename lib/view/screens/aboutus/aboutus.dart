@@ -38,7 +38,7 @@ class AboutUsScreen extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(left: 40),
+                    padding: const EdgeInsets.only(left: 40),
                     child: Text("ABOUT US", style: Textstyles.pagetitlestyle),
                   )
                 ],

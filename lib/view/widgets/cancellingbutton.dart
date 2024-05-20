@@ -24,7 +24,7 @@ class Cancelbutton extends StatelessWidget {
             ),
             borderRadius: BorderRadius.circular(10),
           ),
-          backgroundColor: Color.fromARGB(255, 245, 231, 236),
+          backgroundColor: const Color.fromARGB(255, 245, 231, 236),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,

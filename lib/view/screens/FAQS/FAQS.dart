@@ -37,7 +37,7 @@ class FAQsScreen extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(left: 70),
+                    padding: const EdgeInsets.only(left: 70),
                     child: Text("FAQs", style: Textstyles.pagetitlestyle),
                   )
                 ],

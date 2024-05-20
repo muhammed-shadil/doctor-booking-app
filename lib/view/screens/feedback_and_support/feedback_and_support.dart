@@ -37,7 +37,7 @@ class FeedbackandSupportScreen extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(left: 23),
+                    padding: const EdgeInsets.only(left: 23),
                     child: Text("Feedback and Support",
                         style: Textstyles.pagetitlestyle),
                   )

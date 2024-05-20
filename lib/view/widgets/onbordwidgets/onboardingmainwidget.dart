@@ -61,7 +61,7 @@ class OnbordingMainWidget extends StatelessWidget {
                     textAlign: TextAlign.center,
                     text: TextSpan(
                         text: onBoarding.title1,
-                        style:  TextStyle(
+                        style:  const TextStyle(
                           fontSize: 29,
                           fontWeight: FontWeight.w300,
                           color: Colorpalette.primarycolor,
@@ -69,7 +69,7 @@ class OnbordingMainWidget extends StatelessWidget {
                         children: [
                           TextSpan(
                             text: onBoarding.title2,
-                            style:  TextStyle(
+                            style:  const TextStyle(
                                 color: Colorpalette.primarycolor,
                                 fontWeight: FontWeight.w500,
                                 fontSize: 29),

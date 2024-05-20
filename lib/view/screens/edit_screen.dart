@@ -165,7 +165,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsets.only(left: 50),
+                                    padding: const EdgeInsets.only(left: 50),
                                     child: Text("Edit profile",
                                         style: Textstyles.pagetitlestyle),
                                   )

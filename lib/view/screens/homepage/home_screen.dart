@@ -1,13 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:doctors_book_app/controller/authentication/bloc/auth_bloc.dart';
 import 'package:doctors_book_app/controller/dummycontroller/bloc/dummy_bloc.dart';
-import 'package:doctors_book_app/utility/dummydoctors.dart';
 import 'package:doctors_book_app/view/screens/favorite.dart';
 import 'package:doctors_book_app/view/screens/homepage/homescreen2.dart';
 import 'package:doctors_book_app/view/widgets/home_textfield.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomeScreenWrapper extends StatelessWidget {
@@ -43,7 +41,7 @@ class HomeScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
+              SizedBox(
                 // color: Colors.black26,
                 width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height * 0.230,
@@ -62,14 +60,14 @@ class HomeScreen extends StatelessWidget {
                     Positioned(
                         top: MediaQuery.of(context).size.height * 0.14,
                         left: MediaQuery.of(context).size.width * 0.094,
-                        child: Container(
+                        child: SizedBox(
                             // color: Colors.amber,
                             width: MediaQuery.of(context).size.width * 0.8,
                             height: MediaQuery.of(context).size.height * 0.08,
                             child: HomeTextfield1(
                               icon1: const Icon(Icons.search_rounded),
                               hint: "Search doctors,category..........",
-                              validator: (value) {},
+                              validator: (_) {},
                             ))),
                     Positioned(
                         child: StreamBuilder<DocumentSnapshot>(
@@ -129,7 +127,7 @@ class HomeScreen extends StatelessWidget {
                                               mainAxisAlignment:
                                                   MainAxisAlignment.center,
                                               children: [
-                                                Container(
+                                                SizedBox(
                                                   width: 179,
                                                   child: Text(
                                                     "${userData['username']}"
@@ -159,7 +157,7 @@ class HomeScreen extends StatelessWidget {
                                             ),
                                           ],
                                         ),
-                                        Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(8),color: Colors.white,),padding: EdgeInsets.all(4),margin: EdgeInsets.only(right: 10),
+                                        Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(8),color: Colors.white,),padding: const EdgeInsets.all(4),margin: const EdgeInsets.only(right: 10),
                                           child: GestureDetector(
                                               onTap: () {
                                                 Navigator.push(context, MaterialPageRoute(builder: (_)=>const FavoriteScreenWrpper()));

@@ -11,9 +11,7 @@ import 'package:doctors_book_app/view/widgets/alertbutton.dart';
 import 'package:doctors_book_app/view/widgets/common_popup.dart';
 import 'package:doctors_book_app/view/widgets/settingspage_listtile.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class settingsScreenWrapper extends StatelessWidget {
@@ -123,7 +121,7 @@ class SettingsScreen extends StatelessWidget {
                                   if (snapshot.hasData) {
                                     final userData = snapshot.data?.data()
                                         as Map<String, dynamic>?;
-                                    print(userData);
+                                    // print(userData);
                                     if (userData != null) {
                                       return Container(
                                         decoration: BoxDecoration(
@@ -285,11 +283,10 @@ class SettingsScreen extends StatelessWidget {
                   contentIcon: Icons.thumb_up_alt,
                 ),
               ),
-              GestureDetector(onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (_) => const FAQsScreen()));
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (_) => const FAQsScreen()));
                 },
                 child: const SettingsListTile(
                   content: 'FAQs',

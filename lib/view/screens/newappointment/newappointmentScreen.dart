@@ -186,7 +186,7 @@ class _NewAppointmentScreenState extends State<NewAppointmentScreen> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsets.only(left: 30),
+                            padding: const EdgeInsets.only(left: 30),
                             child: Text("New Appointment",
                                 style: Textstyles.pagetitlestyle),
                           )

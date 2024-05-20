@@ -21,7 +21,7 @@ class DoctorsDetailsScreen extends StatelessWidget {
         SliverToBoxAdapter(
           child: Column(
             children: [
-              Container(
+              SizedBox(
                 width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height * 0.96,
                 child: Stack(

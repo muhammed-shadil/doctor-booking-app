@@ -53,7 +53,7 @@ class _OnboadingScreenState extends State<OnboadingScreen> {
                       state.page = value;
 
                       bloc.add(OnbordingEvent());
-                      print('page index: ${state.page}');
+                      // print('page index: ${state.page}');
                     },
                     itemBuilder: (BuildContext context, int index) {
                       return OnbordingMainWidget(

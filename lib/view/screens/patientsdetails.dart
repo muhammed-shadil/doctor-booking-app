@@ -1,7 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:doctors_book_app/utility/constants.dart';
 import 'package:doctors_book_app/view/widgets/cancellingbutton.dart';
-import 'package:doctors_book_app/view/widgets/common_popup.dart';
 import 'package:doctors_book_app/view/widgets/patientrowdetails.dart';
 import 'package:flutter/material.dart';
 
@@ -45,7 +44,7 @@ class PatientsDetails extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(left: 35),
+                    padding: const EdgeInsets.only(left: 35),
                     child: Text("Patients Details",
                         style: Textstyles.pagetitlestyle),
                   )

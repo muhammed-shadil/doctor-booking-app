@@ -1,5 +1,4 @@
 import 'package:doctors_book_app/view/widgets/alertconfirmbutton.dart';
-import 'package:doctors_book_app/view/widgets/mainbutton.dart';
 import 'package:flutter/material.dart';
 
 class ConfirmAlert extends StatelessWidget {
