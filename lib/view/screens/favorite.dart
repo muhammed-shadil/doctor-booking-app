@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:doctors_book_app/controller/favorite/bloc/favorite_bloc.dart';
 import 'package:doctors_book_app/utility/constants.dart';
-import 'package:doctors_book_app/view/screens/doctorsdetails_screen.dart';
+import 'package:doctors_book_app/view/screens/doctorsdetails/doctorsdetails_screen.dart';
 import 'package:favorite_button/favorite_button.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -27,7 +27,7 @@ class FavoriteScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: const Color.fromARGB(255, 240, 240, 241),
+        backgroundColor: Colorpalette.secondarycolor,
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           title: Text("FAVORITES", style: Textstyles.pagetitlestyle),
@@ -147,16 +147,13 @@ class FavoriteScreen extends StatelessWidget {
                                                                 'doctorname']
                                                             .toString()
                                                             .toUpperCase(),
-                                                        style:  TextStyle(
+                                                        style: TextStyle(
                                                             fontSize: 18.sp,
                                                             fontWeight:
                                                                 FontWeight.w500,
-                                                            color:
-                                                                const Color.fromRGBO(
-                                                                    122,
-                                                                    118,
-                                                                    118,
-                                                                    1)),
+                                                            color: const Color
+                                                                .fromRGBO(122,
+                                                                118, 118, 1)),
                                                       ),
                                                       Padding(
                                                         padding:

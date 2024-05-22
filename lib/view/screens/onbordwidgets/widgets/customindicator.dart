@@ -1,5 +1,5 @@
 import 'package:doctors_book_app/utility/constants.dart';
-import 'package:doctors_book_app/view/widgets/onbordwidgets/onbordingdata.dart';
+import 'package:doctors_book_app/view/screens/onbordwidgets/widgets/onbordingdata.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 

@@ -1,6 +1,8 @@
 import 'package:doctors_book_app/controller/authentication/bloc/auth_bloc.dart';
+import 'package:doctors_book_app/utility/constants.dart';
 import 'package:doctors_book_app/view/screens/bottomnaigation.dart';
-import 'package:doctors_book_app/view/screens/signup_screen.dart';
+import 'package:doctors_book_app/view/screens/loginscreen/widgets/custompainter.dart';
+import 'package:doctors_book_app/view/screens/signupscreen/signup_screen.dart';
 import 'package:doctors_book_app/view/widgets/loading.dart';
 import 'package:doctors_book_app/view/widgets/mainbutton.dart';
 import 'package:doctors_book_app/view/widgets/textfield.dart';
@@ -32,13 +34,9 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 240, 240, 241),
+      backgroundColor: Colorpalette.secondarycolor,
       body: BlocListener<AuthBloc, AuthState>(
         listener: (context, state) {
-          // if (state is Authenticated) {
-          //   Navigator.push(
-          //       context, MaterialPageRoute(builder: (_) => HomeScreen()));
-          // }
           if (state is AuthenticatedError) {
             LoadingDialog.hide(context);
             ScaffoldMessenger.of(context).showSnackBar(
@@ -47,7 +45,6 @@ class LoginScreen extends StatelessWidget {
                     "No user Found with this email or password did not match "),
               ),
             );
-            // print("No user Found with this email or password did not match eeeeeeeeeeeeeeeeeeeee${state.message}");
           }
           if (state is Networkauthenticatederor) {
             LoadingDialog.hide(context);
@@ -56,11 +53,8 @@ class LoginScreen extends StatelessWidget {
                 content: Text("No  intrnet connection !!!"),
               ),
             );
-            // print("No  intrnet connection eeeeeeeeeeeeeeeeeeeee${state.message}");
           } else if (state is AuthLoading) {
             LoadingDialog.show(context);
-
-            // const CircularProgressIndicator();
           } else if (state is Authenticated) {
             LoadingDialog.hide(context);
             WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -100,14 +94,14 @@ class LoginScreen extends StatelessWidget {
                       child: Image.asset("assets/image-removebg-preview.png",
                           fit: BoxFit.fitHeight),
                     ),
-                     Padding(
+                    Padding(
                       padding: const EdgeInsets.only(top: 5),
                       child: Text(
                         "Welcome to ",
                         style: TextStyle(fontSize: 20.sp),
                       ),
                     ),
-                     Text("MEDICO", style: TextStyle(fontSize: 30.sp)),
+                    Text("MEDICO", style: TextStyle(fontSize: 30.sp)),
                     SizedBox(
                       height: MediaQuery.of(context).size.height * 0.04,
                     ),
@@ -120,6 +114,7 @@ class LoginScreen extends StatelessWidget {
                           child: Column(
                             children: [
                               MainTextField(
+                                keyboard: TextInputType.emailAddress,
                                 controller: emailcontroller,
                                 text: "Enter your email ",
                                 preficsicon: Icons.email_outlined,
@@ -135,6 +130,7 @@ class LoginScreen extends StatelessWidget {
                                 },
                               ),
                               MainTextField(
+                                keyboard: TextInputType.visiblePassword,
                                 obscuretext: true,
                                 controller: passwordcontroller,
                                 text: "Enter your password ",
@@ -178,7 +174,7 @@ class LoginScreen extends StatelessWidget {
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                   Text("Don't you have an account?",
+                                  Text("Don't you have an account?",
                                       style: TextStyle(
                                           color: const Color.fromARGB(
                                               255, 134, 128, 128),
@@ -191,7 +187,7 @@ class LoginScreen extends StatelessWidget {
                                               builder: (_) =>
                                                   const SignupscreenWrapper()));
                                     },
-                                    child:  Text(
+                                    child: Text(
                                       "Sign up",
                                       style: TextStyle(
                                           fontFamily: 'Opensans',
@@ -217,29 +213,5 @@ class LoginScreen extends StatelessWidget {
         ),
       ),
     );
-  }
-}
-
-class CurvePainter extends CustomPainter {
-  @override
-  void paint(Canvas canvas, Size size) {
-    var paint = Paint();
-    paint.color = const Color.fromARGB(255, 226, 235, 237);
-    paint.style = PaintingStyle.fill; // Change this to fill
-
-    var path = Path();
-
-    path.moveTo(0, size.height * 0.125);
-    path.quadraticBezierTo(
-        size.width / 2, size.height / 2.7, size.width, size.height * 0.125);
-    path.lineTo(size.width, 0);
-    path.lineTo(0, 0);
-
-    canvas.drawPath(path, paint);
-  }
-
-  @override
-  bool shouldRepaint(CustomPainter oldDelegate) {
-    return true;
   }
 }

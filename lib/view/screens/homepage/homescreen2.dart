@@ -1,11 +1,11 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:doctors_book_app/view/screens/categaryScreen.dart';
-import 'package:doctors_book_app/view/screens/doctorsdetails_screen.dart';
-import 'package:doctors_book_app/view/widgets/homepage/specialistverticalscroll.dart';
-import 'package:doctors_book_app/view/widgets/homepage/specialitylist.dart';
-import 'package:doctors_book_app/view/widgets/homepage/tipconatainer.dart';
-import 'package:doctors_book_app/view/widgets/homepage/topdoctorsscroll.dart';
+import 'package:doctors_book_app/view/screens/doctorsdetails/doctorsdetails_screen.dart';
+import 'package:doctors_book_app/view/screens/homepage/widgets/specialistverticalscroll.dart';
+import 'package:doctors_book_app/view/screens/homepage/widgets/specialitylist.dart';
+import 'package:doctors_book_app/view/screens/homepage/widgets/tipconatainer.dart';
+import 'package:doctors_book_app/view/screens/homepage/widgets/topdoctorsscroll.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -24,7 +24,7 @@ class HomeSpecialist extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 15),
+            padding: const EdgeInsets.symmetric(horizontal: 15),
             child: Text(
               "SPECIALIST",
               style: TextStyle(
@@ -135,12 +135,12 @@ class HomeSpecialist extends StatelessWidget {
             ),
           ),
            Padding(
-            padding: EdgeInsets.only(top: 16, left: 15),
+            padding: const EdgeInsets.only(top: 16, left: 15),
             child: Text(
               "TOP DOCTORS",
               style: TextStyle(
                   fontSize: 20.sp,
-                  color: Color.fromARGB(255, 163, 153, 153),
+                  color: const Color.fromARGB(255, 163, 153, 153),
                   fontWeight: FontWeight.w500),
             ),
           ),

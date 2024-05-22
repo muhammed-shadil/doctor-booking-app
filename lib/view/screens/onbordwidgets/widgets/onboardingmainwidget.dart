@@ -3,7 +3,7 @@ import 'package:animate_do/animate_do.dart';
 import 'package:doctors_book_app/utility/constants.dart';
 import 'package:flutter/material.dart';
 
-import 'package:doctors_book_app/view/widgets/onbordwidgets/onbordingdata.dart';
+import 'package:doctors_book_app/view/screens/onbordwidgets/widgets/onbordingdata.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class OnbordingMainWidget extends StatelessWidget {

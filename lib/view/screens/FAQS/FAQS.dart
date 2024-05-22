@@ -1,5 +1,5 @@
 import 'package:doctors_book_app/utility/constants.dart';
-import 'package:doctors_book_app/view/screens/FAQS/contents.dart';
+import 'package:doctors_book_app/view/screens/FAQS/widgets/contents.dart';
 import 'package:flutter/material.dart';
 
 class FAQsScreen extends StatelessWidget {

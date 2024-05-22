@@ -3,13 +3,13 @@ import 'package:doctors_book_app/controller/authentication/bloc/auth_bloc.dart';
 import 'package:doctors_book_app/utility/constants.dart';
 import 'package:doctors_book_app/view/screens/FAQS/FAQS.dart';
 import 'package:doctors_book_app/view/screens/aboutus/aboutus.dart';
-import 'package:doctors_book_app/view/screens/edit_screen.dart';
+import 'package:doctors_book_app/view/screens/editscreen/edit_screen.dart';
 import 'package:doctors_book_app/view/screens/feedback_and_support/feedback_and_support.dart';
-import 'package:doctors_book_app/view/screens/login_screen.dart';
+import 'package:doctors_book_app/view/screens/loginscreen/login_screen.dart';
 import 'package:doctors_book_app/view/screens/privacypolicy/privacypolicy.dart';
 import 'package:doctors_book_app/view/widgets/alertbutton.dart';
 import 'package:doctors_book_app/view/widgets/common_popup.dart';
-import 'package:doctors_book_app/view/widgets/settingspage_listtile.dart';
+import 'package:doctors_book_app/view/screens/settingsScreen/widgets/settingspage_listtile.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -35,7 +35,7 @@ class SettingsScreen extends StatelessWidget {
     final authBloc = BlocProvider.of<AuthBloc>(context);
 
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 240, 240, 241),
+      backgroundColor: Colorpalette.secondarycolor,
       body: SingleChildScrollView(
         child: BlocListener<AuthBloc, AuthState>(
           listener: (context, state) {

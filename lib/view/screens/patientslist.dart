@@ -9,9 +9,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:intl/intl.dart';
-
 import 'package:doctors_book_app/utility/constants.dart';
-import 'package:doctors_book_app/view/screens/patientsdetails.dart';
+import 'package:doctors_book_app/view/screens/patientdetails/patientsdetails.dart';
 import 'package:doctors_book_app/view/widgets/cancellingbutton.dart';
 import 'package:doctors_book_app/view/widgets/common_popup.dart';
 
@@ -234,7 +233,7 @@ class PatientsList extends StatelessWidget {
                                                           Text(
                                                             patietsdata[
                                                                 'patientname'],
-                                                            style:  TextStyle(
+                                                            style: TextStyle(
                                                                 fontSize: 18.sp,
                                                                 fontWeight:
                                                                     FontWeight
@@ -246,7 +245,7 @@ class PatientsList extends StatelessWidget {
                                                       ),
                                                       Row(
                                                         children: [
-                                                           Text(
+                                                          Text(
                                                             "Patient Age: ",
                                                             style: TextStyle(
                                                                 color: Colors
@@ -258,7 +257,7 @@ class PatientsList extends StatelessWidget {
                                                           ),
                                                           Text(
                                                             " ${patietsdata['age']} years",
-                                                            style:  TextStyle(
+                                                            style: TextStyle(
                                                                 color: Colors
                                                                     .black45,
                                                                 fontSize: 18.sp,
@@ -334,7 +333,7 @@ class PatientsList extends StatelessWidget {
                                       Text(
                                         textAlign: TextAlign.center,
                                         'No patients found for $doctorname on ${DateFormat('dd-MM-yyyy').format(selectdate)}',
-                                        style:  TextStyle(
+                                        style: TextStyle(
                                             color: const Color.fromARGB(
                                                 255, 124, 124, 124),
                                             fontSize: 18.sp,

@@ -1,9 +1,9 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:doctors_book_app/view/screens/newappointment/newappointmentScreen.dart';
 import 'package:flutter/material.dart';
-import 'package:doctors_book_app/view/widgets/doctorsdetails/appoinment.dart';
-import 'package:doctors_book_app/view/widgets/doctorsdetails/endcontainer.dart';
-import 'package:doctors_book_app/view/widgets/doctorsdetails/middlecontainer.dart';
+import 'package:doctors_book_app/view/screens/doctorsdetails/widgets/appoinment.dart';
+import 'package:doctors_book_app/view/screens/doctorsdetails/widgets/endcontainer.dart';
+import 'package:doctors_book_app/view/screens/doctorsdetails/widgets/middlecontainer.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DoctorsDetailsScreen extends StatelessWidget {
@@ -15,7 +15,6 @@ class DoctorsDetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // print(doctorsdatails);
     return Scaffold(
         body: SafeArea(
       child: CustomScrollView(slivers: [
@@ -95,7 +94,7 @@ class DoctorsDetailsScreen extends StatelessWidget {
                      Text(
                       "Working time",
                       style: TextStyle(
-                          fontSize: 22.sp, color: Color.fromARGB(255, 64, 63, 63)),
+                          fontSize: 22.sp, color: const Color.fromARGB(255, 64, 63, 63)),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(top: 10),

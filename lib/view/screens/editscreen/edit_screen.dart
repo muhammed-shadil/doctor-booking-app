@@ -1,15 +1,12 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:doctors_book_app/controller/imagebloc/bloc/image_bloc.dart';
-import 'package:doctors_book_app/model/model.dart';
 import 'package:doctors_book_app/utility/constants.dart';
+import 'package:doctors_book_app/view/screens/editscreen/widgets/userform.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'package:doctors_book_app/controller/authentication/bloc/auth_bloc.dart';
-import 'package:doctors_book_app/view/widgets/mainbutton.dart';
-import 'package:doctors_book_app/view/widgets/textfield.dart';
 
 class EditScreenWrapper extends StatelessWidget {
   const EditScreenWrapper({
@@ -75,7 +72,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
     final authblo = BlocProvider.of<AuthBloc>(context);
     final imageblo = BlocProvider.of<ImageBloc>(context);
     return Scaffold(
-        backgroundColor: const Color.fromARGB(255, 240, 240, 241),
+        backgroundColor: Colorpalette.secondarycolor,
         body: SafeArea(
             child: SingleChildScrollView(
           child: Form(
@@ -237,107 +234,19 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                 height:
                                     MediaQuery.of(context).size.height * 0.04,
                               ),
-                              SizedBox(
-                                width: MediaQuery.of(context).size.width * 0.8,
-                                child: Column(
-                                  children: [
-                                    MainTextField(
-                                      controller: namecontroller,
-                                      text: "Enter your Name ",
-                                      preficsicon: Icons.person_4,
-                                      helpertext: 'Name',
-                                      validator: (value) {
-                                        if (value == null || value.isEmpty) {
-                                          return "Please enter name";
-                                        } else if (!name.hasMatch(value)) {
-                                          return "Enter a valid name";
-                                        } else {
-                                          return null;
-                                        }
-                                      },
-                                    ),
-                                    MainTextField(
-                                      controller: phonecontroller,
-                                      text: "Enter your Phone number ",
-                                      preficsicon: Icons.lock,
-                                      helpertext: 'Phone number',
-                                      validator: (value) {
-                                        if (value == null || value.isEmpty) {
-                                          return "Please enter phone number";
-                                        } else if (value.length > 10) {
-                                          return "number must be 10";
-                                        } else if (!phonreg.hasMatch(value)) {
-                                          return "Please enter a valid number";
-                                        }
-                                        return null;
-                                      },
-                                    ),
-                                    MainTextField(
-                                      controller: agecontroller,
-                                      text: "Enter your age ",
-                                      preficsicon:
-                                          Icons.calendar_month_outlined,
-                                      helpertext: 'Age',
-                                      validator: (value) =>
-                                          (value == null || value.isEmpty)
-                                              ? "Please enter the age"
-                                              : (!age.hasMatch(value))
-                                                  ? "Please enter a valid age"
-                                                  : null,
-                                    ),
-                                    MainTextField(
-                                      controller: addresscontroller,
-                                      text: "Enter your address ",
-                                      preficsicon: Icons.location_on_outlined,
-                                      helpertext: 'Address',
-                                      validator: (value) {
-                                        if (value == null || value.isEmpty) {
-                                          return "Please enter address";
-                                        } else if (!addressRegex
-                                            .hasMatch(value)) {
-                                          return "Enter a valid address";
-                                        } else {
-                                          return null;
-                                        }
-                                      },
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: SizedBox(
-                                          width: MediaQuery.of(context)
-                                                  .size
-                                                  .width *
-                                              0.80,
-                                          height: MediaQuery.of(context)
-                                                  .size
-                                                  .width *
-                                              0.14,
-                                          child: Mainbutton(
-                                            buttontext: "Save",
-                                            onpressed: () {
-                                              if (formKey.currentState!
-                                                  .validate()) {
-                                                Usermodel user1 = Usermodel(
-                                                    image: userData['image'],
-                                                    uid:
-                                                        widget.userDatas['uid'],
-                                                    username:
-                                                        namecontroller.text,
-                                                    age: agecontroller.text,
-                                                    email: widget
-                                                        .userDatas['email'],
-                                                    phone: phonecontroller.text,
-                                                    address:
-                                                        addresscontroller.text);
-                                                authblo.add(
-                                                    UpdateEvent(user: user1));
-                                              }
-                                            },
-                                          )),
-                                    )
-                                  ],
-                                ),
-                              )
+                              Userform(
+                                  namecontroller: namecontroller,
+                                  name: name,
+                                  phonecontroller: phonecontroller,
+                                  phonreg: phonreg,
+                                  agecontroller: agecontroller,
+                                  age: age,
+                                  addresscontroller: addresscontroller,
+                                  addressRegex: addressRegex,
+                                  formKey: formKey,
+                                  userData: userData,
+                                  widget: widget,
+                                  authblo: authblo)
                             ],
                           );
                         }

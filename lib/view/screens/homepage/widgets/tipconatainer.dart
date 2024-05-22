@@ -27,10 +27,8 @@ class Autoscrollcontainer extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Text(
-              title
-              // "Did you know?",
-              ,
-              style:  TextStyle(
+              title,
+              style: TextStyle(
                 fontSize: 17.sp,
                 fontWeight: FontWeight.w700,
                 color: const Color.fromARGB(255, 161, 157, 157),
@@ -39,15 +37,13 @@ class Autoscrollcontainer extends StatelessWidget {
           ),
           Container(
               padding: const EdgeInsets.only(left: 14, right: 2),
-              decoration:  const BoxDecoration(
+              decoration: const BoxDecoration(
                   border: Border(
                       left: BorderSide(
                           color: Colorpalette.primarycolor, width: 3))),
               child: Text(
-                describtion
-                // "Regular exercise can help lower your risk of heart disease and high blood pressure",
-                ,
-                style:  TextStyle(
+                describtion,
+                style: TextStyle(
                   fontSize: 15.sp,
                   fontWeight: FontWeight.w300,
                   color: const Color.fromARGB(255, 150, 149, 149),

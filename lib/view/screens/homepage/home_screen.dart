@@ -1,9 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:doctors_book_app/controller/authentication/bloc/auth_bloc.dart';
 import 'package:doctors_book_app/controller/dummycontroller/bloc/dummy_bloc.dart';
+import 'package:doctors_book_app/utility/constants.dart';
 import 'package:doctors_book_app/view/screens/favorite.dart';
 import 'package:doctors_book_app/view/screens/homepage/homescreen2.dart';
-import 'package:doctors_book_app/view/widgets/home_textfield.dart';
+import 'package:doctors_book_app/view/screens/homepage/widgets/home_textfield.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -36,7 +37,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 240, 240, 241),
+      backgroundColor: Colorpalette.secondarycolor,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(

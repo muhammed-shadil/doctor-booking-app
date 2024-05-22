@@ -7,7 +7,7 @@ import 'package:doctors_book_app/view/screens/appointmentsScreen.dart';
 import 'package:doctors_book_app/view/screens/doctorslistscreen.dart';
 import 'package:doctors_book_app/view/screens/homepage/home_screen.dart';
 import 'package:doctors_book_app/view/screens/searchscreen.dart';
-import 'package:doctors_book_app/view/screens/settings_Screen.dart';
+import 'package:doctors_book_app/view/screens/settingsScreen/settings_Screen.dart';
 import 'package:flashy_tab_bar2/flashy_tab_bar2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

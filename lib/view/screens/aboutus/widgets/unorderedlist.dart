@@ -17,7 +17,7 @@ class BulletList extends StatelessWidget {
           return Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-               Text(
+              Text(
                 '\u2022',
                 style: TextStyle(
                   fontSize: 24.sp,

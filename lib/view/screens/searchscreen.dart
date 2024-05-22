@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:doctors_book_app/controller/searching%20bloc/bloc/search_bloc.dart';
 import 'package:doctors_book_app/utility/constants.dart';
-import 'package:doctors_book_app/view/screens/doctorsdetails_screen.dart';
+import 'package:doctors_book_app/view/screens/doctorsdetails/doctorsdetails_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -37,10 +37,10 @@ class _SearchScreenState extends State<SearchScreen> {
           specialty = state.result;
         }
         return Scaffold(
-            backgroundColor: const Color.fromARGB(255, 240, 240, 241),
+            backgroundColor: Colorpalette.secondarycolor,
             appBar: AppBar(
                 automaticallyImplyLeading: false,
-                backgroundColor: const Color.fromARGB(255, 240, 240, 241),
+                backgroundColor: Colorpalette.secondarycolor,
                 toolbarHeight: 100,
                 title: Column(
                   children: [
@@ -49,7 +49,8 @@ class _SearchScreenState extends State<SearchScreen> {
                       child: Text("Search Doctors",
                           style: Textstyles.pagetitlestyle),
                     ),
-                    TextField(autofocus: true,
+                    TextField(
+                      autofocus: true,
                       decoration: InputDecoration(
                           contentPadding: const EdgeInsets.all(8),
                           filled: true,
@@ -60,7 +61,7 @@ class _SearchScreenState extends State<SearchScreen> {
                                 width: 0, style: BorderStyle.none),
                           ),
                           suffixIcon: const Icon(Icons.search),
-                          hintStyle:  TextStyle(
+                          hintStyle: TextStyle(
                               fontSize: 18.sp,
                               fontWeight: FontWeight.w300,
                               color: const Color.fromARGB(255, 186, 184, 184)),
@@ -122,7 +123,7 @@ class _SearchScreenState extends State<SearchScreen> {
                                 data['doctorname'],
                                 maxLines: 1,
                                 overflow: TextOverflow.ellipsis,
-                                style:  TextStyle(
+                                style: TextStyle(
                                     color: Colors.black54,
                                     fontSize: 18.sp,
                                     fontWeight: FontWeight.bold),
@@ -131,7 +132,7 @@ class _SearchScreenState extends State<SearchScreen> {
                                 data['speciality'],
                                 maxLines: 1,
                                 overflow: TextOverflow.ellipsis,
-                                style:  TextStyle(
+                                style: TextStyle(
                                     color: Colors.black54,
                                     fontSize: 16.sp,
                                     fontWeight: FontWeight.w400),

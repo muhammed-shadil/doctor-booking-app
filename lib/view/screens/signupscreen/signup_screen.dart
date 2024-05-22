@@ -1,6 +1,8 @@
 import 'package:doctors_book_app/controller/authentication/bloc/auth_bloc.dart';
 import 'package:doctors_book_app/model/model.dart';
-import 'package:doctors_book_app/view/screens/settings_Screen.dart';
+import 'package:doctors_book_app/utility/constants.dart';
+import 'package:doctors_book_app/view/screens/loginscreen/login_screen.dart';
+import 'package:doctors_book_app/view/screens/signupscreen/widgets/custompaintsignup.dart';
 import 'package:doctors_book_app/view/widgets/loading.dart';
 import 'package:doctors_book_app/view/widgets/mainbutton.dart';
 import 'package:doctors_book_app/view/widgets/textfield.dart';
@@ -40,7 +42,7 @@ class Signupscreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 240, 240, 241),
+      backgroundColor: Colorpalette.secondarycolor,
       body: BlocListener<AuthBloc, AuthState>(
         listener: (context, state) {
           if (state is AuthenticatedError) {
@@ -50,8 +52,6 @@ class Signupscreen extends StatelessWidget {
                 content: Text(state.message),
               ),
             );
-            print(
-                "No user Found with this email or password did not match${state.message}");
           } else if (state is AuthLoading) {
             LoadingDialog.show(context);
           } else if (state is Networkauthenticatederor) {
@@ -61,18 +61,16 @@ class Signupscreen extends StatelessWidget {
                 content: Text("No  intrnet connection !!!"),
               ),
             );
-            // print("No  intrnet connection eeeeeeeeeeeeeeeeeeeee${state.message}");
           } else if (state is Authenticated) {
             LoadingDialog.hide(context);
             WidgetsBinding.instance.addPostFrameCallback((_) {
               Navigator.pushAndRemoveUntil(
                   context,
-                  MaterialPageRoute(
-                      builder: (_) => const settingsScreenWrapper()),
+                  MaterialPageRoute(builder: (_) => const LoginscreenWrapper()),
                   (route) => false);
               ScaffoldMessenger.of(context).showSnackBar(
                 const SnackBar(
-                  content: Text("you are Logged in"),
+                  content: Text("Sign up successfully"),
                 ),
               );
             });
@@ -87,22 +85,27 @@ class Signupscreen extends StatelessWidget {
             Positioned(
               left: 30,
               top: 50,
-              child: Container(
-                width: 35,
-                height: 35,
-                decoration: BoxDecoration(
-                    border: Border.all(
-                        color: const Color.fromARGB(255, 188, 187, 187)),
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.white),
-                child: IconButton(
-                  icon: const Icon(
-                    Icons.arrow_back,
-                    color: Color.fromARGB(255, 151, 151, 150),
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.pop(context);
+                },
+                child: Container(
+                  width: 35,
+                  height: 35,
+                  decoration: BoxDecoration(
+                      border: Border.all(
+                          color: const Color.fromARGB(255, 188, 187, 187)),
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.white),
+                  child: IconButton(
+                    icon: const Icon(
+                      Icons.arrow_back,
+                      color: Color.fromARGB(255, 151, 151, 150),
+                    ),
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
                   ),
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
                 ),
               ),
             ),
@@ -135,7 +138,6 @@ class Signupscreen extends StatelessWidget {
                       height: MediaQuery.of(context).size.height * 0.02,
                     ),
                     SizedBox(
-                      // color: Colors.amberAccent,
                       width: MediaQuery.of(context).size.width * 0.80,
                       child: Form(
                         key: formKey,
@@ -143,6 +145,7 @@ class Signupscreen extends StatelessWidget {
                           child: Column(
                             children: [
                               MainTextField(
+                                keyboard: TextInputType.emailAddress,
                                 controller: emailcontroller,
                                 text: "Enter your email ",
                                 preficsicon: Icons.email_outlined,
@@ -173,6 +176,7 @@ class Signupscreen extends StatelessWidget {
                                 },
                               ),
                               MainTextField(
+                                keyboard: TextInputType.phone,
                                 controller: phonecontroller,
                                 text: "Enter your Phone number ",
                                 preficsicon: Icons.phone_android,
@@ -189,6 +193,7 @@ class Signupscreen extends StatelessWidget {
                                 },
                               ),
                               MainTextField(
+                                keyboard: TextInputType.visiblePassword,
                                 controller: passwordcontroller,
                                 text: "Enter your password ",
                                 preficsicon: Icons.lock,
@@ -223,9 +228,6 @@ class Signupscreen extends StatelessWidget {
 
                                       BlocProvider.of<AuthBloc>(context)
                                           .add(SignUpEvent(user: usermode));
-                                      // authBlocBlo.add(LoginEvent(
-                                      //     email: _emailcontroller.text,
-                                      //     password: _passwordcontroller.text));
                                     }
                                   },
                                   buttontext: "Sign up",
@@ -248,29 +250,5 @@ class Signupscreen extends StatelessWidget {
         ),
       ),
     );
-  }
-}
-
-class CurvePainter extends CustomPainter {
-  @override
-  void paint(Canvas canvas, Size size) {
-    var paint = Paint();
-    paint.color = const Color.fromARGB(98, 169, 219, 230);
-    paint.style = PaintingStyle.fill; // Change this to fill
-
-    var path = Path();
-
-    path.moveTo(0, size.height * 0.05);
-    path.quadraticBezierTo(
-        size.width / 2, size.height / 4, size.width, size.height * 0.05);
-    path.lineTo(size.width, 0);
-    path.lineTo(0, 0);
-
-    canvas.drawPath(path, paint);
-  }
-
-  @override
-  bool shouldRepaint(CustomPainter oldDelegate) {
-    return true;
   }
 }

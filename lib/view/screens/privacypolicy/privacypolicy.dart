@@ -1,6 +1,6 @@
 import 'package:doctors_book_app/utility/constants.dart';
-import 'package:doctors_book_app/view/screens/aboutus/text_and_details.dart';
-import 'package:doctors_book_app/view/screens/aboutus/unorderedlist.dart';
+import 'package:doctors_book_app/view/screens/aboutus/widgets/text_and_details.dart';
+import 'package:doctors_book_app/view/screens/aboutus/widgets/unorderedlist.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

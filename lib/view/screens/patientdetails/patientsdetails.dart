@@ -1,7 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:doctors_book_app/utility/constants.dart';
 import 'package:doctors_book_app/view/widgets/cancellingbutton.dart';
-import 'package:doctors_book_app/view/widgets/patientrowdetails.dart';
+import 'package:doctors_book_app/view/screens/patientdetails/widgets/patientrowdetails.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -66,7 +66,7 @@ class PatientsDetails extends StatelessWidget {
                     style: TextStyle(
                         fontSize: 23.sp,
                         fontWeight: FontWeight.w500,
-                        color: Color.fromARGB(255, 100, 98, 98)),
+                        color: const Color.fromARGB(255, 100, 98, 98)),
                   ),
                 ],
               ),

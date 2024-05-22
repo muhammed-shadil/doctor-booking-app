@@ -12,7 +12,7 @@ import 'package:doctors_book_app/controller/commenfucntions.dart';
 import 'package:doctors_book_app/controller/newappointment/bloc/newappointment_bloc.dart';
 import 'package:doctors_book_app/model/patientmodel.dart';
 import 'package:doctors_book_app/utility/constants.dart';
-import 'package:doctors_book_app/view/widgets/dropdownfield.dart';
+import 'package:doctors_book_app/view/screens/newappointment/widgets/dropdownfield.dart';
 import 'package:doctors_book_app/view/widgets/loading.dart';
 import 'package:doctors_book_app/view/widgets/mainbutton.dart';
 import 'package:doctors_book_app/view/widgets/textfield.dart';
@@ -151,7 +151,7 @@ class _NewAppointmentScreenState extends State<NewAppointmentScreen> {
         }
       },
       child: Scaffold(
-        backgroundColor: const Color.fromARGB(255, 240, 240, 241),
+        backgroundColor: Colorpalette.secondarycolor,
         body: SafeArea(
           child: Form(
             key: formKey,
@@ -199,8 +199,6 @@ class _NewAppointmentScreenState extends State<NewAppointmentScreen> {
                         onDateChange: (selectedDate) {
                           BlocProvider.of<NewappointmentBloc>(context)
                               .add(datepickEvent(date: selectedDate));
-                          // fetchBookedTimeSlots(selectedDate, widget.doctorname);
-                          // print(selectedDate);
                         },
                         activeColor: const Color.fromARGB(255, 44, 176, 176),
                         dayProps: const EasyDayProps(
@@ -292,7 +290,6 @@ class _NewAppointmentScreenState extends State<NewAppointmentScreen> {
                                         : Colors.white),
                             alignment: Alignment.center,
                             child: Text(
-                              // "${Index + 9}:00 ${Index + 9 > 11 ? "pm" : "am"}",
                               timeString,
                               style: TextStyle(
                                   fontWeight: currentindex == index
@@ -319,13 +316,14 @@ class _NewAppointmentScreenState extends State<NewAppointmentScreen> {
                   child: Column(
                     children: [
                       Padding(
-                        padding: EdgeInsets.only(top: 10, left: 16, bottom: 20),
+                        padding: const EdgeInsets.only(
+                            top: 10, left: 16, bottom: 20),
                         child: Text(
                           "Patient details",
                           style: TextStyle(fontSize: 20.sp),
                         ),
                       ),
-                      MainTextField(
+                      MainTextField(keyboard: TextInputType.name,
                           controller: patientcontroller,
                           text: "Enter patients name",
                           preficsicon: Icons.person,
@@ -350,6 +348,7 @@ class _NewAppointmentScreenState extends State<NewAppointmentScreen> {
                         },
                       ),
                       MainTextField(
+                          keyboard: TextInputType.number,
                           controller: agecontroller,
                           text: "Enter patients age",
                           preficsicon: Icons.calendar_month,
@@ -364,6 +363,7 @@ class _NewAppointmentScreenState extends State<NewAppointmentScreen> {
                             }
                           }),
                       MainTextField(
+                          keyboard: TextInputType.emailAddress,
                           controller: emailcontroller,
                           text: "Enter patients email",
                           preficsicon: Icons.email,
@@ -378,6 +378,7 @@ class _NewAppointmentScreenState extends State<NewAppointmentScreen> {
                             }
                           }),
                       MainTextField(
+                          keyboard: TextInputType.phone,
                           controller: phonecontroller,
                           text: "Enter patient Phone Number",
                           preficsicon: Icons.phone_android,
@@ -401,7 +402,6 @@ class _NewAppointmentScreenState extends State<NewAppointmentScreen> {
                         child: Mainbutton(
                           buttontext: "Confirm ",
                           onpressed: () {
-                            // print("$date gggggggggg");
                             if (formKey.currentState!.validate()) {
                               patient patientsdetails = patient(
                                   patientname: patientcontroller.text,
@@ -413,7 +413,6 @@ class _NewAppointmentScreenState extends State<NewAppointmentScreen> {
                                   time: selecttime,
                                   date: date,
                                   doctorname: widget.doctorname);
-                              // print(date);
                               BlocProvider.of<NewappointmentBloc>(context).add(
                                   NewpatientEvent(
                                       patientdetails: patientsdetails));

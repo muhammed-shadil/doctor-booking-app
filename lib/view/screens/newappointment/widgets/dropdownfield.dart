@@ -86,7 +86,7 @@ class Dropdownfield extends StatelessWidget {
           ),
           dropdownStyleData: DropdownStyleData(
             decoration: BoxDecoration(
-              color: const Color.fromARGB(255, 240, 240, 241),
+              color: Colorpalette.secondarycolor,
               borderRadius: BorderRadius.circular(15),
             ),
           ),

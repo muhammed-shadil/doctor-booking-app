@@ -2,9 +2,9 @@ import 'dart:async';
 
 import 'package:another_flutter_splash_screen/another_flutter_splash_screen.dart';
 import 'package:doctors_book_app/controller/authentication/bloc/auth_bloc.dart';
-import 'package:doctors_book_app/view/screens/Onboardign_screen.dart';
+import 'package:doctors_book_app/view/screens/onbordwidgets/Onboardign_screen.dart';
 import 'package:doctors_book_app/view/screens/bottomnaigation.dart';
-import 'package:doctors_book_app/view/screens/login_screen.dart';
+import 'package:doctors_book_app/view/screens/loginscreen/login_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -35,7 +35,6 @@ class Splashscreen extends StatelessWidget {
           WidgetsFlutterBinding.ensureInitialized();
           SharedPreferences prefs = await SharedPreferences.getInstance();
           var key = prefs.getBool('loginkey');
-          print("${key}ggggggggggggggggggggggggg");
           if (key == null) {
             Navigator.pushReplacement(context,
                 MaterialPageRoute(builder: (_) => const OnboardingWrapper()));
@@ -63,7 +62,7 @@ class Splashscreen extends StatelessWidget {
               children: [
                 Image.asset("assets/image-removebg-preview.png"),
                 Padding(
-                  padding: EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(8.0),
                   child: Text(
                     "MEDICO",
                     style:
