@@ -1,5 +1,5 @@
 import 'package:doctors_book_app/controller/authentication/bloc/auth_bloc.dart';
-import 'package:doctors_book_app/model/model.dart';
+import 'package:doctors_book_app/model/usermodel.dart';
 import 'package:doctors_book_app/utility/constants.dart';
 import 'package:doctors_book_app/view/screens/loginscreen/login_screen.dart';
 import 'package:doctors_book_app/view/screens/signupscreen/widgets/custompaintsignup.dart';

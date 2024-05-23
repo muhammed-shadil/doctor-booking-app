@@ -120,7 +120,7 @@ class _SearchScreenState extends State<SearchScreen> {
                                       builder: (_) => DoctorsDetailsScreen(
                                           doctorsdatails: data)));
                             },
-                            child: ListTile(
+                            child: ListTile(minVerticalPadding: 15,
                               title: Text(
                                 data['doctorname'],
                                 maxLines: 1,
@@ -139,7 +139,7 @@ class _SearchScreenState extends State<SearchScreen> {
                                     fontSize: 16.sp,
                                     fontWeight: FontWeight.w400),
                               ),
-                              leading: CircleAvatar(
+                              leading: CircleAvatar(radius: 24,
                                 backgroundImage: NetworkImage(data['image']),
                               ),
                             ),

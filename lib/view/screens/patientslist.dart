@@ -125,8 +125,8 @@ class PatientsList extends StatelessWidget {
                               ConnectionState.waiting) {
                             return const Center(
                               child:
-                              //  CircularProgressIndicator(),
-                              CustomLoadingAnimation(),
+                                  //  CircularProgressIndicator(),
+                                  CustomLoadingAnimation(),
                             );
                           }
                           if (snapshot.hasData) {

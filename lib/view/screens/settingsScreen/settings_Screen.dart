@@ -70,7 +70,7 @@ class SettingsScreen extends StatelessWidget {
             children: [
               SizedBox(
                 width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height * 0.3,
+                height: MediaQuery.of(context).size.height * 0.27,
                 child: BlocBuilder<AuthBloc, AuthState>(
                   builder: (context, state) {
                     return Stack(
@@ -192,7 +192,7 @@ class SettingsScreen extends StatelessWidget {
                                                                 .primarycolor),
                                                       ),
                                                       SizedBox(
-                                                        width: 179,
+                                                        width: MediaQuery.of(context).size.width*0.5,
                                                         child: Text(
                                                           "${userData['username']}"
                                                               .toUpperCase(),

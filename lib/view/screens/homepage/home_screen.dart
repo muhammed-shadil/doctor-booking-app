@@ -57,15 +57,15 @@ class HomeScreen extends StatelessWidget {
                         color: Color.fromARGB(255, 207, 230, 231),
                       ),
                       width: MediaQuery.of(context).size.width,
-                      height: MediaQuery.of(context).size.height * 0.18,
+                      height: MediaQuery.of(context).size.height * 0.17,
                     ),
                     Positioned(
-                        top: MediaQuery.of(context).size.height * 0.14,
-                        left: MediaQuery.of(context).size.width * 0.094,
+                        top: MediaQuery.of(context).size.height * 0.13,
+                        left: MediaQuery.of(context).size.width * 0.093,
                         child: SizedBox(
                             // color: Colors.amber,
-                            width: MediaQuery.of(context).size.width * 0.8,
-                            height: MediaQuery.of(context).size.height * 0.08,
+                            width: MediaQuery.of(context).size.width * 0.83,
+                            height: MediaQuery.of(context).size.height * 0.074,
                             child: HomeTextfield1(
                               icon1: const Icon(Icons.search_rounded),
                               hint: "Search doctors,category..........",

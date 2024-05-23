@@ -7,7 +7,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:telephony/telephony.dart';
 import 'package:uuid/uuid.dart';
-
 import 'package:doctors_book_app/controller/commenfucntions.dart';
 import 'package:doctors_book_app/controller/newappointment/bloc/newappointment_bloc.dart';
 import 'package:doctors_book_app/model/patientmodel.dart';
@@ -24,7 +23,6 @@ class NewAppointmentScreenWrapper extends StatelessWidget {
     required this.doctordates,
   }) : super(key: key);
   final String doctorname;
-
   final String doctordates;
   @override
   Widget build(BuildContext context) {
@@ -43,7 +41,6 @@ class NewAppointmentScreen extends StatefulWidget {
     required this.doctordates,
   }) : super(key: key);
   final String doctorname;
-
   final String doctordates;
   @override
   State<NewAppointmentScreen> createState() => _NewAppointmentScreenState();
@@ -60,13 +57,10 @@ class _NewAppointmentScreenState extends State<NewAppointmentScreen> {
   TextEditingController patientcontroller = TextEditingController();
   TextEditingController gendercontroller = TextEditingController();
   TextEditingController agecontroller = TextEditingController();
-
   TextEditingController phonecontroller = TextEditingController();
-
   TextEditingController emailcontroller = TextEditingController();
   Functions functions = Functions();
   final regemail = RegExp(r"^[a-zA-Z0-9_\-\.\S]{4,}[@][a-z]+[\.][a-z]{2,3}$");
-
   final age = RegExp(r'^(1[0-9]|[2-9][0-9]|100)$');
   final phonreg = RegExp(r"^[6789]\d{9}$");
   final name = RegExp(r'^[A-Za-z]+$');
@@ -91,13 +85,11 @@ class _NewAppointmentScreenState extends State<NewAppointmentScreen> {
   @override
   void initState() {
     super.initState();
-
     fetchDoctorAvailability();
   }
 
   void fetchDoctorAvailability() {
     String doctorAvailability = widget.doctordates;
-
     setState(() {
       availableDays = parseAvailability(doctorAvailability);
     });
@@ -106,8 +98,8 @@ class _NewAppointmentScreenState extends State<NewAppointmentScreen> {
   List<DateTime> _getDisabledDates() {
     List<DateTime> disabledDates = [];
     DateTime currentDate = DateTime.now();
-    DateTime endDate = currentDate.add(const Duration(days: 60));
-    for (DateTime date = currentDate.subtract(const Duration(days: 30));
+    DateTime endDate = currentDate.add(const Duration(days: 365));
+    for (DateTime date = currentDate.subtract(const Duration(days: 365));
         date.isBefore(currentDate);
         date = date.add(const Duration(days: 1))) {
       disabledDates.add(date);
@@ -119,7 +111,6 @@ class _NewAppointmentScreenState extends State<NewAppointmentScreen> {
         disabledDates.add(date);
       }
     }
-
     return disabledDates;
   }
 
@@ -132,7 +123,6 @@ class _NewAppointmentScreenState extends State<NewAppointmentScreen> {
           currentindex = state.index;
         } else if (state is datepickedState) {
           date = state.dates;
-
           fetchBookedTimeSlots(state.dates, widget.doctorname);
         } else if (state is NewpatientSuccessState) {
           LoadingDialog.hide(context);
@@ -169,8 +159,7 @@ class _NewAppointmentScreenState extends State<NewAppointmentScreen> {
                             height: 35,
                             decoration: BoxDecoration(
                               border: Border.all(
-                                  color:
-                                      Colorpalette.primarybordercolor),
+                                  color: Colorpalette.primarybordercolor),
                               borderRadius: BorderRadius.circular(10),
                             ),
                             child: Center(
@@ -194,6 +183,9 @@ class _NewAppointmentScreenState extends State<NewAppointmentScreen> {
                         ],
                       ),
                       EasyDateTimeLine(
+                        headerProps: const EasyHeaderProps(
+                          dateFormatter: DateFormatter.custom("d EE,y"),
+                        ),
                         disabledDates: _getDisabledDates(),
                         initialDate: DateTime.now(),
                         onDateChange: (selectedDate) {
@@ -323,7 +315,8 @@ class _NewAppointmentScreenState extends State<NewAppointmentScreen> {
                           style: TextStyle(fontSize: 20.sp),
                         ),
                       ),
-                      MainTextField(keyboard: TextInputType.name,
+                      MainTextField(
+                          keyboard: TextInputType.name,
                           controller: patientcontroller,
                           text: "Enter patients name",
                           preficsicon: Icons.person,

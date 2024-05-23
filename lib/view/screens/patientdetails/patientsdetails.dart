@@ -1,6 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:doctors_book_app/utility/constants.dart';
-import 'package:doctors_book_app/view/widgets/cancellingbutton.dart';
 import 'package:doctors_book_app/view/screens/patientdetails/widgets/patientrowdetails.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -27,8 +26,8 @@ class PatientsDetails extends StatelessWidget {
                     width: 37,
                     height: 35,
                     decoration: BoxDecoration(
-                      border: Border.all(
-                          color: Colorpalette.primarybordercolor),
+                      border:
+                          Border.all(color: Colorpalette.primarybordercolor),
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: Center(
@@ -51,7 +50,7 @@ class PatientsDetails extends StatelessWidget {
                   )
                 ],
               ),
-               Row(
+              Row(
                 children: [
                   const Padding(
                     padding: EdgeInsets.only(left: 13.0, right: 8),
@@ -92,7 +91,7 @@ class PatientsDetails extends StatelessWidget {
                   ],
                 ),
               ),
-               Row(
+              Row(
                 children: [
                   const Padding(
                     padding: EdgeInsets.only(left: 13.0, right: 8),
@@ -121,38 +120,9 @@ class PatientsDetails extends StatelessWidget {
                     patientRow(
                         firstname: "Time              :",
                         secondname: patietsdata['time']),
-                    // patientRow(
-                    //     firstname: "Date              :",
-                    //     secondname: patietsdata['date']),
                   ],
                 ),
               ),
-              SizedBox(
-                width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height * 0.2,
-                child: Center(
-                  child: Cancelbutton(
-                    buttontext: "cancel",
-                    onpressed: () {
-                      // showDialog(
-                      //     context: context,
-                      //     builder: (context) => ConfirmAlert(
-                      //           msg: "Do you want to cancel this appointment ?",
-                      //           icon: Icons.cancel_presentation_rounded,
-                      //           iconColor:
-                      //               const Color.fromARGB(255, 231, 93, 127),
-                      //           onConfirm: () {
-                      //             Navigator.pop(context);
-                      //           },
-                      //           onReject: () {
-                      //             Navigator.pop(context);
-                      //           },
-                      //           title: 'CANCEL',
-                      //         ));
-                    },
-                  ),
-                ),
-              )
             ],
           ),
         ),

@@ -15,8 +15,8 @@ class SettingsListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 60,
-      width: 370,
+      height: MediaQuery.of(context).size.height*0.09,
+      width: MediaQuery.of(context).size.width*0.93,
       child: ListTile(
         trailing: const Icon(Icons.arrow_forward_ios,size: 15,),
         title: Text(content),

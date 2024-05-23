@@ -170,7 +170,7 @@ class FavoriteScreen extends StatelessWidget {
                                                             .toString()
                                                             .toUpperCase(),
                                                         style: TextStyle(
-                                                            fontSize: 18.sp,
+                                                            fontSize: 17.sp,
                                                             fontWeight:
                                                                 FontWeight.w500,
                                                             color: const Color

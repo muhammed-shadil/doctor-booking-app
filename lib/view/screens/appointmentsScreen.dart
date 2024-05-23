@@ -195,7 +195,7 @@ class _AppointmetsScreenState extends State<AppointmetsScreen> {
                                                 .toString()
                                                 .toUpperCase(),
                                             style:  TextStyle(
-                                                fontSize: 18.sp,
+                                                fontSize: 17.sp,
                                                 fontWeight: FontWeight.w500,
                                                 color: const Color.fromARGB(
                                                     255, 122, 118, 118)),
