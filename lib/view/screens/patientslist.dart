@@ -83,7 +83,7 @@ class PatientsList extends StatelessWidget {
                         height: 35,
                         decoration: BoxDecoration(
                           border: Border.all(
-                              color: const Color.fromARGB(255, 186, 183, 183)),
+                              color: Colorpalette.primarybordercolor),
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: Center(
@@ -91,7 +91,7 @@ class PatientsList extends StatelessWidget {
                             icon: const Icon(
                               Icons.arrow_back,
                               size: 22,
-                              color: Color.fromARGB(255, 151, 151, 150),
+                              color: Colorpalette.backarrowcolor,
                             ),
                             onPressed: () {
                               Navigator.pop(context);
@@ -124,7 +124,9 @@ class PatientsList extends StatelessWidget {
                           if (snapshot.connectionState ==
                               ConnectionState.waiting) {
                             return const Center(
-                              child: CircularProgressIndicator(),
+                              child:
+                              //  CircularProgressIndicator(),
+                              CustomLoadingAnimation(),
                             );
                           }
                           if (snapshot.hasData) {

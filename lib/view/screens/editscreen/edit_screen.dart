@@ -127,7 +127,10 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                         .snapshots(),
                     builder: (context, snapshot) {
                       if (snapshot.connectionState == ConnectionState.waiting) {
-                        return const Center(child: CircularProgressIndicator());
+                        return const Center(child:
+                        //  CircularProgressIndicator()
+                        CustomLoadingAnimation()
+                         ,);
                       }
                       if (snapshot.hasData) {
                         final userData =
@@ -152,8 +155,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                         icon: const Icon(
                                           Icons.arrow_back,
                                           size: 22,
-                                          color: Color.fromARGB(
-                                              255, 151, 151, 150),
+                                          color:Colorpalette.backarrowcolor
                                         ),
                                         onPressed: () {
                                           Navigator.pop(context);
@@ -192,7 +194,9 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                             ? (state is Uploadimageloading)
                                                 ? const Center(
                                                     child:
-                                                        CircularProgressIndicator())
+                                                        // CircularProgressIndicator(),
+                                                        CustomLoadingAnimation(),
+                                                        )
                                                 : const Icon(
                                                     Icons.person_4_outlined,
                                                     size: 45,
@@ -200,7 +204,9 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                             : (state is Uploadimageloading)
                                                 ? const Center(
                                                     child:
-                                                        CircularProgressIndicator())
+                                                        // CircularProgressIndicator()
+                                                        CustomLoadingAnimation()
+                                                        ,)
                                                 : Image.network(
                                                     userData['image'],
                                                     fit: BoxFit.cover,

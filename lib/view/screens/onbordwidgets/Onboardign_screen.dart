@@ -49,6 +49,9 @@ class _OnboadingScreenState extends State<OnboadingScreen> {
                 height: MediaQuery.of(context).size.height,
                 child: PageView.builder(
                     controller: pageController,
+                    physics: state.page == onboardingList.length - 1
+                        ? const NeverScrollableScrollPhysics()
+                        : const ScrollPhysics(),
                     onPageChanged: (value) {
                       state.page = value;
 

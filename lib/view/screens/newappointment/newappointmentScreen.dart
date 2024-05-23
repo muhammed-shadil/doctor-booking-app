@@ -170,7 +170,7 @@ class _NewAppointmentScreenState extends State<NewAppointmentScreen> {
                             decoration: BoxDecoration(
                               border: Border.all(
                                   color:
-                                      const Color.fromARGB(255, 186, 183, 183)),
+                                      Colorpalette.primarybordercolor),
                               borderRadius: BorderRadius.circular(10),
                             ),
                             child: Center(
@@ -178,7 +178,7 @@ class _NewAppointmentScreenState extends State<NewAppointmentScreen> {
                                 icon: const Icon(
                                   Icons.arrow_back,
                                   size: 22,
-                                  color: Color.fromARGB(255, 151, 151, 150),
+                                  color: Colorpalette.backarrowcolor,
                                 ),
                                 onPressed: () {
                                   Navigator.pop(context);

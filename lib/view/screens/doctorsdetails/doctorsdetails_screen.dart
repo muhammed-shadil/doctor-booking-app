@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:doctors_book_app/utility/constants.dart';
 import 'package:doctors_book_app/view/screens/newappointment/newappointmentScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:doctors_book_app/view/screens/doctorsdetails/widgets/appoinment.dart';
@@ -56,7 +57,7 @@ class DoctorsDetailsScreen extends StatelessWidget {
                                 icon: const Icon(
                                   Icons.arrow_back,
                                   size: 22,
-                                  color: Color.fromARGB(255, 151, 151, 150),
+                                  color:Colorpalette.backarrowcolor,
                                 ),
                                 onPressed: () {
                                   Navigator.pop(context);

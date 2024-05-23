@@ -55,6 +55,7 @@ class LoginScreen extends StatelessWidget {
             );
           } else if (state is AuthLoading) {
             LoadingDialog.show(context);
+            // const CustomLoadingAnimation();
           } else if (state is Authenticated) {
             LoadingDialog.hide(context);
             WidgetsBinding.instance.addPostFrameCallback((_) {

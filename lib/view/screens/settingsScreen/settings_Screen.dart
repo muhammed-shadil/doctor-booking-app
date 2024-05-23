@@ -88,7 +88,7 @@ class SettingsScreen extends StatelessWidget {
                         Positioned(
                           top: MediaQuery.of(context).size.width * 0.12,
                           left: MediaQuery.of(context).size.width * 0.38,
-                          child:  Text(
+                          child: Text(
                             "Settings",
                             style: TextStyle(
                               fontWeight: FontWeight.w500,
@@ -115,7 +115,9 @@ class SettingsScreen extends StatelessWidget {
                                           MediaQuery.of(context).size.width *
                                               0.235,
                                       child: const Center(
-                                        child: CircularProgressIndicator(),
+                                        child:
+                                            //  CircularProgressIndicator(),
+                                            CustomLoadingAnimation(),
                                       ),
                                     );
                                   }
@@ -180,7 +182,7 @@ class SettingsScreen extends StatelessWidget {
                                                         MainAxisAlignment
                                                             .center,
                                                     children: [
-                                                       Text(
+                                                      Text(
                                                         "Hello!",
                                                         style: TextStyle(
                                                             fontWeight:
@@ -197,7 +199,7 @@ class SettingsScreen extends StatelessWidget {
                                                           maxLines: 1,
                                                           overflow: TextOverflow
                                                               .ellipsis,
-                                                          style:  TextStyle(
+                                                          style: TextStyle(
                                                               fontWeight:
                                                                   FontWeight
                                                                       .w900,

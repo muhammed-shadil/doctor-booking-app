@@ -17,18 +17,18 @@ List<Onboarding> onboardingList = [
       title2: ' Your Care Team',
       description:
           'Find your perfect match in our network of trusted healthcare professionals. Your journey to better health starts here.',
-      image: 'assets/ttt.jpg'),
+      image: 'assets/doctorsimage/ttt.jpg'),
   Onboarding(
       title1: 'Effortless ',
       title2: ' Booking, Expert Care',
       description:
           'Book appointments with ease and get the care you need from top-tier doctors without the hassle.',
       image:
-          'assets/an-indian-young-female-doctor-isolated-on-green-ai-generated-photo.jpg'),
+          'assets/doctorsimage/onboading.jpeg'),
   Onboarding(
       title1: 'Stay on ',
       title2: ' Top of Your Health',
       description:
           'Manage appointments, track medications, and access medical history—all in one place. Take charge of your well-being with Medico.',
-      image: 'assets/360_F_295518052_aO5d9CqRhPnjlNDTRDjKLZHNftqfsxzI.jpg')
+      image: 'assets/doctorsimage/360_F_295518052_aO5d9CqRhPnjlNDTRDjKLZHNftqfsxzI.jpg')
 ];

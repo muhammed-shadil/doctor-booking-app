@@ -64,7 +64,7 @@ class _SearchScreenState extends State<SearchScreen> {
                           hintStyle: TextStyle(
                               fontSize: 18.sp,
                               fontWeight: FontWeight.w300,
-                              color: const Color.fromARGB(255, 186, 184, 184)),
+                              color: Colorpalette.primarybordercolor),
                           hintText: 'Search your doctor.....'),
                       onChanged: (val) {
                         BlocProvider.of<SearchBloc>(context)
@@ -80,7 +80,9 @@ class _SearchScreenState extends State<SearchScreen> {
                 builder: (context, snapshots) {
                   if (snapshots.connectionState == ConnectionState.waiting) {
                     return const Center(
-                      child: CircularProgressIndicator(),
+                      child:
+                      //  CircularProgressIndicator(),
+                      CustomLoadingAnimation(),
                     );
                   } else if (snapshots.hasError) {
                     return const Text('something went wrong');
@@ -101,7 +103,7 @@ class _SearchScreenState extends State<SearchScreen> {
                     }).toList();
 
                     if (filterDocs.isEmpty) {
-                      return const Center(child: Text('No user found'));
+                      return const Center(child: Text('No doctor found',style: TextStyle(fontSize: 20),));
                     }
 
                     return ListView.builder(

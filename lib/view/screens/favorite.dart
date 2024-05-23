@@ -5,8 +5,10 @@ import 'package:doctors_book_app/view/screens/doctorsdetails/doctorsdetails_scre
 import 'package:favorite_button/favorite_button.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 
 class FavoriteScreenWrpper extends StatelessWidget {
   const FavoriteScreenWrpper({super.key});
@@ -43,8 +45,17 @@ class FavoriteScreen extends StatelessWidget {
                     .snapshots(),
                 builder: (context, snapshot) {
                   if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
-                    return const Center(
-                        child: Text("No favorite doctors found."));
+                    return SizedBox(
+                                height: MediaQuery.of(context).size.height,
+                                width: MediaQuery.of(context).size.width,
+                                child:  Center(
+                                    child: Column(
+                                      children: [ SvgPicture.asset(
+                                          "assets/checkup-with-doctor-n8ChwgYoAQ.svg"),
+                                      const Text("No favorite doctors found.",style: TextStyle(fontSize: 20),),
+                                      ],
+                                    )),
+                              );
                   }
                   final favoriteIds =
                       snapshot.data!.docs.map((doc) => doc.id).toList();
@@ -65,13 +76,24 @@ class FavoriteScreen extends StatelessWidget {
                                 height:
                                     MediaQuery.of(context).size.height * 0.6,
                                 child: const Center(
-                                  child: CircularProgressIndicator(),
+                                  child:
+                                      //  CircularProgressIndicator(),
+                                      CustomLoadingAnimation(),
                                 ),
                               );
                             } else if (!snapshot.hasData ||
                                 snapshot.data!.docs.isEmpty) {
-                              return const Center(
-                                  child: Text("No favorite doctors found."));
+                              return SizedBox(
+                                height: MediaQuery.of(context).size.height,
+                                width: MediaQuery.of(context).size.width,
+                                child:  Center(
+                                    child: Column(
+                                      children: [ SvgPicture.asset(
+                                          "assets/checkup-with-doctor-n8ChwgYoAQ.svg"),
+                                      const Text("No favorite doctors found."),
+                                      ],
+                                    )),
+                              );
                             } else if (snapshot.hasData) {
                               return BlocBuilder<FavoriteBloc, FavoriteState>(
                                 builder: (context, state) {

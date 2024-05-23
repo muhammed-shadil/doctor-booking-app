@@ -129,7 +129,9 @@ class _AppointmetsScreenState extends State<AppointmetsScreen> {
                         width: MediaQuery.of(context).size.width,
                         height: MediaQuery.of(context).size.height * 0.5,
                         child: const Center(
-                          child: CircularProgressIndicator(),
+                          child:
+                          //  CircularProgressIndicator(),
+                          CustomLoadingAnimation(),
                         ),
                       );
                     }

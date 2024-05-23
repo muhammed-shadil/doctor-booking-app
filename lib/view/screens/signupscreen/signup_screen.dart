@@ -100,7 +100,7 @@ class Signupscreen extends StatelessWidget {
                   child: IconButton(
                     icon: const Icon(
                       Icons.arrow_back,
-                      color: Color.fromARGB(255, 151, 151, 150),
+                      color: Colorpalette.backarrowcolor,
                     ),
                     onPressed: () {
                       Navigator.pop(context);

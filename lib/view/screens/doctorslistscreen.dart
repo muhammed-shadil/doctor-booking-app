@@ -49,7 +49,7 @@ class DoctorsScreen extends StatelessWidget {
                           width: MediaQuery.of(context).size.width * 0.88,
                           height: MediaQuery.of(context).size.height * 0.6,
                           child: const Center(
-                            child: CircularProgressIndicator(),
+                            child: CustomLoadingAnimation(),
                           ),
                         );
                       }
