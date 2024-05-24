@@ -44,10 +44,15 @@ class _SearchScreenState extends State<SearchScreen> {
                 toolbarHeight: 100,
                 title: Column(
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 10),
-                      child: Text("Search Doctors",
-                          style: Textstyles.pagetitlestyle),
+                    const Padding(
+                      padding: EdgeInsets.symmetric(vertical: 10),
+                      child: Text(
+                        "Search Doctors",
+                        style: TextStyle(
+                            fontSize: 24,
+                            fontWeight: FontWeight.w600,
+                            color: Color.fromARGB(255, 118, 115, 115)),
+                      ),
                     ),
                     TextField(
                       autofocus: true,
@@ -60,6 +65,8 @@ class _SearchScreenState extends State<SearchScreen> {
                             borderSide: const BorderSide(
                                 width: 0, style: BorderStyle.none),
                           ),
+                          // border: OutlineInputBorder(borderSide: BorderSide(color: Colors.transparent),borderRadius: BorderRadius.circular(10)
+                          //    ),
                           suffixIcon: const Icon(Icons.search),
                           hintStyle: TextStyle(
                               fontSize: 18.sp,
@@ -69,6 +76,9 @@ class _SearchScreenState extends State<SearchScreen> {
                       onChanged: (val) {
                         BlocProvider.of<SearchBloc>(context)
                             .add(SearchdoctorEvent(name: val));
+                        // setState(() {
+                        //   name = val;
+                        // });
                       },
                     ),
                   ],
@@ -81,8 +91,8 @@ class _SearchScreenState extends State<SearchScreen> {
                   if (snapshots.connectionState == ConnectionState.waiting) {
                     return const Center(
                       child:
-                      //  CircularProgressIndicator(),
-                      CustomLoadingAnimation(),
+                          //  CircularProgressIndicator(),
+                          CustomLoadingAnimation(),
                     );
                   } else if (snapshots.hasError) {
                     return const Text('something went wrong');
@@ -103,14 +113,18 @@ class _SearchScreenState extends State<SearchScreen> {
                     }).toList();
 
                     if (filterDocs.isEmpty) {
-                      return const Center(child: Text('No doctor found',style: TextStyle(fontSize: 20),));
+                      return const Center(
+                          child: Text(
+                        'No doctor found',
+                        style: TextStyle(fontSize: 20),
+                      ));
                     }
 
                     return ListView.builder(
-                        itemCount: snapshots.data!.docs.length,
+                        itemCount: filterDocs.length,
                         itemBuilder: (context, index) {
-                          var data = snapshots.data!.docs[index].data()
-                              as Map<String, dynamic>;
+                          var data =
+                              filterDocs[index].data() as Map<String, dynamic>;
 
                           return GestureDetector(
                             onTap: () {
@@ -120,7 +134,8 @@ class _SearchScreenState extends State<SearchScreen> {
                                       builder: (_) => DoctorsDetailsScreen(
                                           doctorsdatails: data)));
                             },
-                            child: ListTile(minVerticalPadding: 15,
+                            child: ListTile(
+                              minVerticalPadding: 15,
                               title: Text(
                                 data['doctorname'],
                                 maxLines: 1,
@@ -139,7 +154,8 @@ class _SearchScreenState extends State<SearchScreen> {
                                     fontSize: 16.sp,
                                     fontWeight: FontWeight.w400),
                               ),
-                              leading: CircleAvatar(radius: 24,
+                              leading: CircleAvatar(
+                                radius: 24,
                                 backgroundImage: NetworkImage(data['image']),
                               ),
                             ),
