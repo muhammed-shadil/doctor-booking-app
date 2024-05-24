@@ -64,7 +64,7 @@ class _SearchScreenState extends State<SearchScreen> {
                               fontSize: 18.sp,
                               fontWeight: FontWeight.w300,
                               color: const Color.fromARGB(255, 186, 184, 184)),
-                          hintText: 'Search your doctor.....'),
+                          hintText: 'Search your doctorss.....'),
                       onChanged: (val) {
                         BlocProvider.of<SearchBloc>(context)
                             .add(SearchdoctorEvent(name: val));
