@@ -74,7 +74,7 @@ class _AppointmetsScreenState extends State<AppointmetsScreen> {
                               BottomPicker.date(
                                 initialDateTime: DateTime.now(),
                                 buttonSingleColor: Colorpalette.primarycolor,
-                                pickerTitle:  Text(
+                                pickerTitle: Text(
                                   'Pick the date',
                                   style: TextStyle(
                                     fontWeight: FontWeight.bold,
@@ -91,7 +91,7 @@ class _AppointmetsScreenState extends State<AppointmetsScreen> {
                                     DateTime.now().year,
                                     DateTime.now().month,
                                     DateTime.now().day - 1),
-                                pickerTextStyle:  TextStyle(
+                                pickerTextStyle: TextStyle(
                                   color: const Color.fromARGB(255, 0, 86, 86),
                                   fontWeight: FontWeight.w400,
                                   fontSize: 14.sp,
@@ -130,8 +130,8 @@ class _AppointmetsScreenState extends State<AppointmetsScreen> {
                         height: MediaQuery.of(context).size.height * 0.5,
                         child: const Center(
                           child:
-                          //  CircularProgressIndicator(),
-                          CustomLoadingAnimation(),
+                              //  CircularProgressIndicator(),
+                              CustomLoadingAnimation(),
                         ),
                       );
                     }
@@ -194,7 +194,7 @@ class _AppointmetsScreenState extends State<AppointmetsScreen> {
                                             doctorsdata['doctorname']
                                                 .toString()
                                                 .toUpperCase(),
-                                            style:  TextStyle(
+                                            style: TextStyle(
                                                 fontSize: 17.sp,
                                                 fontWeight: FontWeight.w500,
                                                 color: const Color.fromARGB(

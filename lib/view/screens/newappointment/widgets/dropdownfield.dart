@@ -26,7 +26,7 @@ class Dropdownfield extends StatelessWidget {
         children: [
           Icon(
             preficsicon,
-            color:  Colorpalette.primarycolor,
+            color: Colorpalette.primarycolor,
           ),
           Padding(
             padding: const EdgeInsets.only(left: 8),
@@ -60,20 +60,17 @@ class Dropdownfield extends StatelessWidget {
                     value: item,
                     child: Text(
                       item,
-                      style:  TextStyle(
-                          fontSize: 15.sp, color: const Color.fromARGB(255, 86, 86, 86)),
+                      style: TextStyle(
+                          fontSize: 15.sp,
+                          color: const Color.fromARGB(255, 86, 86, 86)),
                     ),
                   ))
               .toList(),
           validator: validator,
           onChanged: (value) {
-            // print(value);
             BlocProvider.of<NewappointmentBloc>(context)
                 .add(DropdowngenderEvent(selectgender: value.toString()));
           },
-          // onSaved: (value) {
-          //   selectedValue = value.toString();
-          // },
           buttonStyleData: const ButtonStyleData(
             padding: EdgeInsets.only(right: 8),
           ),

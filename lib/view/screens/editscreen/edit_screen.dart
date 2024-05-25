@@ -5,7 +5,6 @@ import 'package:doctors_book_app/utility/constants.dart';
 import 'package:doctors_book_app/view/screens/editscreen/widgets/userform.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:doctors_book_app/controller/authentication/bloc/auth_bloc.dart';
 
@@ -93,7 +92,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                     } else if (state is UpdationError) {
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
-                          content: Text("Error!!//${state.msg}"),
+                          content: Text("Error!!! ${state.msg}"),
                         ),
                       );
                     }
@@ -111,7 +110,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                     } else if (state is Uploadimagefailure) {
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
-                          content: Text("Error!!,//${state.msg}"),
+                          content: Text("Error!!! ${state.msg}"),
                           backgroundColor: Colors.red[300],
                         ),
                       );

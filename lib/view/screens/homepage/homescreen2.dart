@@ -34,8 +34,7 @@ class HomeSpecialist extends StatelessWidget {
             ),
           ),
           SizedBox(
-              height:
-              140,
+              height: 140,
               //  MediaQuery.of(context).size.height * 0.18,
               child: ListView.builder(
                   shrinkWrap: true,
@@ -54,7 +53,8 @@ class HomeSpecialist extends StatelessWidget {
                         builder: (context, snapshot) {
                           if (snapshot.hasData) {
                             return Padding(
-                                padding: const EdgeInsets.only(top: 8,bottom: 8,left: 12),
+                                padding: const EdgeInsets.only(
+                                    top: 8, bottom: 8, left: 12),
                                 child: GestureDetector(
                                   onTap: () {
                                     Navigator.push(
@@ -69,16 +69,9 @@ class HomeSpecialist extends StatelessWidget {
                                   child: Specialistverticalscroll(
                                       firsttext: specialis
                                           .specialistdata[index].firsttext,
-                                      // doctorspecial['speciality'],
-                                      secondtext:
-                                          // specialis.specialistdata[index].firsttext.length >=
-                                          //         20
-                                          //     ? ""
-                                          //     :
-                                          specialis
-                                              .specialistdata[index].secondtext,
+                                      secondtext: specialis
+                                          .specialistdata[index].secondtext,
                                       thirdtext:
-                                          //  "0 doctors"
                                           "${snapshot.data!.docs.length} doctors",
                                       icon: specialis
                                           .specialistdata[index].icon1),
@@ -136,7 +129,7 @@ class HomeSpecialist extends StatelessWidget {
               // viewportFraction: 0.8,
             ),
           ),
-           Padding(
+          Padding(
             padding: const EdgeInsets.only(top: 16, left: 15),
             child: Text(
               "TOP DOCTORS",

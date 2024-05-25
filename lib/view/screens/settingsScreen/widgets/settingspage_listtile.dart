@@ -15,12 +15,15 @@ class SettingsListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: MediaQuery.of(context).size.height*0.09,
-      width: MediaQuery.of(context).size.width*0.93,
+      height: MediaQuery.of(context).size.height * 0.09,
+      width: MediaQuery.of(context).size.width * 0.93,
       child: ListTile(
-        trailing: const Icon(Icons.arrow_forward_ios,size: 15,),
+        trailing: const Icon(
+          Icons.arrow_forward_ios,
+          size: 15,
+        ),
         title: Text(content),
-        titleTextStyle:  TextStyle(
+        titleTextStyle: TextStyle(
             fontSize: 18.sp, color: const Color.fromARGB(255, 118, 114, 114)),
         leading: CircleAvatar(
           backgroundColor: const Color.fromARGB(255, 207, 230, 231),
@@ -28,10 +31,9 @@ class SettingsListTile extends StatelessWidget {
           child: Icon(
             contentIcon,
             size: 24,
-            color:  Colorpalette.primarycolor,
+            color: Colorpalette.primarycolor,
           ),
         ),
-        // tileColor: Color.fromARGB(255, 205, 204, 200),
       ),
     );
   }

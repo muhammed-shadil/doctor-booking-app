@@ -146,7 +146,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
                     FontAwesomeIcons.houseChimneyMedical,
                     size: 23,
                   ),
-                  title:  Text('HOME', style: TextStyle(fontSize: 12.sp)),
+                  title: Text('HOME', style: TextStyle(fontSize: 12.sp)),
                   activeColor: Colorpalette.primarycolor,
                 ),
                 FlashyTabBarItem(
@@ -154,22 +154,22 @@ class _BottomNavigationState extends State<BottomNavigation> {
                     FontAwesomeIcons.stethoscope,
                     size: 23,
                   ),
-                  title:  Text('DOCTORS', style: TextStyle(fontSize: 12.sp)),
+                  title: Text('DOCTORS', style: TextStyle(fontSize: 12.sp)),
                 ),
                 FlashyTabBarItem(
                   icon: const Icon(Icons.search),
-                  title:  Text('SEARCH', style: TextStyle(fontSize: 12.sp)),
+                  title: Text('SEARCH', style: TextStyle(fontSize: 12.sp)),
                 ),
                 FlashyTabBarItem(
                   icon: const Icon(Icons.library_books_outlined),
-                  title:  Text(
+                  title: Text(
                     'APPOINTMENT',
                     style: TextStyle(fontSize: 9.sp),
                   ),
                 ),
                 FlashyTabBarItem(
                   icon: const Icon(Icons.settings),
-                  title:  Text('SETTINGS', style: TextStyle(fontSize: 12.sp)),
+                  title: Text('SETTINGS', style: TextStyle(fontSize: 12.sp)),
                 ),
               ],
             ),

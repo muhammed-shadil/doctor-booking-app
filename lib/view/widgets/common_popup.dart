@@ -43,7 +43,7 @@ class ConfirmAlert extends StatelessWidget {
               children: [
                 Text(
                   title,
-                  style:  TextStyle(
+                  style: TextStyle(
                       color: const Color.fromARGB(255, 234, 28, 80),
                       fontWeight: FontWeight.w600,
                       fontSize: 29.sp),
@@ -74,9 +74,6 @@ class ConfirmAlert extends StatelessWidget {
               ],
             ),
           ),
-          // actions: [
-
-          // ],
         ),
       ),
     );

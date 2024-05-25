@@ -1,4 +1,3 @@
-
 import 'package:doctors_book_app/utility/constants.dart';
 import 'package:flutter/material.dart';
 
@@ -14,11 +13,10 @@ class LoadingDialog extends StatelessWidget {
 
   const LoadingDialog({Key? key}) : super(key: key);
 
-  @override 
+  @override
   Widget build(BuildContext context) {
     return PopScope(
       canPop: false,
-      // onWillPop: () async => false,
       child: Center(
         child: Card(
           child: Container(

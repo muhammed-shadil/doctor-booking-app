@@ -17,8 +17,7 @@ class Specialistverticalscroll extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width*0.22,
-      // height: MediaQuery.of(context).size.height*0.05,
+      width: MediaQuery.of(context).size.width * 0.22,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10), color: Colors.white),
       child: Padding(
@@ -33,7 +32,7 @@ class Specialistverticalscroll extends StatelessWidget {
             Text(
               firsttext,
               textAlign: TextAlign.center,
-              style:  TextStyle(
+              style: TextStyle(
                 fontSize: 12.sp,
                 fontWeight: FontWeight.w700,
                 color: const Color.fromARGB(255, 99, 95, 95),
@@ -49,7 +48,7 @@ class Specialistverticalscroll extends StatelessWidget {
             ),
             Text(
               thirdtext,
-              style:  TextStyle(
+              style: TextStyle(
                 fontSize: 12.sp,
                 color: const Color.fromARGB(255, 122, 118, 118),
               ),

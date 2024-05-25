@@ -1,5 +1,4 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:doctors_book_app/view/screens/searchscreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -21,7 +20,6 @@ class HomeTextfield1 extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       enabled: false,
-     
       inputFormatters: [
         FilteringTextInputFormatter.deny(RegExp(r'\s')),
       ],
@@ -30,7 +28,8 @@ class HomeTextfield1 extends StatelessWidget {
       autovalidateMode: AutovalidateMode.onUserInteraction,
       controller: controller,
       decoration: InputDecoration(
-        fillColor: Colors.white, filled: true,
+        fillColor: Colors.white,
+        filled: true,
         disabledBorder: const OutlineInputBorder(
           borderRadius: BorderRadius.all(
             Radius.circular(10),
@@ -71,19 +70,8 @@ class HomeTextfield1 extends StatelessWidget {
           borderRadius: BorderRadius.all(
             Radius.circular(10),
           ),
-          borderSide: BorderSide(
-              // color: Color.fromARGB(255, 227, 8, 12),
-              ),
+          borderSide: BorderSide(),
         ),
-
-        // border: const OutlineInputBorder(
-        //   borderRadius: BorderRadius.all(
-        //     Radius.circular(10),
-        //   ),
-        //   borderSide: BorderSide(
-        //     color: Color.fromARGB(255, 93, 201, 173),
-        //   ),
-        // ),
       ),
     );
   }

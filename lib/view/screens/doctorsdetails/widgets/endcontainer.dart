@@ -1,9 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:doctors_book_app/view/screens/doctorsdetails/widgets/appoinment.dart';
 import 'package:doctors_book_app/view/screens/newappointment/newappointmentScreen.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Endcontainer extends StatelessWidget {

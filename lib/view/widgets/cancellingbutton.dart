@@ -31,15 +31,16 @@ class Cancelbutton extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Icon(
-              Icons.cancel_rounded,size: 17,
+              Icons.cancel_rounded,
+              size: 17,
               color: Color.fromARGB(255, 226, 83, 119),
             ),
             Padding(
               padding: const EdgeInsets.all(2.0),
               child: Text(
                 buttontext,
-                style:  TextStyle(
-                    color: Color.fromARGB(255, 226, 83, 119),
+                style: TextStyle(
+                    color: const Color.fromARGB(255, 226, 83, 119),
                     fontSize: 18.sp,
                     fontWeight: FontWeight.w400),
               ),

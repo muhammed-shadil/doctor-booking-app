@@ -115,16 +115,14 @@ class SettingsScreen extends StatelessWidget {
                                           MediaQuery.of(context).size.width *
                                               0.235,
                                       child: const Center(
-                                        child:
-                                            //  CircularProgressIndicator(),
-                                            CustomLoadingAnimation(),
+                                        child: CustomLoadingAnimation(),
                                       ),
                                     );
                                   }
                                   if (snapshot.hasData) {
                                     final userData = snapshot.data?.data()
                                         as Map<String, dynamic>?;
-                                    // print(userData);
+
                                     if (userData != null) {
                                       return Container(
                                         decoration: BoxDecoration(
@@ -192,7 +190,11 @@ class SettingsScreen extends StatelessWidget {
                                                                 .primarycolor),
                                                       ),
                                                       SizedBox(
-                                                        width: MediaQuery.of(context).size.width*0.5,
+                                                        width: MediaQuery.of(
+                                                                    context)
+                                                                .size
+                                                                .width *
+                                                            0.5,
                                                         child: Text(
                                                           "${userData['username']}"
                                                               .toUpperCase(),

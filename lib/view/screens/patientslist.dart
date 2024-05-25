@@ -119,14 +119,10 @@ class PatientsList extends StatelessWidget {
                             .orderBy("time")
                             .snapshots(),
                         builder: (context, snapshot) {
-                          // print(selectdate);
-                          // print(doctorname);
                           if (snapshot.connectionState ==
                               ConnectionState.waiting) {
                             return const Center(
-                              child:
-                                  //  CircularProgressIndicator(),
-                                  CustomLoadingAnimation(),
+                              child: CustomLoadingAnimation(),
                             );
                           }
                           if (snapshot.hasData) {
@@ -138,7 +134,6 @@ class PatientsList extends StatelessWidget {
                                       (BuildContext context, int index) {
                                     final patietsdata =
                                         snapshot.data!.docs[index].data();
-                                    // print("${patietsdata['date']}ppppppppppp");
                                     return InkWell(
                                       onTap: () {
                                         Navigator.push(

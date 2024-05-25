@@ -21,8 +21,8 @@ class PrivacypolicyScreen extends StatelessWidget {
                     width: 37,
                     height: 35,
                     decoration: BoxDecoration(
-                      border: Border.all(
-                          color: Colorpalette.primarybordercolor),
+                      border:
+                          Border.all(color: Colorpalette.primarybordercolor),
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: Center(
@@ -57,7 +57,7 @@ class PrivacypolicyScreen extends StatelessWidget {
               Container(
                 width: MediaQuery.of(context).size.width,
                 padding: const EdgeInsets.symmetric(horizontal: 20),
-                child:  Column(
+                child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
@@ -78,7 +78,7 @@ class PrivacypolicyScreen extends StatelessWidget {
               Container(
                 width: MediaQuery.of(context).size.width,
                 padding: const EdgeInsets.symmetric(horizontal: 20),
-                child:  Column(
+                child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(

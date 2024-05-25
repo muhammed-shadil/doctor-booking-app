@@ -43,7 +43,7 @@ class MainTextField extends StatelessWidget {
               padding: const EdgeInsets.only(left: 8),
               child: Text(helpertext,
                   style: TextStyle(
-                      color: Color.fromARGB(255, 134, 128, 128),
+                      color: const Color.fromARGB(255, 134, 128, 128),
                       fontSize: 17.sp)),
             )
           ],
@@ -64,7 +64,7 @@ class MainTextField extends StatelessWidget {
                   keyboardType: keyboard,
                   autovalidateMode: AutovalidateMode.onUserInteraction,
                   style: TextStyle(
-                    color: Color.fromARGB(255, 68, 73, 53),
+                    color: const Color.fromARGB(255, 68, 73, 53),
                     fontSize: 16.sp,
                   ),
                   controller: controller,

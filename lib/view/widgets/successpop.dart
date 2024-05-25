@@ -37,7 +37,7 @@ class Successpop extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                 Text(
+                Text(
                   "SUCCESS ",
                   style: TextStyle(
                       color: const Color.fromARGB(255, 44, 176, 176),
@@ -47,7 +47,7 @@ class Successpop extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(bottom: 10, top: 10),
                   child: Text(msg,
-                      style:  TextStyle(
+                      style: TextStyle(
                         fontSize: 21.sp,
                         color: const Color.fromARGB(255, 116, 116, 115),
                       ),
@@ -64,9 +64,6 @@ class Successpop extends StatelessWidget {
               ],
             ),
           ),
-          // actions: [
-
-          // ],
         ),
       ),
     );

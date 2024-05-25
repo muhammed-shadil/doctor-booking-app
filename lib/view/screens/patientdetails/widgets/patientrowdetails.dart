@@ -18,7 +18,7 @@ class patientRow extends StatelessWidget {
         children: [
           Text(
             firstname,
-            style:  TextStyle(
+            style: TextStyle(
                 fontSize: 20.sp,
                 fontWeight: FontWeight.w400,
                 color: const Color.fromARGB(255, 156, 153, 153)),
@@ -28,7 +28,7 @@ class patientRow extends StatelessWidget {
           ),
           Text(
             secondname,
-            style:  TextStyle(
+            style: TextStyle(
                 fontSize: 18.sp,
                 fontWeight: FontWeight.w400,
                 color: const Color.fromARGB(255, 92, 89, 89)),

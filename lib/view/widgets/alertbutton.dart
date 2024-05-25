@@ -37,7 +37,7 @@ class Alerltbutton extends StatelessWidget {
             Text(
               buttontext,
               style: TextStyle(
-                  color: Color.fromARGB(255, 234, 28, 80),
+                  color: const Color.fromARGB(255, 234, 28, 80),
                   fontSize: 20.sp,
                   fontWeight: FontWeight.w400),
             ),

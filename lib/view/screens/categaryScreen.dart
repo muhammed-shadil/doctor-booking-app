@@ -75,7 +75,7 @@ class CategoryScreen extends StatelessWidget {
                                     doctorspecial['doctorname']
                                         .toString()
                                         .toUpperCase(),
-                                    style:  TextStyle(
+                                    style: TextStyle(
                                         fontSize: 18.sp,
                                         fontWeight: FontWeight.w500),
                                   ),
@@ -100,7 +100,7 @@ class CategoryScreen extends StatelessWidget {
                             const Expanded(
                                 flex: 1,
                                 child: Icon(
-                                  Icons.favorite_border,
+                                  Icons.arrow_forward_ios,
                                   color: Colorpalette.primarycolor,
                                 )),
                           ],

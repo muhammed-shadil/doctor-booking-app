@@ -391,8 +391,7 @@ class _NewAppointmentScreenState extends State<NewAppointmentScreen> {
                       ),
                       SizedBox(
                         width: MediaQuery.of(context).size.width * 0.9,
-                        height:50,
-                        //  MediaQuery.of(context).size.height * 0.09,
+                        height: 50,
                         child: Mainbutton(
                           buttontext: "Confirm ",
                           onpressed: () {

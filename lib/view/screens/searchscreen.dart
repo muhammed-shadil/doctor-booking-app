@@ -65,8 +65,6 @@ class _SearchScreenState extends State<SearchScreen> {
                             borderSide: const BorderSide(
                                 width: 0, style: BorderStyle.none),
                           ),
-                          // border: OutlineInputBorder(borderSide: BorderSide(color: Colors.transparent),borderRadius: BorderRadius.circular(10)
-                          //    ),
                           suffixIcon: const Icon(Icons.search),
                           hintStyle: TextStyle(
                               fontSize: 18.sp,
@@ -76,9 +74,6 @@ class _SearchScreenState extends State<SearchScreen> {
                       onChanged: (val) {
                         BlocProvider.of<SearchBloc>(context)
                             .add(SearchdoctorEvent(name: val));
-                        // setState(() {
-                        //   name = val;
-                        // });
                       },
                     ),
                   ],
@@ -90,9 +85,7 @@ class _SearchScreenState extends State<SearchScreen> {
                 builder: (context, snapshots) {
                   if (snapshots.connectionState == ConnectionState.waiting) {
                     return const Center(
-                      child:
-                          //  CircularProgressIndicator(),
-                          CustomLoadingAnimation(),
+                      child: CustomLoadingAnimation(),
                     );
                   } else if (snapshots.hasError) {
                     return const Text('something went wrong');

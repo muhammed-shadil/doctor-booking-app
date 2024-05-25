@@ -1,7 +1,4 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'dart:convert';
-
-import 'package:cloud_firestore/cloud_firestore.dart';
 
 class patient {
   String? patientname;
@@ -21,7 +18,7 @@ class patient {
     this.email,
     this.phone,
     this.time,
-     this.date,
+    this.date,
     this.doctorname,
   });
 

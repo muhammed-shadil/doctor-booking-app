@@ -2,9 +2,7 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:doctors_book_app/utility/constants.dart';
 import 'package:flutter/material.dart';
-
 import 'package:doctors_book_app/view/screens/onbordwidgets/widgets/onbordingdata.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class OnbordingMainWidget extends StatelessWidget {
@@ -78,7 +76,7 @@ class OnbordingMainWidget extends StatelessWidget {
                           )
                         ]),
                   ),
-                   SizedBox(height: MediaQuery.of(context).size.height*0.02),
+                  SizedBox(height: MediaQuery.of(context).size.height * 0.02),
                   Text(
                     onBoarding.description,
                     style: TextStyle(
