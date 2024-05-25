@@ -18,7 +18,7 @@ class Specialistverticalscroll extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width*0.22,
-      height: MediaQuery.of(context).size.height*0.05,
+      // height: MediaQuery.of(context).size.height*0.05,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10), color: Colors.white),
       child: Padding(
@@ -27,7 +27,7 @@ class Specialistverticalscroll extends StatelessWidget {
           children: [
             SizedBox(
               width: firsttext.length >= 17 ? 35.sp : 40.sp,
-              height: firsttext.length >= 17 ? 35.sp : 40.sp,
+              height: firsttext.length >= 17 ? 35.sp : 42.sp,
               child: Image.asset(icon),
             ),
             Text(

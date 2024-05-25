@@ -5,6 +5,7 @@ import 'package:doctors_book_app/utility/constants.dart';
 import 'package:doctors_book_app/view/screens/editscreen/widgets/userform.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:doctors_book_app/controller/authentication/bloc/auth_bloc.dart';
 
@@ -127,10 +128,14 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                         .snapshots(),
                     builder: (context, snapshot) {
                       if (snapshot.connectionState == ConnectionState.waiting) {
-                        return const Center(child:
-                        //  CircularProgressIndicator()
-                        CustomLoadingAnimation()
-                         ,);
+                        return Center(
+                          child:
+                              //  CircularProgressIndicator()
+                              SizedBox(
+                                  width: 70,
+                                  height: MediaQuery.of(context).size.height,
+                                  child: const CustomLoadingAnimation()),
+                        );
                       }
                       if (snapshot.hasData) {
                         final userData =
@@ -152,11 +157,9 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                     ),
                                     child: Center(
                                       child: IconButton(
-                                        icon: const Icon(
-                                          Icons.arrow_back,
-                                          size: 22,
-                                          color:Colorpalette.backarrowcolor
-                                        ),
+                                        icon: const Icon(Icons.arrow_back,
+                                            size: 22,
+                                            color: Colorpalette.backarrowcolor),
                                         onPressed: () {
                                           Navigator.pop(context);
                                         },
@@ -196,7 +199,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                                     child:
                                                         // CircularProgressIndicator(),
                                                         CustomLoadingAnimation(),
-                                                        )
+                                                  )
                                                 : const Icon(
                                                     Icons.person_4_outlined,
                                                     size: 45,
@@ -205,8 +208,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                                 ? const Center(
                                                     child:
                                                         // CircularProgressIndicator()
-                                                        CustomLoadingAnimation()
-                                                        ,)
+                                                        CustomLoadingAnimation(),
+                                                  )
                                                 : Image.network(
                                                     userData['image'],
                                                     fit: BoxFit.cover,

@@ -34,7 +34,9 @@ class HomeSpecialist extends StatelessWidget {
             ),
           ),
           SizedBox(
-              height: MediaQuery.of(context).size.height * 0.185,
+              height:
+              140,
+              //  MediaQuery.of(context).size.height * 0.18,
               child: ListView.builder(
                   shrinkWrap: true,
                   itemCount: specialis.specialistdata.length,
@@ -52,7 +54,7 @@ class HomeSpecialist extends StatelessWidget {
                         builder: (context, snapshot) {
                           if (snapshot.hasData) {
                             return Padding(
-                                padding: const EdgeInsets.all(8.0),
+                                padding: const EdgeInsets.only(top: 8,bottom: 8,left: 12),
                                 child: GestureDetector(
                                   onTap: () {
                                     Navigator.push(
@@ -105,26 +107,26 @@ class HomeSpecialist extends StatelessWidget {
               Autoscrollcontainer(
                 title: 'Sleep tip',
                 describtion:
-                    " Create a relaxing bedtime routine to signal to your body that it's time to wind down.",
+                    "Create a relaxing bedtime routine to signal to your body that it's time to wind down.",
               ),
               Autoscrollcontainer(
                 title: 'Stress tip',
                 describtion:
-                    ' Practice deep breathing exercises or meditation for a few minutes each day to help calm your mind .',
+                    'Practice deep breathing exercises or meditation for a few minutes each day to help calm your mind .',
               ),
               Autoscrollcontainer(
                 title: 'Did you know?',
                 describtion:
-                    ' Weight-bearing exercises like walking, jogging, and dancing can help strengthen your bones .',
+                    'Weight-bearing exercises like walking, jogging, and dancing can help strengthen your bones .',
               ),
               Autoscrollcontainer(
                 title: 'Skincare Tip:',
                 describtion:
-                    " Protect your skin from the sun's harmful UV rays by wearing sunscreen with at least SPF 30 every day.",
+                    "Protect your skin from the sun harmful UV rays by wearing sunscreen with at SPF 30 every day.",
               ),
             ],
             options: CarouselOptions(
-              height: 130.0,
+              height: 135.0,
               enlargeCenterPage: false,
               autoPlay: true,
               aspectRatio: 16 / 9,

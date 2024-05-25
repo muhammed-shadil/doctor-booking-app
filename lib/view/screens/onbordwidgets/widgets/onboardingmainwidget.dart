@@ -4,6 +4,7 @@ import 'package:doctors_book_app/utility/constants.dart';
 import 'package:flutter/material.dart';
 
 import 'package:doctors_book_app/view/screens/onbordwidgets/widgets/onbordingdata.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class OnbordingMainWidget extends StatelessWidget {
@@ -33,7 +34,7 @@ class OnbordingMainWidget extends StatelessWidget {
           ),
         ),
         Positioned(
-          top: MediaQuery.of(context).size.width * 0.96,
+          top: MediaQuery.of(context).size.height * 0.53,
           child: Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(30),
@@ -44,7 +45,7 @@ class OnbordingMainWidget extends StatelessWidget {
           ),
         ),
         Positioned(
-          top: MediaQuery.of(context).size.width * 0.79,
+          top: MediaQuery.of(context).size.height * 0.45,
           left: MediaQuery.of(context).size.width * 0.07,
           child: Container(
             padding: const EdgeInsets.only(top: 30, left: 24, right: 24),
@@ -53,7 +54,7 @@ class OnbordingMainWidget extends StatelessWidget {
               color: Colors.white,
             ),
             width: MediaQuery.of(context).size.width * 0.85,
-            height: MediaQuery.of(context).size.height * 0.5,
+            height: MediaQuery.of(context).size.height * 0.47,
             child: FadeInDown(
               duration: const Duration(milliseconds: 1400),
               child: Column(
@@ -77,13 +78,13 @@ class OnbordingMainWidget extends StatelessWidget {
                           )
                         ]),
                   ),
-                  const SizedBox(height: 20),
+                   SizedBox(height: MediaQuery.of(context).size.height*0.02),
                   Text(
                     onBoarding.description,
                     style: TextStyle(
                       fontSize: 16.sp,
                       fontWeight: FontWeight.w400,
-                      color: Color.fromARGB(255, 159, 155, 155),
+                      color: const Color.fromARGB(255, 159, 155, 155),
                     ),
                     textAlign: TextAlign.center,
                   ),

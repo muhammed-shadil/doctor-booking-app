@@ -20,10 +20,8 @@ class HomeTextfield1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      onTap: () {
-        Navigator.push(context,
-            MaterialPageRoute(builder: (_) => const SearchScreenWrapper()));
-      },
+      enabled: false,
+     
       inputFormatters: [
         FilteringTextInputFormatter.deny(RegExp(r'\s')),
       ],
@@ -34,7 +32,12 @@ class HomeTextfield1 extends StatelessWidget {
       decoration: InputDecoration(
         fillColor: Colors.white, filled: true,
         disabledBorder: const OutlineInputBorder(
-          borderSide: BorderSide(color: Colors.purple),
+          borderRadius: BorderRadius.all(
+            Radius.circular(10),
+          ),
+          borderSide: BorderSide(
+            color: Colors.transparent,
+          ),
         ),
         errorMaxLines: 3,
         hintText: hint,

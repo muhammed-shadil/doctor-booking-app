@@ -66,7 +66,7 @@ class _OnboadingScreenState extends State<OnboadingScreen> {
                     }),
               ),
               Positioned(
-                  bottom: MediaQuery.of(context).size.height * 0.07,
+                  bottom: MediaQuery.of(context).size.height * 0.097,
                   left: MediaQuery.of(context).size.width * 0.18,
                   child: SizedBox(
                     child: Column(

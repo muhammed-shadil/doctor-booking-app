@@ -18,7 +18,8 @@ class Middlecontainer extends StatelessWidget {
         color: Colors.white,
       ),
       width: MediaQuery.of(context).size.width * 0.85,
-      height: MediaQuery.of(context).size.height * 0.11,
+      height:
+       MediaQuery.of(context).size.height * 0.11,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [

@@ -107,6 +107,14 @@ class Userform extends StatelessWidget {
                   buttontext: "Save",
                   onpressed: () {
                     if (formKey.currentState!.validate()) {
+                      if (userData!['image']==null) {
+                       ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text("please wait,the image is loading"),
+                        ),
+                      );
+                      }
+                      else{
                       Usermodel user1 = Usermodel(
                           image: userData!['image'],
                           uid: widget.userDatas['uid'],
@@ -116,7 +124,7 @@ class Userform extends StatelessWidget {
                           phone: phonecontroller.text,
                           address: addresscontroller.text);
                       authblo.add(UpdateEvent(user: user1));
-                    }
+                    }}
                   },
                 )),
           )

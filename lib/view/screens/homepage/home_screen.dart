@@ -5,6 +5,7 @@ import 'package:doctors_book_app/utility/constants.dart';
 import 'package:doctors_book_app/view/screens/favorite.dart';
 import 'package:doctors_book_app/view/screens/homepage/homescreen2.dart';
 import 'package:doctors_book_app/view/screens/homepage/widgets/home_textfield.dart';
+import 'package:doctors_book_app/view/screens/searchscreen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -35,7 +36,6 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       backgroundColor: Colorpalette.secondarycolor,
       body: SafeArea(
@@ -66,10 +66,19 @@ class HomeScreen extends StatelessWidget {
                             // color: Colors.amber,
                             width: MediaQuery.of(context).size.width * 0.83,
                             height: MediaQuery.of(context).size.height * 0.074,
-                            child: HomeTextfield1(
-                              icon1: const Icon(Icons.search_rounded),
-                              hint: "Search doctors,category..........",
-                              validator: (_) {},
+                            child: GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (_) =>
+                                            const SearchScreenWrapper()));
+                              },
+                              child: HomeTextfield1(
+                                icon1: const Icon(Icons.search_rounded),
+                                hint: "Search doctors,category..........",
+                                validator: (_) {},
+                              ),
                             ))),
                     Positioned(
                         child: StreamBuilder<DocumentSnapshot>(
@@ -137,16 +146,17 @@ class HomeScreen extends StatelessWidget {
                                                     maxLines: 1,
                                                     overflow:
                                                         TextOverflow.ellipsis,
-                                                    style:  TextStyle(
+                                                    style: TextStyle(
                                                       fontWeight:
                                                           FontWeight.w900,
                                                       fontSize: 23.sp,
-                                                      color: const Color.fromARGB(
-                                                          255, 0, 148, 149),
+                                                      color:
+                                                          const Color.fromARGB(
+                                                              255, 0, 148, 149),
                                                     ),
                                                   ),
                                                 ),
-                                                 Text(
+                                                Text(
                                                   "Find your best doctor here",
                                                   style: TextStyle(
                                                     fontWeight: FontWeight.w300,
@@ -159,10 +169,22 @@ class HomeScreen extends StatelessWidget {
                                             ),
                                           ],
                                         ),
-                                        Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(8),color: Colors.white,),padding: const EdgeInsets.all(4),margin: const EdgeInsets.only(right: 10),
+                                        Container(
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(8),
+                                            color: Colors.white,
+                                          ),
+                                          padding: const EdgeInsets.all(4),
+                                          margin:
+                                              const EdgeInsets.only(right: 10),
                                           child: GestureDetector(
                                               onTap: () {
-                                                Navigator.push(context, MaterialPageRoute(builder: (_)=>const FavoriteScreenWrpper()));
+                                                Navigator.push(
+                                                    context,
+                                                    MaterialPageRoute(
+                                                        builder: (_) =>
+                                                            const FavoriteScreenWrpper()));
                                               },
                                               child: const Icon(
                                                 Icons.favorite_sharp,
