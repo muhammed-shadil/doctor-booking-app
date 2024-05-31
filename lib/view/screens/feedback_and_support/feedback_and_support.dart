@@ -1,5 +1,5 @@
 import 'package:doctors_book_app/utility/constants.dart';
-import 'package:doctors_book_app/view/screens/aboutus/widgets/text_and_details.dart';
+import 'package:doctors_book_app/view/screens/about_us/widgets/text_and_details.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:doctors_book_app/controller/favorite/bloc/favorite_bloc.dart';
 import 'package:doctors_book_app/utility/constants.dart';
-import 'package:doctors_book_app/view/screens/doctorsdetails/doctorsdetails_screen.dart';
+import 'package:doctors_book_app/view/screens/doctors_details/doctors_details_screen.dart';
 import 'package:favorite_button/favorite_button.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';

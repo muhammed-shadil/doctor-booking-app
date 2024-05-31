@@ -1,9 +1,9 @@
 import 'package:doctors_book_app/controller/onboarding/bloc/onbording_bloc.dart';
-import 'package:doctors_book_app/view/screens/loginscreen/login_screen.dart';
-import 'package:doctors_book_app/view/screens/onbordwidgets/widgets/customindicator.dart';
+import 'package:doctors_book_app/view/screens/login_screen/login_screen.dart';
+import 'package:doctors_book_app/view/screens/onbordwidgets/widgets/custom_indicator.dart';
 import 'package:doctors_book_app/view/screens/onbordwidgets/widgets/onboarding_button.dart';
-import 'package:doctors_book_app/view/screens/onbordwidgets/widgets/onboardingmainwidget.dart';
-import 'package:doctors_book_app/view/screens/onbordwidgets/widgets/onbordingdata.dart';
+import 'package:doctors_book_app/view/screens/onbordwidgets/widgets/onboarding_mainwidget.dart';
+import 'package:doctors_book_app/view/screens/onbordwidgets/widgets/onbording_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
