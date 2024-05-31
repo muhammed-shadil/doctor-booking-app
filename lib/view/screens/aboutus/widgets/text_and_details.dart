@@ -16,7 +16,7 @@ class Contents extends StatelessWidget {
         children: [
           Text(
             title,
-            style:  TextStyle(
+            style: TextStyle(
                 fontSize: 18.sp,
                 color: Colorpalette.primarycolor,
                 fontWeight: FontWeight.w600),
@@ -25,7 +25,7 @@ class Contents extends StatelessWidget {
             padding: const EdgeInsets.symmetric(vertical: 15),
             child: Text(
               content,
-              style:  TextStyle(fontSize: 16.sp),
+              style: TextStyle(fontSize: 16.sp),
             ),
           )
         ],

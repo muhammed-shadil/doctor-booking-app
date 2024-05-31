@@ -56,7 +56,8 @@ class Userform extends StatelessWidget {
               }
             },
           ),
-          MainTextField(keyboard: TextInputType.phone,
+          MainTextField(
+            keyboard: TextInputType.phone,
             controller: phonecontroller,
             text: "Enter your Phone number ",
             preficsicon: Icons.lock,
@@ -72,7 +73,8 @@ class Userform extends StatelessWidget {
               return null;
             },
           ),
-          MainTextField(keyboard: TextInputType.number,
+          MainTextField(
+            keyboard: TextInputType.number,
             controller: agecontroller,
             text: "Enter your age ",
             preficsicon: Icons.calendar_month_outlined,
@@ -83,7 +85,8 @@ class Userform extends StatelessWidget {
                     ? "Please enter a valid age"
                     : null,
           ),
-          MainTextField(keyboard: TextInputType.streetAddress,
+          MainTextField(
+            keyboard: TextInputType.streetAddress,
             controller: addresscontroller,
             text: "Enter your address ",
             preficsicon: Icons.location_on_outlined,
@@ -107,24 +110,24 @@ class Userform extends StatelessWidget {
                   buttontext: "Save",
                   onpressed: () {
                     if (formKey.currentState!.validate()) {
-                      if (userData!['image']==null) {
-                       ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(
-                          content: Text("please wait,the image is loading"),
-                        ),
-                      );
+                      if (userData!['image'] == null) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text("please wait,the image is loading"),
+                          ),
+                        );
+                      } else {
+                        Usermodel user1 = Usermodel(
+                            image: userData!['image'],
+                            uid: widget.userDatas['uid'],
+                            username: namecontroller.text,
+                            age: agecontroller.text,
+                            email: widget.userDatas['email'],
+                            phone: phonecontroller.text,
+                            address: addresscontroller.text);
+                        authblo.add(UpdateEvent(user: user1));
                       }
-                      else{
-                      Usermodel user1 = Usermodel(
-                          image: userData!['image'],
-                          uid: widget.userDatas['uid'],
-                          username: namecontroller.text,
-                          age: agecontroller.text,
-                          email: widget.userDatas['email'],
-                          phone: phonecontroller.text,
-                          address: addresscontroller.text);
-                      authblo.add(UpdateEvent(user: user1));
-                    }}
+                    }
                   },
                 )),
           )

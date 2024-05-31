@@ -16,9 +16,8 @@ class doctorsverticalscroll extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-    
-              width: MediaQuery.of(context).size.width*0.3,
-              height:  MediaQuery.of(context).size.height*0.4,
+      width: MediaQuery.of(context).size.width * 0.3,
+      height: MediaQuery.of(context).size.height * 0.4,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10), color: Colors.white),
       child: Padding(
@@ -26,8 +25,8 @@ class doctorsverticalscroll extends StatelessWidget {
         child: Column(
           children: [
             Container(
-              width: MediaQuery.of(context).size.width*0.25,
-              height:  MediaQuery.of(context).size.height*0.17,
+              width: MediaQuery.of(context).size.width * 0.25,
+              height: MediaQuery.of(context).size.height * 0.17,
               padding: const EdgeInsets.symmetric(vertical: 4),
               child: ClipRRect(
                   borderRadius: BorderRadius.circular(15),

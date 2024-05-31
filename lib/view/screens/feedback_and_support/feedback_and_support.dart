@@ -20,8 +20,8 @@ class FeedbackandSupportScreen extends StatelessWidget {
                     width: 37,
                     height: 35,
                     decoration: BoxDecoration(
-                      border: Border.all(
-                          color: Colorpalette.primarybordercolor),
+                      border:
+                          Border.all(color: Colorpalette.primarybordercolor),
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: Center(
@@ -46,7 +46,7 @@ class FeedbackandSupportScreen extends StatelessWidget {
               ),
               Container(
                 padding: const EdgeInsets.all(16),
-                child:  Text(
+                child: Text(
                   "Welcome to the Feedback and Support page of MEDICO. We value your feedback and are here to assist you with any questions or concerns you may have. Here's how you can reach out to us: ",
                   style: TextStyle(fontSize: 18.sp),
                 ),
@@ -76,8 +76,9 @@ class FeedbackandSupportScreen extends StatelessWidget {
                       "Follow us on social media to stay updated on the latest news, updates, and promotions. Connect with us on [social media platforms] to join our community and engage with other users."),
               Container(
                 padding: const EdgeInsets.all(14),
-                child:  Text(
-                    style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w600),
+                child: Text(
+                    style:
+                        TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w600),
                     "Thank you for choosing MEDICO. We're committed to providing you with an exceptional experience and are here to support you every step of the way."),
               )
             ],

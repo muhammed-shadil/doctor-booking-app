@@ -19,7 +19,7 @@ class CustomIndicator extends StatelessWidget {
         activeShape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(5),
         ),
-        activeColor:  Colorpalette.primarycolor,
+        activeColor: Colorpalette.primarycolor,
       ),
     );
   }

@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:doctors_book_app/controller/authentication/bloc/auth_bloc.dart';
-import 'package:doctors_book_app/controller/dummycontroller/bloc/dummy_bloc.dart';
 import 'package:doctors_book_app/utility/constants.dart';
 import 'package:doctors_book_app/view/screens/favorite.dart';
 import 'package:doctors_book_app/view/screens/homepage/homescreen2.dart';
@@ -21,9 +20,6 @@ class HomeScreenWrapper extends StatelessWidget {
         BlocProvider(
           create: (context) => AuthBloc(),
         ),
-        BlocProvider(
-          create: (context) => DummyBloc(),
-        )
       ],
       child: HomeScreen(),
     );
@@ -44,7 +40,6 @@ class HomeScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
-                // color: Colors.black26,
                 width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height * 0.230,
                 child: Stack(
@@ -63,7 +58,6 @@ class HomeScreen extends StatelessWidget {
                         top: MediaQuery.of(context).size.height * 0.13,
                         left: MediaQuery.of(context).size.width * 0.093,
                         child: SizedBox(
-                            // color: Colors.amber,
                             width: MediaQuery.of(context).size.width * 0.83,
                             height: MediaQuery.of(context).size.height * 0.074,
                             child: GestureDetector(
@@ -96,7 +90,7 @@ class HomeScreen extends StatelessWidget {
                               if (snapshot.hasData) {
                                 final userData = snapshot.data?.data()
                                     as Map<String, dynamic>?;
-                                // print(userData);
+
                                 if (userData != null) {
                                   return Container(
                                     decoration: BoxDecoration(

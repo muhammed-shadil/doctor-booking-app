@@ -1,9 +1,7 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:doctors_book_app/utility/constants.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'package:doctors_book_app/controller/newappointment/bloc/newappointment_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

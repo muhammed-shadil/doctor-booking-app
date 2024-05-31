@@ -25,7 +25,7 @@ class FAQContents extends StatelessWidget {
         children: [
           Text(
             title,
-            style:  TextStyle(
+            style: TextStyle(
                 fontSize: 18.sp,
                 color: Colorpalette.primarycolor,
                 fontWeight: FontWeight.w600),
@@ -37,22 +37,24 @@ class FAQContents extends StatelessWidget {
               children: [
                 Text(
                   "1.$question",
-                  style:  TextStyle(fontSize: 16.sp,fontWeight: FontWeight.w500),
+                  style:
+                      TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w500),
                 ),
                 Text(
                   content,
-                  style:  TextStyle(fontSize: 15.sp),
+                  style: TextStyle(fontSize: 15.sp),
                 ),
                 const SizedBox(
                   height: 10,
                 ),
                 Text(
                   "2.$question2",
-                  style:  TextStyle(fontSize: 16.sp,fontWeight: FontWeight.w500),
+                  style:
+                      TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w500),
                 ),
                 Text(
                   content2,
-                  style:  TextStyle(fontSize: 15.sp),
+                  style: TextStyle(fontSize: 15.sp),
                 ),
               ],
             ),

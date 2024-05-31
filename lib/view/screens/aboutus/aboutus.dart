@@ -21,8 +21,8 @@ class AboutUsScreen extends StatelessWidget {
                     width: 37,
                     height: 35,
                     decoration: BoxDecoration(
-                      border: Border.all(
-                          color: Colorpalette.primarybordercolor),
+                      border:
+                          Border.all(color: Colorpalette.primarybordercolor),
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: Center(

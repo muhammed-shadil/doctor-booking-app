@@ -1,4 +1,3 @@
-
 import 'package:doctors_book_app/utility/constants.dart';
 import 'package:flutter/material.dart';
 
@@ -64,16 +63,18 @@ class _CustomOutlinedButtonState extends State<CustomOutlinedButton>
         ),
         child: Card(
           elevation: 0,
-          color:   Colorpalette.primarycolor,
+          color: Colorpalette.primarycolor,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10),
           ),
           child: Container(
             height: widget.height ?? 44,
             alignment: Alignment.center,
-            width:  MediaQuery.of(context).size.width*0.6,
+            width: MediaQuery.of(context).size.width * 0.6,
             decoration: BoxDecoration(
-              border: Border.all(color: widget.color ??  const Color.fromARGB(255, 0, 148, 149),),
+              border: Border.all(
+                color: widget.color ?? const Color.fromARGB(255, 0, 148, 149),
+              ),
               borderRadius: BorderRadius.circular(
                 widget.borderRadius ?? 20,
               ),

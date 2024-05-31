@@ -39,7 +39,6 @@ dependencies:
   flutter_bloc: ^8.1.5
   firebase_auth: ^4.17.8
   cloud_firestore: ^4.15.8
-  equatable: ^2.0.5
   dots_indicator: ^3.0.0
   animate_do: ^3.3.4
   image_picker: ^1.0.7
@@ -52,8 +51,6 @@ dependencies:
   connectivity_plus: ^6.0.3
   shared_preferences: ^2.2.3
   easy_date_timeline: ^1.0.7
-  drop_down_list: ^0.0.6
-  dropdown_model_list: ^2.1.1
   uuid: ^4.4.0
   dropdown_button2: ^2.3.9
   bottom_picker: ^2.7.0

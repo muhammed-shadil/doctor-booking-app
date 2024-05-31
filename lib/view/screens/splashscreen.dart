@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:another_flutter_splash_screen/another_flutter_splash_screen.dart';
 import 'package:doctors_book_app/controller/authentication/bloc/auth_bloc.dart';
 import 'package:doctors_book_app/view/screens/onbordwidgets/Onboardign_screen.dart';

@@ -22,6 +22,7 @@ class AuthenticatedError extends AuthState {
 
   AuthenticatedError({required this.message});
 }
+
 class Networkauthenticatederor extends AuthState {
   final String message;
   Networkauthenticatederor({

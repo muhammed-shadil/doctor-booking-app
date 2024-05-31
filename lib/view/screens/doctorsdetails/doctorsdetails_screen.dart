@@ -1,4 +1,3 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:doctors_book_app/utility/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:doctors_book_app/view/screens/doctorsdetails/widgets/endcontainer.dart';
@@ -13,10 +12,10 @@ class DoctorsDetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(backgroundColor:Colorpalette.secondarycolor,
+    return Scaffold(
+        backgroundColor: Colorpalette.secondarycolor,
         body: SafeArea(
-      child: 
-        SingleChildScrollView(
+            child: SingleChildScrollView(
           child: SizedBox(
             width: MediaQuery.of(context).size.width,
             child: Stack(
@@ -26,12 +25,10 @@ class DoctorsDetailsScreen extends StatelessWidget {
                     children: [
                       SizedBox(
                         width: MediaQuery.of(context).size.width,
-                        height:
-                         MediaQuery.of(context).size.height*1.24,
+                        height: MediaQuery.of(context).size.height * 1.24,
                       ),
                       Container(
-                        decoration: const BoxDecoration(
-                            ),
+                        decoration: const BoxDecoration(),
                         width: MediaQuery.of(context).size.width,
                         height: MediaQuery.of(context).size.height * 0.69,
                         child: Image.network(
@@ -47,15 +44,15 @@ class DoctorsDetailsScreen extends StatelessWidget {
                           height: 36,
                           decoration: BoxDecoration(
                               border: Border.all(
-                                  color: const Color.fromARGB(
-                                      255, 188, 187, 187)),
+                                  color:
+                                      const Color.fromARGB(255, 188, 187, 187)),
                               borderRadius: BorderRadius.circular(10),
                               color: Colors.white),
                           child: IconButton(
                             icon: const Icon(
                               Icons.arrow_back,
                               size: 22,
-                              color:Colorpalette.backarrowcolor,
+                              color: Colorpalette.backarrowcolor,
                             ),
                             onPressed: () {
                               Navigator.pop(context);
@@ -81,7 +78,6 @@ class DoctorsDetailsScreen extends StatelessWidget {
               ],
             ),
           ),
-        )
-    ));
+        )));
   }
 }

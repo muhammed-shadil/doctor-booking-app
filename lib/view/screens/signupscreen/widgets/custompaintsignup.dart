@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class CurvePainter extends CustomPainter {
@@ -6,7 +5,7 @@ class CurvePainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     var paint = Paint();
     paint.color = const Color.fromARGB(98, 169, 219, 230);
-    paint.style = PaintingStyle.fill; // Change this to fill
+    paint.style = PaintingStyle.fill;
 
     var path = Path();
 
